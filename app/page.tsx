@@ -254,7 +254,7 @@ export default function Home() {
             <div>
               <h4 className="text-white font-bold mb-4">Contact</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="mailto:contact@axionvextech.com" className="hover:text-white transition">contact@axionvextech.com</a></li>
+                <li><a href="mailto:manager@axionvextech.com" className="hover:text-white transition">manager@axionvextech.com</a></li>
                 <li>Global Offices</li>
               </ul>
             </div>
