@@ -1,10 +1,53 @@
+import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home | AxionvexTech",
+  description: "AxionvexTech - Global technical consulting and web development. 100+ clients served, 500+ projects completed with 99.9% uptime.",
+  alternates: {
+    canonical: "https://axionvextech.com",
+  },
+};
+
 export default function Home() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "AxionvexTech",
+    url: "https://axionvextech.com",
+    logo: "https://axionvextech.com/logo.png",
+    description: "Global technical consulting and web development company",
+    sameAs: [
+      "https://www.linkedin.com/company/axionvextech",
+      "https://twitter.com/axionvextech",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+1-contact",
+      contactType: "Customer Service",
+      email: "contact@axionvextech.com",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">AxionvexTech</div>
+          <div className="flex items-center gap-3">
+            <Image 
+              src="/logo.png" 
+              alt="AxionvexTech Logo" 
+              width={40} 
+              height={40}
+              className="h-10 w-auto"
+            />
+            <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">AxionvexTech</span>
+          </div>
           <div className="hidden md:flex gap-8 text-gray-700 dark:text-gray-300">
             <a href="#services" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Services</a>
             <a href="#why" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Why Us</a>
