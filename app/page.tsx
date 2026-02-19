@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import MaintenanceModal from "./components/MaintenanceModal";
 
 export const metadata: Metadata = {
   title: "Home | AxionvexTech",
@@ -31,6 +32,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black">
+      <MaintenanceModal />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
