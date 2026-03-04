@@ -39,9 +39,49 @@ body {
 }
 
 .avx-fade-in-up {
-  animation: fade-in-up 0.6s ease-out both;
+  opacity: 0;
+  transform: translateY(16px);
+  will-change: transform, opacity;
 }
 
 .avx-fade-in-up-delay {
+  opacity: 0;
+  transform: translateY(16px);
+  will-change: transform, opacity;
+}
+
+.avx-fade-in-up.avx-in {
+  animation: fade-in-up 0.6s ease-out both;
+}
+
+.avx-fade-in-up-delay.avx-in {
   animation: fade-in-up 0.8s ease-out both;
+}
+
+/* Smooth scrolling for internal anchors */
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes avx-float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.avx-hero-graphic {
+  opacity: 0;
+  transform: translateY(0);
+  will-change: transform, opacity;
+}
+
+.avx-hero-graphic.avx-in {
+  opacity: 1;
+  animation: avx-float 6s ease-in-out infinite;
 }
