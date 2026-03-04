@@ -30,7 +30,7 @@ export default function Home() {
           "@type": "ContactPoint",
           telephone: "+1-contact",
           contactType: "Sales",
-          email: "contact@axionvextech.com",
+          email: "manager@axionvextech.com",
         },
       },
       {
@@ -57,7 +57,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Image
-              src="/logo.png"
+              src="/file.svg"
               alt="AxionvexTech Logo"
               width={40}
               height={40}
@@ -116,7 +116,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/55" />
         </div>
 
-        <div className="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">
+        <div className="relative z-10 text-center text-white px-6 max-w-3xl mx-auto avx-fade-in-up">
           <p className="mb-4 text-sm font-semibold tracking-[0.25em] uppercase text-blue-200">
             Global Technical Consulting & Delivery
           </p>
@@ -144,14 +144,17 @@ export default function Home() {
           </div>
           <div className="mt-8 flex flex-col sm:flex-row gap-6 justify-center text-sm text-gray-200">
             <div>
-              <span className="font-semibold text-white">100+ projects</span>{" "}
-              delivered across SaaS, fintech, and enterprise.
+              <span className="font-semibold text-white">
+                Senior engineers, hands-on delivery
+              </span>{" "}
+              with experience shipping complex products for startups and
+              enterprises.
             </div>
             <div>
               <span className="font-semibold text-white">
-                99.9% uptime SLAs
+                Practical consulting, not theory
               </span>{" "}
-              for production systems we operate.
+              focused on web, mobile, and applied AI systems.
             </div>
           </div>
         </div>
@@ -170,7 +173,7 @@ export default function Home() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:-translate-y-1 hover:shadow-xl transition-transform">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:-translate-y-1 hover:shadow-xl transition-transform avx-fade-in-up">
               <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white">
                 Product-Focused Web Development
               </h3>
@@ -186,7 +189,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:-translate-y-1 hover:shadow-xl transition-transform">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:-translate-y-1 hover:shadow-xl transition-transform avx-fade-in-up-delay">
               <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white">
                 Architecture & Technical Consulting
               </h3>
@@ -202,7 +205,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:-translate-y-1 hover:shadow-xl transition-transform">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:-translate-y-1 hover:shadow-xl transition-transform avx-fade-in-up">
               <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white">
                 Cloud, Reliability & Operations
               </h3>
@@ -259,34 +262,35 @@ export default function Home() {
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
                 <p className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                  100+
+                  Delivery
                 </p>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Successful deliveries in production environments.
+                  Production experience with real-world launches and migrations.
                 </p>
               </div>
               <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
                 <p className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                  15+
+                  Senior-led
                 </p>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Years of combined senior engineering leadership.
+                  Small, senior teams that stay close to the code.
                 </p>
               </div>
               <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
                 <p className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                  99.9%
+                  Reliability
                 </p>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Uptime targets for systems we help design.
+                  Focus on observability, safe deploys, and resilient systems.
                 </p>
               </div>
               <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
                 <p className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                  Global
+                  AI Ready
                 </p>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Distributed teams across Europe, Asia, and the Americas.
+                  Experience integrating AI capabilities into existing products
+                  and workflows.
                 </p>
               </div>
             </div>
@@ -412,7 +416,7 @@ export default function Home() {
             salesperson.
           </p>
           <a
-            href="mailto:contact@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
+            href="mailto:manager@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-lg font-semibold text-lg transition"
           >
             Contact AxionvexTech
@@ -479,10 +483,10 @@ export default function Home() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <a
-                    href="mailto:contact@axionvextech.com"
+                    href="mailto:manager@axionvextech.com"
                     className="hover:text-white transition"
                   >
-                    contact@axionvextech.com
+                    manager@axionvextech.com
                   </a>
                 </li>
                 <li>Global, remote-first team</li>

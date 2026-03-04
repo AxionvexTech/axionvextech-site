@@ -19,10 +19,10 @@ export default function Recruiting() {
       <nav className="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <Image 
-              src="/logo.png" 
-              alt="AxionvexTech Logo" 
-              width={40} 
+            <Image
+              src="/file.svg"
+              alt="AxionvexTech Logo"
+              width={40}
               height={40}
               className="h-10 w-auto"
             />
@@ -81,7 +81,7 @@ export default function Recruiting() {
             Open Positions
           </h2>
 
-          {/* Position 1 */}
+          {/* ポジション1 */}
           <div className="mb-16">
             <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
               <h3 className="text-3xl font-bold mb-2 text-blue-600 dark:text-blue-400">
@@ -122,7 +122,7 @@ export default function Recruiting() {
             </div>
           </div>
 
-          {/* Position 2 */}
+          {/* ポジション2 */}
           <div>
             <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
               <h3 className="text-3xl font-bold mb-2 text-blue-600 dark:text-blue-400">
@@ -247,7 +247,13 @@ export default function Recruiting() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Questions?</h2>
           <p className="text-lg mb-8">
-            Reach out to us directly at <a href="mailto:contact@axionvextech.com" className="underline hover:text-blue-100">contact@axionvextech.com</a>
+            Reach out to us directly at{" "}
+            <a
+              href="mailto:manager@axionvextech.com"
+              className="underline hover:text-blue-100"
+            >
+              manager@axionvextech.com
+            </a>
           </p>
         </div>
       </section>
@@ -267,17 +273,11 @@ export default function Recruiting() {
                 <li><Link href="/recruiting" className="hover:text-white transition">Recruiting</Link></li>
               </ul>
             </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">Company</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition">About</a></li>
-                <li><a href="#" className="hover:text-white transition">Blog</a></li>
-              </ul>
-            </div>
+            <div />
             <div>
               <h4 className="text-white font-bold mb-4">Contact</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="mailto:contact@axionvextech.com" className="hover:text-white transition">contact@axionvextech.com</a></li>
+                <li><a href="mailto:manager@axionvextech.com" className="hover:text-white transition">manager@axionvextech.com</a></li>
                 <li>Global Offices</li>
               </ul>
             </div>
