@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import ContactForm from "../components/ContactForm";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "Recruiting | AxionvexTech",
@@ -14,27 +15,8 @@ export const metadata: Metadata = {
 
 export default function Recruiting() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation Bar */}
-      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/logo.png"
-              alt="AxionvexTech Logo"
-              width={32}
-              height={32}
-              className="h-8 w-auto"
-            />
-            <span className="text-2xl font-bold text-blue-600">AxionvexTech</span>
-          </Link>
-          <div className="hidden md:flex gap-8 text-gray-700">
-            <Link href="/" className="hover:text-blue-600 transition">Home</Link>
-            <a href="#positions" className="hover:text-blue-600 transition">Positions</a>
-            <a href="#apply" className="hover:text-blue-600 transition">Apply</a>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-gray-900">
+      <Header page="recruiting" />
 
       {/* Hero Section */}
       <section className="relative h-80 md:h-96 flex items-center justify-center overflow-hidden bg-gradient-to-b from-blue-50 to-white">
@@ -301,34 +283,7 @@ export default function Recruiting() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white text-gray-700 py-12 border-t border-gray-200">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h4 className="text-gray-900 font-bold mb-4">AxionvexTech</h4>
-              <p className="text-gray-700">Global technical consulting and web development solutions.</p>
-            </div>
-            <div>
-              <h4 className="text-gray-900 font-bold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/" className="hover:text-gray-900 transition">Home</Link></li>
-                <li><Link href="/recruiting" className="hover:text-gray-900 transition">Recruiting</Link></li>
-              </ul>
-            </div>
-            <div />
-            <div>
-              <h4 className="text-gray-900 font-bold mb-4">Contact</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="mailto:manager@axionvextech.com" className="hover:text-gray-900 transition">manager@axionvextech.com</a></li>
-                <li>Global Offices</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-200 pt-8 text-center text-sm">
-            <p>&copy; 2026 AxionvexTech. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer page="recruiting" />
     </div>
   );
 }
