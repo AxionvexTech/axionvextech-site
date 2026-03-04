@@ -22,7 +22,7 @@ export default function Header({ page }: HeaderProps) {
         ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur border-b border-slate-700">
+    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-blue-200">
       <div className="max-w-6xl mx-auto px-6 py-3 md:py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -35,7 +35,7 @@ export default function Header({ page }: HeaderProps) {
           />
           <span className="text-2xl font-bold text-blue-600">AxionvexTech</span>
         </Link>
-        <div className="hidden md:flex gap-8 text-gray-300">
+        <div className="hidden md:flex gap-8 text-slate-700">
           {navItems.map((item) =>
             item.internal ? (
               <Link
