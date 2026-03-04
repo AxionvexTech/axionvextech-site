@@ -6,7 +6,7 @@ interface FooterProps {
 
 export default function Footer({ page = "home" }: FooterProps) {
   return (
-    <footer className="bg-gray-900 text-gray-700 py-12 border-t border-gray-200">
+    <footer className="bg-gray-900 text-gray-400 py-12 border-t border-slate-600">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {page === "home" ? (

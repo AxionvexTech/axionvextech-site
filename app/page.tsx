@@ -50,7 +50,7 @@ export default function Home() {
       <Header page="home" />
 
       {/* HERO SECTION - PART 1: Clear Positioning & Transformation */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-900 via-gray-900 to-blue-900 text-gray-100">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-gray-200">
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
           <div className="relative">
             <div className="mx-auto max-w-3xl text-center avx-fade-in-up">
