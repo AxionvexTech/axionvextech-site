@@ -41,14 +41,14 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-black">
       <ScrollReveal />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
       {/* ナビゲーションバー */}
-      <nav className="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur border-b border-gray-200 dark:border-gray-800">
+      <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur border-b border-gray-700">
         <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Image
@@ -63,34 +63,34 @@ export default function Home() {
               AxionvexTech
             </span>
           </div>
-          <div className="hidden md:flex gap-8 text-gray-700 dark:text-gray-300">
+          <div className="hidden md:flex gap-8 text-gray-300">
             <a
               href="#services"
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition"
+              className="hover:text-blue-400 transition"
             >
               Services
             </a>
             <a
               href="#why-us"
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition"
+              className="hover:text-blue-400 transition"
             >
               Why Us
             </a>
             <a
               href="#process"
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition"
+              className="hover:text-blue-400 transition"
             >
               Process
             </a>
             <Link
               href="/recruiting"
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition"
+              className="hover:text-blue-400 transition"
             >
               Recruiting
             </Link>
             <a
               href="#contact"
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition"
+              className="hover:text-blue-400 transition"
             >
               Contact
             </a>
@@ -178,21 +178,13 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Decorative hero graphic (visible and animated) */}
-            <div className="pointer-events-none">
-              <div className="hidden md:block absolute -right-16 top-8 avx-hero-graphic opacity-40 dark:opacity-30">
-                <Image src="/globe.svg" alt="decorative globe" width={520} height={520} priority />
-              </div>
-              <div className="absolute left-1/2 -translate-x-1/2 bottom-[-40px] md:bottom-[-60px] opacity-20 md:opacity-30">
-                <Image src="/file.svg" alt="accent" width={800} height={160} priority />
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
 
       {/* PART 2: TRUST SECTION - Credibility & Proof */}
-      <section className="py-16 bg-slate-900 border-b border-slate-700">
+      <section className="py-16 bg-gray-900 border-b border-gray-800">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             className="grid md:grid-cols-4 gap-8 text-center"
@@ -226,7 +218,7 @@ export default function Home() {
       </section>
 
       {/* PART 3: SERVICES SECTION - Specific, Benefit-Driven */}
-      <section id="services" className="py-20 bg-white dark:bg-black scroll-mt-24">
+      <section id="services" className="py-20 bg-black scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -235,7 +227,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+            <h2 className="text-4xl font-bold mb-4 text-white\">
               What We Deliver
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -249,9 +241,9 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-900 p-8 rounded-xl border-l-4 border-blue-600 hover:shadow-lg transition-shadow"
+              className="bg-gray-900 p-8 rounded-xl border-l-4 border-blue-600 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+              <h3 className="text-xl font-bold mb-3 text-white">
                 Product Development
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
@@ -269,9 +261,9 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-900 p-8 rounded-xl border-l-4 border-purple-600 hover:shadow-lg transition-shadow"
+              className="bg-gray-900 p-8 rounded-xl border-l-4 border-purple-600 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+              <h3 className="text-xl font-bold mb-3 text-white">
                 Technical Strategy
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
@@ -289,9 +281,9 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-900 p-8 rounded-xl border-l-4 border-emerald-600 hover:shadow-lg transition-shadow"
+              className="bg-gray-900 p-8 rounded-xl border-l-4 border-emerald-600 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+              <h3 className="text-xl font-bold mb-3 text-white">
                 Infrastructure & Ops
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
@@ -308,7 +300,7 @@ export default function Home() {
       </section>
 
       {/* PART 4: CASE STUDIES / RESULTS - Evidence Over Claims */}
-      <section id="work" className="py-20 bg-gray-50 dark:bg-gray-900 scroll-mt-24">
+      <section id="work" className="py-20 bg-gray-900 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -331,20 +323,20 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-blue-600"
+              className="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-blue-600"
             >
               <div className="mb-4">
-                <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-widest">SaaS Platform</p>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-2">
+                <p className="text-xs text-gray-400 uppercase tracking-widest">SaaS Platform</p>
+                <h3 className="text-xl font-bold text-white mt-2">
                   Fintech API Platform Redesign
                 </h3>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              <p className="text-gray-400 text-sm mb-4">
                 Architected and rebuilt core payment processing API to handle 10x transaction volume with zero downtime.
               </p>
-              <div className="bg-blue-50 dark:bg-gray-700 p-3 rounded text-center">
-                <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">10x</p>
-                <p className="text-xs text-gray-600 dark:text-gray-300">Throughput Increase</p>
+              <div className="bg-blue-900 p-3 rounded text-center">
+                <p className="text-2xl font-bold text-blue-400\">10x</p>
+                <p className="text-xs text-gray-400\">Throughput Increase</p>
               </div>
             </motion.div>
 
@@ -353,20 +345,20 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-purple-600"
+              className="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-purple-600"
             >
               <div className="mb-4">
-                <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-widest">E-Commerce</p>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-2">
+                <p className="text-xs text-gray-400 uppercase tracking-widest">E-Commerce</p>
+                <h3 className="text-xl font-bold text-white mt-2">
                   Mobile App from Scratch
                 </h3>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              <p className="text-gray-400 text-sm mb-4\">
                 Built native iOS/Android e-commerce platform with real-time order tracking and payment integration in 4 months.
               </p>
-              <div className="bg-purple-50 dark:bg-gray-700 p-3 rounded text-center">
-                <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">$2.1M</p>
-                <p className="text-xs text-gray-600 dark:text-gray-300">First Year Revenue</p>
+              <div className="bg-purple-900 p-3 rounded text-center">
+                <p className="text-2xl font-bold text-purple-400\">$2.1M</p>
+                <p className="text-xs text-gray-400\">First Year Revenue</p>
               </div>
             </motion.div>
 
@@ -375,20 +367,20 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-emerald-600"
+              className="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-emerald-600"
             >
               <div className="mb-4">
-                <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-widest">Enterprise</p>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-2">
+                <p className="text-xs text-gray-400 uppercase tracking-widest">Enterprise</p>
+                <h3 className="text-xl font-bold text-white mt-2">
                   Legacy System Modernization
                 </h3>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              <p className="text-gray-400 text-sm mb-4\">
                 Migrated Fortune 500 company's 20-year-old monolith to microservices without service interruption.
               </p>
-              <div className="bg-emerald-50 dark:bg-gray-700 p-3 rounded text-center">
-                <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">99.99%</p>
-                <p className="text-xs text-gray-600 dark:text-gray-300">Uptime Maintained</p>
+              <div className="bg-emerald-900 p-3 rounded text-center">
+                <p className="text-2xl font-bold text-emerald-400\">99.99%</p>
+                <p className="text-xs text-gray-400\">Uptime Maintained</p>
               </div>
             </motion.div>
           </div>
@@ -396,7 +388,7 @@ export default function Home() {
       </section>
 
       {/* PART 5: WHY CHOOSE US - Operational Advantages */}
-      <section id="why-us" className="py-20 bg-white dark:bg-black scroll-mt-24">
+      <section id="why-us" className="py-20 bg-black scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -518,7 +510,7 @@ export default function Home() {
       </section>
 
       {/* 進め方セクション */}
-      <section id="process" className="py-20 bg-gray-50 dark:bg-gray-900 scroll-mt-24">
+      <section id="process" className="py-20 bg-gray-900 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -627,7 +619,7 @@ export default function Home() {
       </section>
 
       {/* FAQセクション */}
-      <section className="py-20 bg-white dark:bg-black scroll-mt-24">
+      <section className="py-20 bg-black scroll-mt-24">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -636,10 +628,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white\">
               Questions We Hear Often
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-400\">
               Clarity upfront — here's what partners typically ask.
             </p>
           </motion.div>
@@ -650,7 +642,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05, duration: 0.4 }}
               viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:border-blue-400 dark:hover:border-blue-600 transition-colors"
+              className="bg-gray-900 border border-gray-700 rounded-xl p-6 hover:border-blue-400 transition-colors\"
             >
               <h3 className="font-semibold mb-2 text-gray-900 dark:text-white">
                 What types of projects are the best fit for AxionvexTech?
@@ -694,7 +686,7 @@ export default function Home() {
       </section>
 
       {/* PART 6: TESTIMONIALS - Social Proof */}
-      <section className="py-20 bg-white dark:bg-black scroll-mt-24">
+      <section className="py-20 bg-black scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -703,10 +695,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+            <h2 className="text-4xl font-bold mb-4 text-white\">
               Trusted by Leading Teams
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-400 max-w-2xl mx-auto\">
               Technical leaders and founders who have shipped with us.
             </p>
           </motion.div>
@@ -717,11 +709,11 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-900 p-8 rounded-xl border-l-4 border-blue-600"
+              className="bg-gray-900 p-8 rounded-xl border-l-4 border-blue-600\"
             >
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <p className="font-semibold text-gray-900 dark:text-white">
+                  <p className="font-semibold text-white\">
                     Sarah Chen
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
@@ -828,7 +820,7 @@ export default function Home() {
       </section>
 
       {/* フッター */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
+      <footer className="bg-black text-gray-400 py-12">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
