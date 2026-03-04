@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import MaintenanceModal from "./components/MaintenanceModal";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Home | AxionvexTech",
@@ -32,7 +32,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black">
-      <MaintenanceModal />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
@@ -53,6 +52,7 @@ export default function Home() {
           <div className="hidden md:flex gap-8 text-gray-700 dark:text-gray-300">
             <a href="#services" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Services</a>
             <a href="#why" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Why Us</a>
+            <Link href="/recruiting" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Recruiting</Link>
             <a href="#contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
           </div>
         </div>
@@ -78,20 +78,18 @@ export default function Home() {
           <p className="text-xl md:text-2xl mb-8 text-gray-100">
             Global technical consulting and cutting-edge web development solutions for modern enterprises
           </p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a 
-              href="mailto:contact@axionvextech.com"
+          <Link 
+              href="/recruiting"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition"
             >
-              Get Started
-            </a>
+              Join Our Team
+            </Link>
             <a 
               href="#services"
               className="border-2 border-white hover:bg-white hover:text-black text-white px-8 py-3 rounded-lg font-semibold transition"
             >
               Explore Services
             </a>
-          </div>
         </div>
       </section>
 
