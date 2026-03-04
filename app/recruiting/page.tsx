@@ -5,7 +5,8 @@ import ContactForm from "../components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Recruiting | AxionvexTech",
-  description: "Join our global team. We're hiring Recruiters and Technical Leads for remote opportunities across the Americas.",
+  description:
+    "Join AxionvexTech's global senior engineering team. We are hiring Recruiters and Technical Leads for remote-first roles across the Americas and Europe.",
   alternates: {
     canonical: "https://axionvextech.com/recruiting",
   },
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function Recruiting() {
   return (
     <div className="min-h-screen bg-white dark:bg-black">
-      {/* Navigation */}
+      {/* ナビゲーションバー */}
       <nav className="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
@@ -35,17 +36,17 @@ export default function Recruiting() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* ヒーローセクション */}
       <section className="relative h-96 flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-          <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop"
+            alt="Remote global engineering team collaboration"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
         
         <div className="relative z-10 text-center text-white px-6 max-w-2xl mx-auto">
@@ -58,7 +59,7 @@ export default function Recruiting() {
         </div>
       </section>
 
-      {/* Overview Section */}
+      {/* 概要セクション */}
       <section className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-4xl mx-auto px-6">
           <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
@@ -73,7 +74,7 @@ export default function Recruiting() {
         </div>
       </section>
 
-      {/* Positions Section */}
+      {/* 募集ポジションセクション */}
       <section id="positions" className="py-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
@@ -228,7 +229,7 @@ export default function Recruiting() {
         </div>
       </section>
 
-      {/* Application Section */}
+      {/* 応募フォームセクション */}
       <section id="apply" className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
@@ -241,7 +242,7 @@ export default function Recruiting() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTAセクション */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Questions?</h2>
@@ -251,7 +252,7 @@ export default function Recruiting() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* フッター */}
       <footer className="bg-gray-900 text-gray-400 py-12">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
