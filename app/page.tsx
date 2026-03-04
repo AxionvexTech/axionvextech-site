@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "./components/ScrollReveal";
-import { motion } from "framer-motion";
 
 export default function Home() {
   const schemaData = {
@@ -102,45 +101,23 @@ export default function Home() {
       <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
           <div className="relative">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" as const }}
-              className="mx-auto max-w-3xl text-center avx-fade-in-up"
-            >
-              <motion.p
-                className="mb-4 text-sm font-semibold tracking-[0.25em] uppercase text-blue-300"
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.05, duration: 0.5 }}
-              >
+            <div className="mx-auto max-w-3xl text-center avx-fade-in-up">
+              <p className="mb-4 text-sm font-semibold tracking-[0.25em] uppercase text-blue-300">
                 For SaaS, Fintech & Enterprise Teams
-              </motion.p>
+              </p>
 
-              <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.12, duration: 0.6 }}
-              >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
                 Build products that scale. Reliably.
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                className="text-lg md:text-xl mb-8 text-slate-100"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.18, duration: 0.6 }}
-              >
-                Senior engineers handle your hardest technical challenges — architecture, full-stack delivery, reliability, and cloud operations. Ship faster with teams that stay close to your product.
-              </motion.p>
+              <p className="text-lg md:text-xl mb-8 text-slate-100">
+                Senior engineers handle your hardest technical challenges —
+                architecture, full-stack delivery, reliability, and cloud
+                operations. Ship faster with teams that stay close to your
+                product.
+              </p>
 
-              <motion.div
-                className="flex flex-col sm:flex-row justify-center gap-4"
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.28, duration: 0.6 }}
-              >
+              <div className="flex flex-col sm:flex-row justify-center gap-4 avx-fade-in-up">
                 <a
                   href="#contact"
                   className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-lg font-semibold transition text-lg"
@@ -153,32 +130,75 @@ export default function Home() {
                 >
                   View Our Work
                 </a>
-              </motion.div>
+              </div>
 
-              <motion.div
-                className="mt-10 flex flex-col sm:flex-row gap-8 text-sm text-slate-200 justify-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.36, duration: 0.6 }}
-              >
+              <div className="mt-10 flex flex-col sm:flex-row gap-8 text-sm text-slate-200 justify-center avx-fade-in-up">
                 <div className="flex items-start gap-3">
                   <span className="text-blue-400 font-bold">✓</span>
                   <div>
-                    <span className="font-semibold text-white block">Senior engineers only</span>
-                    <span className="text-xs text-slate-300">No junior contractors or offshore factories</span>
+                    <span className="font-semibold text-white block">
+                      Senior engineers only
+                    </span>
+                    <span className="text-xs text-slate-300">
+                      No junior contractors or offshore factories
+                    </span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-blue-400 font-bold">✓</span>
                   <div>
-                    <span className="font-semibold text-white block">Production-ready delivery</span>
-                    <span className="text-xs text-slate-300">Architecture, monitoring, and handover included</span>
+                    <span className="font-semibold text-white block">
+                      Production-ready delivery
+                    </span>
+                    <span className="text-xs text-slate-300">
+                      Architecture, monitoring, and handover included
+                    </span>
                   </div>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
-
+              <div className="mt-16 grid md:grid-cols-3 gap-6 items-stretch avx-fade-in-up">
+                <div className="md:col-span-2 bg-gray-900/70 border border-gray-800 rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&auto=format&fit=crop&q=80"
+                    alt="International product and engineering team collaborating in a modern workspace"
+                    width={1200}
+                    height={800}
+                    className="h-64 w-full object-cover"
+                    priority
+                  />
+                  <div className="p-5 border-t border-gray-800">
+                    <p className="text-xs font-semibold text-blue-300 mb-1">
+                      Global collaboration
+                    </p>
+                    <p className="text-sm text-gray-200">
+                      We work with distributed teams across the US, Europe, and
+                      Asia on web, app, and AI projects.
+                    </p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gray-900/80 rounded-xl p-4 border border-gray-800">
+                    <p className="text-xs text-gray-400 mb-1">
+                      How we usually plug in
+                    </p>
+                    <p className="text-sm text-gray-200">
+                      Fractional technical leadership plus hands-on engineering
+                      when your roadmap outgrows your current team.
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/80 rounded-xl p-4 border border-gray-800">
+                    <p className="text-xs text-gray-400 mb-1">
+                      Typical time to start
+                    </p>
+                    <p className="text-sm text-gray-200">
+                      1–2 weeks for discovery and consulting; larger builds
+                      begin after a short planning phase.
+                    </p>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       </section>
@@ -186,13 +206,7 @@ export default function Home() {
       {/* PART 2: TRUST SECTION - Credibility & Proof */}
       <section className="py-16 bg-gray-900 border-b border-gray-800">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            className="grid md:grid-cols-4 gap-8 text-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="grid md:grid-cols-4 gap-8 text-center avx-fade-in-up">
             <div>
               <p className="text-4xl font-extrabold text-blue-400">100+</p>
               <p className="text-slate-300 text-sm mt-1">Clients Served</p>
@@ -213,36 +227,36 @@ export default function Home() {
               <p className="text-slate-300 text-sm mt-1">Years Combined</p>
               <p className="text-xs text-slate-500 mt-2">Senior team experience</p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* PART 3: SERVICES SECTION - Specific, Benefit-Driven */}
       <section id="services" className="py-20 bg-black scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4 text-white\">
-              What We Deliver
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Specialized expertise in the areas where product teams need senior capacity the most.
-            </p>
-          </motion.div>
+          <div className="mb-16 grid md:grid-cols-2 gap-8 items-center avx-fade-in-up">
+            <div className="text-center md:text-left">
+              <h2 className="text-4xl font-bold mb-4 text-white">
+                What We Deliver
+              </h2>
+              <p className="text-gray-400 max-w-2xl mx-auto md:mx-0">
+                Specialized expertise in the areas where product teams need
+                senior capacity the most.
+              </p>
+            </div>
+            <div className="relative h-40 md:h-56 rounded-2xl overflow-hidden border border-gray-800 bg-gray-900">
+              <Image
+                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&auto=format&fit=crop&q=80"
+                alt="Developers collaborating over laptop screens and architecture diagrams"
+                width={1200}
+                height={800}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gray-900 p-8 rounded-xl border-l-4 border-blue-600 hover:shadow-lg transition-shadow"
-            >
+            <div className="bg-gray-900 p-8 rounded-xl border-l-4 border-blue-600 hover:shadow-lg transition-shadow avx-fade-in-up">
               <h3 className="text-xl font-bold mb-3 text-white">
                 Product Development
               </h3>
@@ -254,15 +268,9 @@ export default function Home() {
                 <li>• Frontend modernization</li>
                 <li>• Scalable APIs</li>
               </ul>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gray-900 p-8 rounded-xl border-l-4 border-purple-600 hover:shadow-lg transition-shadow"
-            >
+            <div className="bg-gray-900 p-8 rounded-xl border-l-4 border-purple-600 hover:shadow-lg transition-shadow avx-fade-in-up">
               <h3 className="text-xl font-bold mb-3 text-white">
                 Technical Strategy
               </h3>
@@ -274,15 +282,9 @@ export default function Home() {
                 <li>• Performance optimization</li>
                 <li>• Tech debt assessment</li>
               </ul>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gray-900 p-8 rounded-xl border-l-4 border-emerald-600 hover:shadow-lg transition-shadow"
-            >
+            <div className="bg-gray-900 p-8 rounded-xl border-l-4 border-emerald-600 hover:shadow-lg transition-shadow avx-fade-in-up">
               <h3 className="text-xl font-bold mb-3 text-white">
                 Infrastructure & Ops
               </h3>
@@ -294,7 +296,7 @@ export default function Home() {
                 <li>• Observability & SLOs</li>
                 <li>• Deployment automation</li>
               </ul>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -302,29 +304,27 @@ export default function Home() {
       {/* PART 4: CASE STUDIES / RESULTS - Evidence Over Claims */}
       <section id="work" className="py-20 bg-gray-900 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <div className="mb-10 rounded-2xl overflow-hidden border border-gray-800 avx-fade-in-up">
+            <Image
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&fit=crop&q=80"
+              alt="Analytics dashboards and metrics used to evaluate product performance"
+              width={1200}
+              height={640}
+              className="h-56 w-full object-cover"
+            />
+          </div>
+
+          <div className="text-center mb-16 avx-fade-in-up">
             <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
               Results That Speak
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Recent projects where technical excellence drove measurable business impact.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-blue-600"
-            >
+            <div className="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-blue-600 avx-fade-in-up">
               <div className="mb-4">
                 <p className="text-xs text-gray-400 uppercase tracking-widest">SaaS Platform</p>
                 <h3 className="text-xl font-bold text-white mt-2">
@@ -335,54 +335,42 @@ export default function Home() {
                 Architected and rebuilt core payment processing API to handle 10x transaction volume with zero downtime.
               </p>
               <div className="bg-blue-900 p-3 rounded text-center">
-                <p className="text-2xl font-bold text-blue-400\">10x</p>
-                <p className="text-xs text-gray-400\">Throughput Increase</p>
+                <p className="text-2xl font-bold text-blue-400">10x</p>
+                <p className="text-xs text-gray-400">Throughput Increase</p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-purple-600"
-            >
+            <div className="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-purple-600 avx-fade-in-up">
               <div className="mb-4">
                 <p className="text-xs text-gray-400 uppercase tracking-widest">E-Commerce</p>
                 <h3 className="text-xl font-bold text-white mt-2">
                   Mobile App from Scratch
                 </h3>
               </div>
-              <p className="text-gray-400 text-sm mb-4\">
+              <p className="text-gray-400 text-sm mb-4">
                 Built native iOS/Android e-commerce platform with real-time order tracking and payment integration in 4 months.
               </p>
               <div className="bg-purple-900 p-3 rounded text-center">
-                <p className="text-2xl font-bold text-purple-400\">$2.1M</p>
-                <p className="text-xs text-gray-400\">First Year Revenue</p>
+                <p className="text-2xl font-bold text-purple-400">$2.1M</p>
+                <p className="text-xs text-gray-400">First Year Revenue</p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-emerald-600"
-            >
+            <div className="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-emerald-600 avx-fade-in-up">
               <div className="mb-4">
                 <p className="text-xs text-gray-400 uppercase tracking-widest">Enterprise</p>
                 <h3 className="text-xl font-bold text-white mt-2">
                   Legacy System Modernization
                 </h3>
               </div>
-              <p className="text-gray-400 text-sm mb-4\">
+              <p className="text-gray-400 text-sm mb-4">
                 Migrated Fortune 500 company's 20-year-old monolith to microservices without service interruption.
               </p>
               <div className="bg-emerald-900 p-3 rounded text-center">
-                <p className="text-2xl font-bold text-emerald-400\">99.99%</p>
-                <p className="text-xs text-gray-400\">Uptime Maintained</p>
+                <p className="text-2xl font-bold text-emerald-400">99.99%</p>
+                <p className="text-xs text-gray-400">Uptime Maintained</p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -390,29 +378,17 @@ export default function Home() {
       {/* PART 5: WHY CHOOSE US - Operational Advantages */}
       <section id="why-us" className="py-20 bg-black scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16 avx-fade-in-up">
             <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
               Why Businesses Choose AxionvexTech
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Not buzzwords. Practical operational advantages that reduce risk and accelerate delivery.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
+            <div className="space-y-6 avx-fade-in-up">
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-blue-600 text-white font-bold">1</div>
@@ -454,15 +430,9 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
+            <div className="space-y-6 avx-fade-in-up">
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-blue-600 text-white font-bold">4</div>
@@ -504,7 +474,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -512,32 +482,20 @@ export default function Home() {
       {/* 進め方セクション */}
       <section id="process" className="py-20 bg-gray-900 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
+          <div className="text-center mb-12 avx-fade-in-up">
             <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
               Delivery Process Built for Momentum
             </h2>
             <p className="text-center text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
               We bring structure without bureaucracy. Short cycles, clear communication, and measurable outcomes.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-4 gap-6 relative">
             {/* Connecting line for desktop */}
             <div className="hidden md:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 pointer-events-none" />
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.05, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="relative z-10 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-blue-600"
-            >
+            <div className="relative z-10 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-blue-600 avx-fade-in-up">
               <div className="flex items-center justify-between mb-4">
                 <p className="text-sm font-semibold text-blue-600 dark:text-blue-400">
                   STEP 1
@@ -550,15 +508,9 @@ export default function Home() {
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Map business goals, constraints, and success metrics. Align expectations upfront.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="relative z-10 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-purple-600"
-            >
+            <div className="relative z-10 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-purple-600 avx-fade-in-up">
               <div className="flex items-center justify-between mb-4">
                 <p className="text-sm font-semibold text-purple-600 dark:text-purple-400">
                   STEP 2
@@ -571,15 +523,9 @@ export default function Home() {
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Propose technical approach, roadmap, and risk mitigation. Get buy-in before starting.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="relative z-10 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-yellow-600"
-            >
+            <div className="relative z-10 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-yellow-600 avx-fade-in-up">
               <div className="flex items-center justify-between mb-4">
                 <p className="text-sm font-semibold text-yellow-600 dark:text-yellow-400">
                   STEP 3
@@ -592,15 +538,9 @@ export default function Home() {
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Deliver in short cycles. Regular demos, transparent progress, fast feedback loops.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="relative z-10 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-emerald-600"
-            >
+            <div className="relative z-10 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-emerald-600 avx-fade-in-up">
               <div className="flex items-center justify-between mb-4">
                 <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">
                   STEP 4
@@ -613,7 +553,7 @@ export default function Home() {
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Safe launch, production monitoring, handover. Your team owns it confidently.
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -621,66 +561,42 @@ export default function Home() {
       {/* FAQセクション */}
       <section className="py-20 bg-black scroll-mt-24">
         <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white\">
+          <div className="text-center mb-12 avx-fade-in-up">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
               Questions We Hear Often
             </h2>
-            <p className="text-gray-400\">
+            <p className="text-gray-400">
               Clarity upfront — here's what partners typically ask.
             </p>
-          </motion.div>
+          </div>
 
           <div className="space-y-4">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.05, duration: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-gray-900 border border-gray-700 rounded-xl p-6 hover:border-blue-400 transition-colors\"
-            >
+            <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 hover:border-blue-400 transition-colors avx-fade-in-up">
               <h3 className="font-semibold mb-2 text-gray-900 dark:text-white">
                 What types of projects are the best fit for AxionvexTech?
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
                 We excel with teams building web applications where quality, reliability, and maintainability matter — SaaS platforms, internal tools, data-heavy dashboards, and customer-facing portals.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:border-blue-400 dark:hover:border-blue-600 transition-colors"
-            >
+            <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:border-blue-400 dark:hover:border-blue-600 transition-colors avx-fade-in-up">
               <h3 className="font-semibold mb-2 text-gray-900 dark:text-white">
                 Do you replace our internal team?
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
                 No. We're a senior extension of your team, bringing structure, delivery capacity, and experience where it leverages the most — not a replacement.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:border-blue-400 dark:hover:border-blue-600 transition-colors"
-            >
+            <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:border-blue-400 dark:hover:border-blue-600 transition-colors avx-fade-in-up">
               <h3 className="font-semibold mb-2 text-gray-900 dark:text-white">
                 How quickly can we start?
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
                 Discovery and consulting work typically start within 1–2 weeks. For larger build projects, we align timelines based on scope and team configuration.
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -688,32 +604,20 @@ export default function Home() {
       {/* PART 6: TESTIMONIALS - Social Proof */}
       <section className="py-20 bg-black scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4 text-white\">
+          <div className="text-center mb-16 avx-fade-in-up">
+            <h2 className="text-4xl font-bold mb-4 text-white">
               Trusted by Leading Teams
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto\">
+            <p className="text-gray-400 max-w-2xl mx-auto">
               Technical leaders and founders who have shipped with us.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gray-900 p-8 rounded-xl border-l-4 border-blue-600\"
-            >
+            <div className="bg-gray-900 p-8 rounded-xl border-l-4 border-blue-600 avx-fade-in-up">
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <p className="font-semibold text-white\">
+                  <p className="font-semibold text-white">
                     Sarah Chen
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
@@ -725,15 +629,9 @@ export default function Home() {
               <p className="text-gray-600 dark:text-gray-400 text-sm">
                 "They understood our architecture problem immediately. Delivered a complete refactor in 8 weeks—no delays, no excuses. Now our API handles 10x the throughput."
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-900 p-8 rounded-xl border-l-4 border-purple-600"
-            >
+            <div className="bg-gray-50 dark:bg-gray-900 p-8 rounded-xl border-l-4 border-purple-600 avx-fade-in-up">
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <p className="font-semibold text-gray-900 dark:text-white">
@@ -748,15 +646,9 @@ export default function Home() {
               <p className="text-gray-600 dark:text-gray-400 text-sm">
                 "Needed senior expertise fast. They paired directly with my team, shipped a payment system in 3 months, and stayed for 30 days post-launch. No hand-off friction."
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-900 p-8 rounded-xl border-l-4 border-emerald-600"
-            >
+            <div className="bg-gray-50 dark:bg-gray-900 p-8 rounded-xl border-l-4 border-emerald-600 avx-fade-in-up">
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <p className="font-semibold text-gray-900 dark:text-white">
@@ -771,7 +663,7 @@ export default function Home() {
               <p className="text-gray-600 dark:text-gray-400 text-sm">
                 "Transparent pricing, fixed timeline, and one engineer we trusted completely. They navigated legacy code better than our internal team. Highly recommend."
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -782,40 +674,25 @@ export default function Home() {
         </div>
 
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div className="avx-fade-in-up">
             <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
               Ready to Ship?
             </h2>
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
               Share your product roadmap, challenges, and timeline. A senior engineer will respond—not a salesperson.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.a
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            viewport={{ once: true }}
+          <a
             href="mailto:manager@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
-            className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-12 py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105 active:scale-95 shadow-lg"
+            className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-12 py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105 active:scale-95 shadow-lg avx-fade-in-up"
           >
             Get Started
-          </motion.a>
+          </a>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            viewport={{ once: true }}
-            className="mt-6 text-sm text-gray-400"
-          >
+          <p className="mt-6 text-sm text-gray-400 avx-fade-in-up">
             manager@axionvextech.com • Global, remote-first team
-          </motion.p>
+          </p>
         </div>
       </section>
 
