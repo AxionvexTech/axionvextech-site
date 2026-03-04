@@ -57,9 +57,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Image
-              src="/file.svg"
+              src="/logo-at.svg"
               alt="AxionvexTech Logo"
-              width={40}
+              width={140}
               height={40}
               className="h-10 w-auto"
               priority
@@ -104,57 +104,89 @@ export default function Home() {
       </nav>
 
       {/* ヒーローセクション */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <Image
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&h=900&fit=crop"
-            alt="Global technology network background"
-            fill
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/55" />
-        </div>
-
-        <div className="relative z-10 text-center text-white px-6 max-w-3xl mx-auto avx-fade-in-up">
-          <p className="mb-4 text-sm font-semibold tracking-[0.25em] uppercase text-blue-200">
-            Global Technical Consulting & Delivery
-          </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Ship Reliable Software, Faster — With a Senior Engineering Partner
-          </h1>
-          <p className="text-lg md:text-2xl mb-8 text-gray-100">
-            AxionvexTech helps product teams design, build, and scale web
-            platforms with enterprise-grade reliability, predictable delivery,
-            and clear technical leadership.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition"
-            >
-              Talk to a Technical Lead
-            </a>
-            <a
-              href="#services"
-              className="border-2 border-white hover:bg-white hover:text-black text-white px-8 py-3 rounded-lg font-semibold transition"
-            >
-              Explore Engagement Models
-            </a>
-          </div>
-          <div className="mt-8 flex flex-col sm:flex-row gap-6 justify-center text-sm text-gray-200">
-            <div>
-              <span className="font-semibold text-white">
-                Senior engineers, hands-on delivery
-              </span>{" "}
-              with experience shipping complex products for startups and
-              enterprises.
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+          <div className="avx-fade-in-up">
+            <p className="mb-4 text-sm font-semibold tracking-[0.25em] uppercase text-blue-200">
+              Global Technical Consulting & Delivery
+            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Ship Reliable Software, Faster — With a Senior Engineering Partner
+            </h1>
+            <p className="text-lg md:text-2xl mb-8 text-slate-100">
+              AxionvexTech helps product teams design, build, and scale web,
+              mobile, and AI-powered products with reliable delivery and clear
+              technical leadership.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#contact"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition"
+              >
+                Talk to a Technical Lead
+              </a>
+              <a
+                href="#services"
+                className="border-2 border-slate-300 hover:bg-slate-100 hover:text-slate-900 text-slate-50 px-8 py-3 rounded-lg font-semibold transition"
+              >
+                Explore Engagement Models
+              </a>
             </div>
-            <div>
-              <span className="font-semibold text-white">
-                Practical consulting, not theory
-              </span>{" "}
-              focused on web, mobile, and applied AI systems.
+            <div className="mt-8 flex flex-col sm:flex-row gap-6 text-sm text-slate-200">
+              <div>
+                <span className="font-semibold text-white">
+                  Senior engineers, hands-on delivery
+                </span>{" "}
+                with experience shipping complex products for startups and
+                enterprises.
+              </div>
+              <div>
+                <span className="font-semibold text-white">
+                  Practical consulting, not theory
+                </span>{" "}
+                focused on web, mobile, and applied AI systems.
+              </div>
+            </div>
+          </div>
+          <div className="relative avx-fade-in-up-delay">
+            <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-blue-600/30 blur-3xl" />
+            <div className="relative bg-slate-900/80 border border-slate-700 rounded-2xl p-6 shadow-2xl">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                  <span className="text-xs text-slate-300">
+                    AxionvexTech Delivery Snapshot
+                  </span>
+                </div>
+                <span className="text-xs text-slate-400">Live</span>
+              </div>
+              <div className="grid grid-cols-2 gap-4 mb-4">
+                <div className="bg-slate-800/80 rounded-xl p-4">
+                  <p className="text-xs text-slate-400 mb-1">Focus</p>
+                  <p className="font-semibold">Web, Mobile, AI</p>
+                </div>
+                <div className="bg-slate-800/80 rounded-xl p-4">
+                  <p className="text-xs text-slate-400 mb-1">Engagements</p>
+                  <p className="font-semibold">Fractional & Project</p>
+                </div>
+                <div className="bg-slate-800/80 rounded-xl p-4 col-span-2">
+                  <p className="text-xs text-slate-400 mb-2">What we do</p>
+                  <ul className="text-xs text-slate-200 space-y-1">
+                    <li>• Architect and build greenfield products</li>
+                    <li>• Modernize existing applications safely</li>
+                    <li>• Integrate AI into real workflows</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="bg-slate-900/80 rounded-xl p-4 flex items-center justify-between">
+                <div>
+                  <p className="text-xs text-slate-400">Next available slot</p>
+                  <p className="text-sm font-semibold text-slate-50">
+                    Strategy session with a technical lead
+                  </p>
+                </div>
+                <span className="text-xs text-blue-300">Book via email</span>
+              </div>
             </div>
           </div>
         </div>

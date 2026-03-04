@@ -20,9 +20,9 @@ export default function Recruiting() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/file.svg"
+              src="/logo-at.svg"
               alt="AxionvexTech Logo"
-              width={40}
+              width={140}
               height={40}
               className="h-10 w-auto"
             />
