@@ -54,14 +54,14 @@ export default function Home() {
       />
       {/* ナビゲーションバー */}
       <nav className="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur border-b border-gray-200 dark:border-gray-800">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-2">
             <Image
-              src="/logo-at.svg"
+              src="/logo.png"
               alt="AxionvexTech Logo"
-              width={140}
-              height={40}
-              className="h-10 w-auto"
+              width={32}
+              height={32}
+              className="h-8 w-auto"
               priority
             />
             <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
@@ -111,12 +111,12 @@ export default function Home() {
               Global Technical Consulting & Delivery
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Ship Reliable Software, Faster — With a Senior Engineering Partner
+              Senior Engineering Partner for US & Global Product Teams
             </h1>
             <p className="text-lg md:text-2xl mb-8 text-slate-100">
-              AxionvexTech helps product teams design, build, and scale web,
-              mobile, and AI-powered products with reliable delivery and clear
-              technical leadership.
+              AxionvexTech works with scaling startups and enterprises to ship
+              web, mobile, and AI-powered products that feel fast, reliable, and
+              premium for your users.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -193,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* サービスセクション */}
-      <section id="services" className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section id="services" className="py-20 bg-gray-50 dark:bg-gray-900 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
             Services Built Around Real-World Delivery
@@ -256,7 +256,7 @@ export default function Home() {
       </section>
 
       {/* 対象業界セクション */}
-      <section id="industries" className="py-20">
+      <section id="industries" className="py-20 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -331,7 +331,7 @@ export default function Home() {
       </section>
 
       {/* 進め方セクション */}
-      <section id="process" className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section id="process" className="py-20 bg-gray-50 dark:bg-gray-900 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white text-center">
             A Delivery Process Built for Clarity and Speed
@@ -437,7 +437,7 @@ export default function Home() {
       </section>
 
       {/* コンタクトCTAセクション */}
-      <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900 scroll-mt-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
             Ready to Talk About Your Roadmap?

@@ -18,13 +18,13 @@ export default function Recruiting() {
       {/* ナビゲーションバー */}
       <nav className="sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/logo-at.svg"
+              src="/logo.png"
               alt="AxionvexTech Logo"
-              width={140}
-              height={40}
-              className="h-10 w-auto"
+              width={32}
+              height={32}
+              className="h-8 w-auto"
             />
             <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">AxionvexTech</span>
           </Link>
@@ -75,7 +75,7 @@ export default function Recruiting() {
       </section>
 
       {/* 募集ポジションセクション */}
-      <section id="positions" className="py-20">
+      <section id="positions" className="py-20 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
             Open Positions
@@ -230,7 +230,7 @@ export default function Recruiting() {
       </section>
 
       {/* 応募フォームセクション */}
-      <section id="apply" className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section id="apply" className="py-20 bg-gray-50 dark:bg-gray-900 scroll-mt-24">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
             Ready to Join Us?
