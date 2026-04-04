@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal from "./components/ScrollReveal";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -15,14 +15,13 @@ export default function Home() {
         url: "https://axionvextech.com",
         logo: "https://axionvextech.com/logo.png",
         description:
-          "Global technical consulting, web development, and cloud engineering company partnering with SaaS, fintech, and enterprise teams.",
+          "Engineering agency building production systems for SaaS, fintech, and high-growth product teams.",
         sameAs: [
           "https://www.linkedin.com/company/axionvextech",
           "https://twitter.com/axionvextech",
         ],
         contactPoint: {
           "@type": "ContactPoint",
-          telephone: "+1-contact",
           contactType: "Sales",
           email: "manager@axionvextech.com",
         },
@@ -31,17 +30,12 @@ export default function Home() {
         "@type": "WebSite",
         url: "https://axionvextech.com",
         name: "AxionvexTech",
-        potentialAction: {
-          "@type": "SearchAction",
-          target: "https://axionvextech.com/?q={search_term_string}",
-          "query-input": "required name=search_term_string",
-        },
       },
     ],
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <ScrollReveal />
       <script
         type="application/ld+json"
@@ -49,601 +43,479 @@ export default function Home() {
       />
       <Header page="home" />
 
-      {/* HERO SECTION - PART 1: Clear Positioning & Transformation */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-sky-100 to-blue-50 text-slate-900">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
-          <div className="relative">
-            <div className="mx-auto max-w-3xl text-center avx-fade-in-up">
-              <p className="mb-4 text-sm font-semibold tracking-[0.25em] uppercase text-blue-600">
-                For SaaS, Fintech & Enterprise Teams
-              </p>
+      {/* ─── HERO ─── */}
+      <section className="relative overflow-hidden bg-slate-950">
+        {/* Subtle grid texture */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        {/* Glow */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full blur-[120px] opacity-10 pointer-events-none" />
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight text-slate-900">
-                Build products that scale. Reliably.
-              </h1>
-
-              <p className="text-lg md:text-xl mb-8 text-slate-700">
-                Senior engineers handle your hardest technical challenges —
-                architecture, full-stack delivery, reliability, and cloud
-                operations. Ship faster with teams that stay close to your
-                product.
-              </p>
-
-              <div className="flex flex-col sm:flex-row justify-center gap-4 avx-fade-in-up">
-                <a
-                  href="#contact"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-lg font-semibold transition text-lg"
-                >
-                  Get a Free Strategy Call
-                </a>
-                <a
-                  href="#work"
-                  className="border-2 border-gray-300 hover:bg-slate-900 hover:text-slate-900 text-slate-900 px-10 py-4 rounded-lg font-semibold transition text-lg"
-                >
-                  View Our Work
-                </a>
-              </div>
-
-              <div className="mt-10 flex flex-col sm:flex-row gap-8 text-sm text-slate-700 justify-center avx-fade-in-up">
-                <div className="flex items-start gap-3">
-                  <span className="text-blue-600 font-bold">✓</span>
-                  <div>
-                    <span className="font-semibold text-slate-900 block">
-                      Senior engineers only
-                    </span>
-                    <span className="text-xs text-slate-600">
-                      No junior contractors or offshore factories
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-blue-600 font-bold">✓</span>
-                  <div>
-                    <span className="font-semibold text-slate-900 block">
-                      Production-ready delivery
-                    </span>
-                    <span className="text-xs text-slate-600">
-                      Architecture, monitoring, and handover included
-                    </span>
-                  </div>
-                </div>
-              </div>
+        <div className="relative max-w-6xl mx-auto px-6 py-28 md:py-36">
+          <div className="max-w-3xl avx-fade-in-up">
+            <p className="mb-6 text-xs font-bold tracking-[0.25em] uppercase text-blue-400">
+              Engineering Agency · Remote-First
+            </p>
+            <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.06] text-white mb-7 tracking-tight">
+              We build systems<br className="hidden sm:block" /> that hold up.
+            </h1>
+            <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
+              A selective team of senior engineers working on products where
+              reliability and ownership actually matter. No juniors. No
+              handoffs. No filler.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="#contact"
+                className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors text-base"
+              >
+                Start a Project
+              </a>
+              <Link
+                href="/recruiting"
+                className="border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-white px-8 py-3.5 rounded-lg font-semibold transition-colors text-base"
+              >
+                Join the Team →
+              </Link>
             </div>
+          </div>
+        </div>
 
-              <div className="mt-16 grid md:grid-cols-3 gap-6 items-stretch avx-fade-in-up">
-                <div className="md:col-span-2 box-on-light border border-blue-200 rounded-2xl overflow-hidden shadow-xl">
-                  <Image
-                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&auto=format&fit=crop&q=80"
-                    alt="International product and engineering team collaborating in a modern workspace"
-                    width={1200}
-                    height={800}
-                    className="h-64 w-full object-cover"
-                    priority
-                  />
-                  <div className="p-5 border-t border-blue-200 bg-white">
-                    <p className="text-xs font-semibold text-blue-600 mb-1">
-                      Global collaboration
-                    </p>
-                    <p className="text-sm text-slate-700">
-                      We work with distributed teams across the US, Europe, and
-                      Asia on web, app, and AI projects.
-                    </p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="box-on-light rounded-xl p-4 border border-blue-200 shadow-sm">
-                    <p className="text-xs font-semibold text-slate-900 mb-1">
-                      How we usually plug in
-                    </p>
-                    <p className="text-sm text-slate-700">
-                      Fractional technical leadership plus hands-on engineering
-                      when your roadmap outgrows your current team.
-                    </p>
-                  </div>
-                  <div className="box-on-light rounded-xl p-4 border border-blue-200 shadow-sm">
-                    <p className="text-xs font-semibold text-slate-900 mb-1">
-                      Typical time to start
-                    </p>
-                    <p className="text-sm text-slate-700">
-                      1–2 weeks for discovery and consulting; larger builds
-                      begin after a short planning phase.
-                    </p>
-                  </div>
-                </div>
+        {/* Fade to white */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-white pointer-events-none" />
+      </section>
+
+      {/* ─── TRUST BAR ─── */}
+      <section className="py-14 bg-white border-b border-slate-100">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 avx-fade-in-up">
+            {[
+              { value: "Senior only", label: "No juniors, no offshore" },
+              { value: "100+", label: "Client projects delivered" },
+              { value: "99.9%", label: "Uptime on managed systems" },
+              { value: "1–2 weeks", label: "Typical time to start" },
+            ].map((stat) => (
+              <div key={stat.value} className="text-center">
+                <p className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-1">
+                  {stat.value}
+                </p>
+                <p className="text-sm text-slate-500">{stat.label}</p>
               </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* PART 2: TRUST SECTION - Credibility & Proof */}
-      <section className="py-16 section-light border-b border-blue-200">
+      {/* ─── SERVICES ─── */}
+      <section
+        id="services"
+        className="py-24 bg-slate-50 scroll-mt-20"
+      >
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 text-center avx-fade-in-up">
-            <div>
-              <p className="text-4xl font-extrabold text-blue-600">100+</p>
-              <p className="text-slate-900 text-sm mt-1">Clients Served</p>
-              <p className="text-xs text-slate-700 mt-2">SaaS, Fintech, Enterprise</p>
-            </div>
-            <div>
-              <p className="text-4xl font-extrabold text-blue-600">500+</p>
-              <p className="text-slate-900 text-sm mt-1">Projects Delivered</p>
-              <p className="text-xs text-slate-700 mt-2">Web, Mobile, API, Cloud</p>
-            </div>
-            <div>
-              <p className="text-4xl font-extrabold text-blue-600">99.9%</p>
-              <p className="text-slate-900 text-sm mt-1">Platform Uptime</p>
-              <p className="text-xs text-slate-700 mt-2">Client systems we manage</p>
-            </div>
-            <div>
-              <p className="text-4xl font-extrabold text-blue-600">15+</p>
-              <p className="text-slate-900 text-sm mt-1">Years Combined</p>
-              <p className="text-xs text-slate-700 mt-2">Senior team experience</p>
-            </div>
+          <div className="max-w-xl mb-16 avx-fade-in-up">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
+              What We Build
+            </p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+              Three areas. Serious depth in all of them.
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              We don't spread thin across every technology. We go deep in the
+              areas that drive real product outcomes.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                accent: "bg-blue-600",
+                tag: "Product Development",
+                title: "Full-stack builds that ship.",
+                body: "Greenfield SaaS platforms, modernizing legacy codebases, building APIs that scale. We own delivery end-to-end — from architecture to production.",
+                points: [
+                  "SaaS platforms & internal tools",
+                  "Frontend systems & design systems",
+                  "Scalable REST and GraphQL APIs",
+                ],
+              },
+              {
+                accent: "bg-indigo-600",
+                tag: "Technical Strategy",
+                title: "Architecture that ages well.",
+                body: "System design, scalability assessments, and tech-debt triage. We help teams make the right call before it's expensive to change.",
+                points: [
+                  "Architecture review & redesign",
+                  "Performance bottleneck analysis",
+                  "Technology selection & roadmap",
+                ],
+              },
+              {
+                accent: "bg-slate-800",
+                tag: "Infrastructure & Ops",
+                title: "Production systems, properly run.",
+                body: "Cloud architecture, CI/CD, observability, and reliability engineering for systems that can't afford downtime.",
+                points: [
+                  "Cloud setup & migration",
+                  "Observability, alerting & SLOs",
+                  "Deployment pipelines & automation",
+                ],
+              },
+            ].map((service) => (
+              <div
+                key={service.tag}
+                className="bg-white rounded-xl p-8 border border-slate-200 hover:shadow-md transition-shadow avx-fade-in-up"
+              >
+                <div className={`w-10 h-1 ${service.accent} rounded mb-6`} />
+                <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400 mb-3">
+                  {service.tag}
+                </p>
+                <h3 className="text-xl font-bold text-slate-900 mb-3 leading-snug">
+                  {service.title}
+                </h3>
+                <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                  {service.body}
+                </p>
+                <ul className="space-y-2">
+                  {service.points.map((p) => (
+                    <li
+                      key={p}
+                      className="text-sm text-slate-700 flex items-start gap-2"
+                    >
+                      <span className="text-blue-500 mt-0.5 flex-shrink-0">
+                        ›
+                      </span>
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* PART 3: SERVICES SECTION - Specific, Benefit-Driven */}
-      <section id="services" className="py-20 bg-gradient-to-b from-blue-50 via-sky-100 to-blue-50 text-slate-900 scroll-mt-24">
+      {/* ─── CASE STUDIES ─── */}
+      <section id="work" className="py-24 bg-white scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="mb-16 grid md:grid-cols-2 gap-8 items-center avx-fade-in-up">
-            <div className="text-center md:text-left">
-              <h2 className="text-4xl font-bold mb-4 text-slate-900">
-                What We Deliver
+          <div className="max-w-xl mb-16 avx-fade-in-up">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
+              Selected Work
+            </p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+              Real projects. Real outcomes.
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              A few examples of what good engineering work looks like in
+              practice.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                category: "Fintech",
+                title: "Payment API Rebuild",
+                body: "Core payment processing infrastructure was bottlenecking at peak load. Redesigned the architecture, refactored the pipeline, migrated with zero downtime.",
+                metric: "10×",
+                metricLabel: "throughput increase",
+                color: "border-blue-500",
+                metricColor: "text-blue-600",
+              },
+              {
+                category: "E-Commerce",
+                title: "Mobile Platform from Zero",
+                body: "Greenfield iOS and Android app — real-time order tracking, payment integration, and backend API — scoped, built, and shipped in four months.",
+                metric: "4 months",
+                metricLabel: "concept to production",
+                color: "border-indigo-500",
+                metricColor: "text-indigo-600",
+              },
+              {
+                category: "SaaS",
+                title: "Backend Migration",
+                body: "Moved a monolithic codebase to a service-oriented architecture. The team could finally ship features independently without stepping on each other.",
+                metric: "99.99%",
+                metricLabel: "uptime through migration",
+                color: "border-slate-700",
+                metricColor: "text-slate-700",
+              },
+            ].map((cs) => (
+              <div
+                key={cs.title}
+                className={`bg-white rounded-xl p-8 border border-slate-200 border-t-2 ${cs.color} hover:shadow-md transition-shadow avx-fade-in-up`}
+              >
+                <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400 mb-3">
+                  {cs.category}
+                </p>
+                <h3 className="text-xl font-bold text-slate-900 mb-4 leading-snug">
+                  {cs.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-8">
+                  {cs.body}
+                </p>
+                <div className="mt-auto border-t border-slate-100 pt-5">
+                  <p className={`text-3xl font-extrabold ${cs.metricColor}`}>
+                    {cs.metric}
+                  </p>
+                  <p className="text-xs text-slate-500 mt-1">
+                    {cs.metricLabel}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── HOW WE DELIVER ─── */}
+      <section id="process" className="py-24 bg-slate-50 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-xl mb-16 avx-fade-in-up">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
+              How We Work
+            </p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+              Delivery without the theater.
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              No status decks. No account managers. One senior engineer owns
+              your project and moves it forward.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                num: "01",
+                title: "One owner per project",
+                body: "A senior engineer takes point on your project end-to-end. They're accountable for the outcome — not just the tasks.",
+              },
+              {
+                num: "02",
+                title: "Aligned before we build",
+                body: "We spend time upfront mapping your constraints, goals, and success criteria. Surprises are expensive. We design them out.",
+              },
+              {
+                num: "03",
+                title: "Short cycles, real feedback",
+                body: "We ship in increments. You see progress weekly. We course-correct early instead of discovering problems at handover.",
+              },
+              {
+                num: "04",
+                title: "Production-ready from day one",
+                body: "Monitoring, logging, and documentation aren't afterthoughts. Your team inherits a system they can actually own.",
+              },
+              {
+                num: "05",
+                title: "No vendor lock-in",
+                body: "We use mainstream tools your team already knows. We're not building job security into your architecture.",
+              },
+              {
+                num: "06",
+                title: "You're in the loop, always",
+                body: "Direct access to your engineer. Clear status on what's done, what's next, and what's blocking — without having to ask.",
+              },
+            ].map((item) => (
+              <div
+                key={item.num}
+                className="bg-white rounded-xl p-7 border border-slate-200 avx-fade-in-up hover:shadow-sm transition-shadow"
+              >
+                <p className="text-xs font-bold text-slate-300 mb-4 tracking-widest">
+                  {item.num}
+                </p>
+                <h3 className="text-base font-bold text-slate-900 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── ENGINEERING CULTURE TEASER ─── */}
+      <section className="py-24 bg-slate-950 overflow-hidden relative">
+        <div className="absolute top-0 right-1/4 w-80 h-80 bg-indigo-600 rounded-full blur-[100px] opacity-10 pointer-events-none" />
+        <div className="max-w-6xl mx-auto px-6 relative">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="avx-fade-in-up">
+              <p className="text-xs font-bold tracking-[0.25em] uppercase text-blue-400 mb-5">
+                We're Hiring
+              </p>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+                Built for engineers who own their work.
               </h2>
-              <p className="text-slate-700 max-w-2xl mx-auto md:mx-0">
-                Specialized expertise in the areas where product teams need
-                senior capacity the most.
+              <p className="text-slate-400 text-lg leading-relaxed mb-8">
+                Everyone here is senior. Everyone ships to production. No one
+                waits to be told what to do. We're a small team growing
+                deliberately — if you value craft and ownership, read on.
               </p>
-            </div>
-            <div className="relative h-40 md:h-56 rounded-2xl overflow-hidden border border-blue-200 bg-gray-100 shadow-md">
-              <Image
-                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&auto=format&fit=crop&q=80"
-                alt="Developers collaborating over laptop screens and architecture diagrams"
-                width={1200}
-                height={800}
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="box-on-light p-8 rounded-xl border-l-4 border-blue-600 hover:shadow-lg transition-shadow avx-fade-in-up border border-blue-200">
-              <h3 className="text-xl font-bold mb-3 text-slate-900">
-                Product Development
-              </h3>
-              <p className="text-slate-700 mb-4 text-sm">
-                Full-stack web and mobile development—greenfield builds, legacy modernization, and design systems.
-              </p>
-              <ul className="space-y-2 text-sm text-slate-700">
-                <li>• SaaS platforms & MVPs</li>
-                <li>• Frontend modernization</li>
-                <li>• Scalable APIs</li>
-              </ul>
+              <Link
+                href="/recruiting"
+                className="inline-flex items-center gap-2 bg-white text-slate-900 hover:bg-slate-100 px-6 py-3 rounded-lg font-semibold transition-colors"
+              >
+                See Open Roles →
+              </Link>
             </div>
 
-            <div className="box-on-light p-8 rounded-xl border-l-4 border-purple-600 hover:shadow-lg transition-shadow avx-fade-in-up border border-blue-200">
-              <h3 className="text-xl font-bold mb-3 text-slate-900">
-                Technical Strategy
-              </h3>
-              <p className="text-slate-700 mb-4 text-sm">
-                Architecture reviews, scalability assessments, and technology roadmaps aligned to business goals.
-              </p>
-              <ul className="space-y-2 text-sm text-slate-700">
-                <li>• System architecture</li>
-                <li>• Performance optimization</li>
-                <li>• Tech debt assessment</li>
-              </ul>
-            </div>
-
-            <div className="box-on-light p-8 rounded-xl border-l-4 border-emerald-600 hover:shadow-lg transition-shadow avx-fade-in-up border border-blue-200">
-              <h3 className="text-xl font-bold mb-3 text-slate-900">
-                Infrastructure & Ops
-              </h3>
-              <p className="text-slate-700 mb-4 text-sm">
-                Cloud architecture, DevOps, monitoring, and reliability engineering for production systems.
-              </p>
-              <ul className="space-y-2 text-sm text-slate-700">
-                <li>• Cloud platform setup</li>
-                <li>• Observability & SLOs</li>
-                <li>• Deployment automation</li>
-              </ul>
+            <div className="grid grid-cols-2 gap-3 avx-fade-in-up">
+              {[
+                "Senior engineers only",
+                "Ownership from day one",
+                "Code reviews that matter",
+                "Direct client contact",
+                "Async-first culture",
+                "Remote & flexible",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="bg-white/[0.04] border border-white/[0.07] rounded-xl p-5 hover:bg-white/[0.07] transition-colors"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-blue-400 mb-3" />
+                  <p className="text-white text-sm font-medium leading-snug">
+                    {item}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* PART 4: CASE STUDIES / RESULTS - Evidence Over Claims */}
-      <section id="work" className="py-20 section-light scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="mb-10 rounded-2xl overflow-hidden border border-blue-200 avx-fade-in-up shadow-md">
-            <Image
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&fit=crop&q=80"
-              alt="Analytics dashboards and metrics used to evaluate product performance"
-              width={1200}
-              height={640}
-              className="h-56 w-full object-cover"
-            />
-          </div>
-
+      {/* ─── FAQ ─── */}
+      <section className="py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-16 avx-fade-in-up">
-            <h2 className="text-4xl font-bold mb-4 text-slate-900">
-              Results That Speak
-            </h2>
-            <p className="text-slate-700 max-w-2xl mx-auto">
-              Recent projects where technical excellence drove measurable business impact.
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
+              FAQ
             </p>
+            <h2 className="text-4xl font-bold text-slate-900 tracking-tight">
+              Questions we hear often.
+            </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="box-on-light p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-blue-600 avx-fade-in-up border border-blue-200">
-              <div className="mb-4">
-                <p className="text-xs text-slate-600 uppercase tracking-widest font-semibold">SaaS Platform</p>
-                <h3 className="text-xl font-bold text-slate-900 mt-2">
-                  Fintech API Platform Redesign
-                </h3>
+          <div className="space-y-3 avx-fade-in-up">
+            {[
+              {
+                q: "What types of projects are the best fit?",
+                a: "Teams building web applications where quality, reliability, and maintainability matter — SaaS platforms, internal tools, data-heavy dashboards, customer-facing portals. If you need something fast and disposable, we're probably not the right fit.",
+              },
+              {
+                q: "Do you replace our internal team?",
+                a: "No. We extend your team's capacity with senior engineering weight — particularly useful when your roadmap has outgrown your current headcount or you need an outside perspective on architecture.",
+              },
+              {
+                q: "How fast can we get started?",
+                a: "Discovery and consulting engagements typically start within 1–2 weeks. For larger builds, we scope first, then align on timeline. We don't take on projects we can't commit to properly.",
+              },
+              {
+                q: "What tech stack do you use?",
+                a: "We use what's right for the project. Typically: React, Next.js, Node, Python, PostgreSQL, AWS/GCP. We don't introduce technology for its own sake.",
+              },
+            ].map((item) => (
+              <div
+                key={item.q}
+                className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-slate-300 transition-colors"
+              >
+                <h3 className="font-semibold text-slate-900 mb-2">{item.q}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {item.a}
+                </p>
               </div>
-              <p className="text-slate-700 text-sm mb-4">
-                Architected and rebuilt core payment processing API to handle 10x transaction volume with zero downtime.
-              </p>
-              <div className="bg-blue-50 p-3 rounded text-center border border-blue-200">
-                <p className="text-2xl font-bold text-blue-600">10x</p>
-                <p className="text-xs text-slate-600">Throughput Increase</p>
-              </div>
-            </div>
-
-            <div className="box-on-light p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-purple-600 avx-fade-in-up border border-blue-200">
-              <div className="mb-4">
-                <p className="text-xs text-slate-600 uppercase tracking-widest font-semibold">E-Commerce</p>
-                <h3 className="text-xl font-bold text-slate-900 mt-2">
-                  Mobile App from Scratch
-                </h3>
-              </div>
-              <p className="text-slate-700 text-sm mb-4">
-                Built native iOS/Android e-commerce platform with real-time order tracking and payment integration in 4 months.
-              </p>
-              <div className="bg-purple-50 p-3 rounded text-center border border-purple-200">
-                <p className="text-2xl font-bold text-purple-600">$2.1M</p>
-                <p className="text-xs text-slate-600">First Year Revenue</p>
-              </div>
-            </div>
-
-            <div className="box-on-light p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-b-4 border-emerald-600 avx-fade-in-up border border-blue-200">
-              <div className="mb-4">
-                <p className="text-xs text-slate-600 uppercase tracking-widest font-semibold">Enterprise</p>
-                <h3 className="text-xl font-bold text-slate-900 mt-2">
-                  Legacy System Modernization
-                </h3>
-              </div>
-              <p className="text-slate-700 text-sm mb-4">
-                Migrated Fortune 500 company's 20-year-old monolith to microservices without service interruption.
-              </p>
-              <div className="bg-emerald-50 p-3 rounded text-center border border-emerald-200">
-                <p className="text-2xl font-bold text-emerald-600">99.99%</p>
-                <p className="text-xs text-slate-600">Uptime Maintained</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* PART 5: WHY CHOOSE US - Operational Advantages */}
-      <section id="why-us" className="py-20 bg-gradient-to-b from-blue-50 via-sky-100 to-blue-50 text-slate-900 scroll-mt-24">
+      {/* ─── TESTIMONIALS ─── */}
+      <section className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16 avx-fade-in-up">
-            <h2 className="text-4xl font-bold mb-4 text-slate-900">
-              Why Businesses Choose AxionvexTech
-            </h2>
-            <p className="text-slate-700 max-w-2xl mx-auto">
-              Not buzzwords. Practical operational advantages that reduce risk and accelerate delivery.
+          <div className="max-w-xl mb-16 avx-fade-in-up">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
+              Clients
             </p>
+            <h2 className="text-4xl font-bold text-slate-900 tracking-tight">
+              What teams say after working with us.
+            </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-6 avx-fade-in-up">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-blue-600 text-white font-bold">1</div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900">
-                    Dedicated Project Owner
-                  </h3>
-                        <p className="text-slate-700 text-sm mt-1">
-                    One senior engineer owns your project end-to-end. No account manager. No handoffs.
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                quote:
+                  "They understood our architecture problem immediately. Delivered a complete refactor in 8 weeks — no delays, no excuses. Our API now handles 10× the throughput.",
+                name: "Sarah Chen",
+                role: "CTO, Series B SaaS",
+              },
+              {
+                quote:
+                  "Needed senior expertise fast. They paired with my team, shipped a payment system in 3 months, and stayed for 30 days post-launch. No hand-off friction.",
+                name: "Michael Rodriguez",
+                role: "VP Engineering, Fintech Startup",
+              },
+              {
+                quote:
+                  "Transparent pricing, fixed timeline, one engineer we trusted completely. They navigated our legacy codebase better than most of our internal team.",
+                name: "Jessica Kim",
+                role: "Founder, Enterprise SaaS",
+              },
+            ].map((t) => (
+              <div
+                key={t.name}
+                className="bg-white rounded-xl p-8 border border-slate-200 avx-fade-in-up"
+              >
+                <p className="text-slate-700 text-sm leading-relaxed mb-8">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div className="border-t border-slate-100 pt-5">
+                  <p className="font-semibold text-slate-900 text-sm">
+                    {t.name}
                   </p>
+                  <p className="text-xs text-slate-500 mt-0.5">{t.role}</p>
                 </div>
               </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-blue-600 text-white font-bold">2</div>
-                </div>
-                <div>
-                    <h3 className="text-lg font-bold text-slate-900">
-                    Transparent Timeline
-                  </h3>
-                  <p className="text-slate-700 text-sm mt-1">
-                    Fixed scope, fixed price. No surprises. Weekly demos and clear status reports.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-blue-600 text-white font-bold">3</div>
-                </div>
-                <div>
-                    <h3 className="text-lg font-bold text-slate-900">
-                    Fast Turnaround
-                  </h3>
-                  <p className="text-slate-700 text-sm mt-1">
-                    Start within 1–2 weeks. No long sales cycles. No vendor setup delays.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-6 avx-fade-in-up">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-blue-600 text-white font-bold">4</div>
-                </div>
-                <div>
-                    <h3 className="text-lg font-bold text-slate-900">
-                    Production-Ready Handover
-                  </h3>
-                  <p className="text-slate-700 text-sm mt-1">
-                    Monitoring, documentation, and runbooks included. Your team owns it confidently.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-blue-600 text-white font-bold">5</div>
-                </div>
-                <div>
-                    <h3 className="text-lg font-bold text-slate-900">
-                    Senior Talent Only
-                  </h3>
-                  <p className="text-slate-700 text-sm mt-1">
-                    No offshore teams. No junior contractors. Engineers with production experience.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-blue-600 text-white font-bold">6</div>
-                </div>
-                <div>
-                    <h3 className="text-lg font-bold text-slate-900">
-                    Post-Launch Support
-                  </h3>
-                  <p className="text-slate-700 text-sm mt-1">
-                    30 days of free support post-launch. We're available if issues arise.
-                  </p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Delivery Process Section */}
-      <section id="process" className="py-20 section-light scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12 avx-fade-in-up">
-            <h2 className="text-4xl font-bold mb-4 text-slate-700">
-              Delivery Process Built for Momentum
-            </h2>
-            <p className="text-center text-slate-700 max-w-3xl mx-auto">
-              We bring structure without bureaucracy. Short cycles, clear communication, and measurable outcomes.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 relative">
-            {/* Connecting line for desktop */}
-            <div className="hidden md:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 pointer-events-none" />
-
-            <div className="relative z-10 box-on-light p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-blue-600 avx-fade-in-up border border-blue-200">
-              <div className="flex items-center justify-between mb-4">
-                <p className="text-sm font-semibold text-blue-600">
-                  STEP 1
-                </p>
-                <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold">1</div>
-              </div>
-              <h3 className="font-bold mb-2 text-slate-900">
-                Discovery & Alignment
-              </h3>
-              <p className="text-sm text-slate-700">
-                Map business goals, constraints, and success metrics. Align expectations upfront.
-              </p>
-            </div>
-
-            <div className="relative z-10 box-on-light p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-purple-600 avx-fade-in-up border border-blue-200">
-              <div className="flex items-center justify-between mb-4">
-                <p className="text-sm font-semibold text-purple-600">
-                  STEP 2
-                </p>
-                <div className="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold">2</div>
-              </div>
-              <h3 className="font-bold mb-2 text-slate-900">
-                Strategy & Plan
-              </h3>
-              <p className="text-sm text-slate-700">
-                Propose technical approach, roadmap, and risk mitigation. Get buy-in before starting.
-              </p>
-            </div>
-
-            <div className="relative z-10 box-on-light p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-yellow-600 avx-fade-in-up border border-blue-200">
-              <div className="flex items-center justify-between mb-4">
-                <p className="text-sm font-semibold text-yellow-600">
-                  STEP 3
-                </p>
-                <div className="w-8 h-8 rounded-full bg-yellow-600 text-white flex items-center justify-center text-xs font-bold">3</div>
-              </div>
-              <h3 className="font-bold mb-2 text-slate-900">
-                Build & Iterate
-              </h3>
-              <p className="text-sm text-slate-700">
-                Deliver in short cycles. Regular demos, transparent progress, fast feedback loops.
-              </p>
-            </div>
-
-            <div className="relative z-10 box-on-light p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-emerald-600 avx-fade-in-up border border-blue-200">
-              <div className="flex items-center justify-between mb-4">
-                <p className="text-sm font-semibold text-emerald-600">
-                  STEP 4
-                </p>
-                <div className="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold">4</div>
-              </div>
-              <h3 className="font-bold mb-2 text-slate-900">
-                Launch & Operate
-              </h3>
-              <p className="text-sm text-slate-700">
-                Safe launch, production monitoring, handover. Your team owns it confidently.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 via-sky-100 to-blue-50 text-slate-900 scroll-mt-24">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-12 avx-fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
-              Questions We Hear Often
-            </h2>
-            <p className="text-slate-700">
-              Clarity upfront — here's what partners typically ask.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            <div className="box-on-light border border-blue-200 rounded-xl p-6 hover:border-blue-400 transition-colors avx-fade-in-up shadow-sm">
-              <h3 className="font-semibold mb-2 text-slate-900">
-                What types of projects are the best fit for AxionvexTech?
-              </h3>
-              <p className="text-slate-700 text-sm">
-                We excel with teams building web applications where quality, reliability, and maintainability matter — SaaS platforms, internal tools, data-heavy dashboards, and customer-facing portals.
-              </p>
-            </div>
-
-            <div className="box-on-light border border-blue-200 rounded-xl p-6 hover:border-blue-400 transition-colors avx-fade-in-up shadow-sm">
-              <h3 className="font-semibold mb-2 text-slate-900">
-                Do you replace our internal team?
-              </h3>
-              <p className="text-slate-700 text-sm">
-                No. We're a senior extension of your team, bringing structure, delivery capacity, and experience where it leverages the most — not a replacement.
-              </p>
-            </div>
-
-            <div className="box-on-light border border-blue-200 rounded-xl p-6 hover:border-blue-400 transition-colors avx-fade-in-up shadow-sm">
-              <h3 className="font-semibold mb-2 text-slate-900">
-                How quickly can we start?
-              </h3>
-              <p className="text-slate-700 text-sm">
-                Discovery and consulting work typically start within 1–2 weeks. For larger build projects, we align timelines based on scope and team configuration.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PART 6: TESTIMONIALS - Social Proof */}
-      <section className="py-20 section-light scroll-mt-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16 avx-fade-in-up">
-            <h2 className="text-4xl font-bold mb-4 text-slate-700">
-              Trusted by Leading Teams
-            </h2>
-            <p className="text-slate-700 max-w-2xl mx-auto">
-              Technical leaders and founders who have shipped with us.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="box-on-light p-8 rounded-xl border-l-4 border-blue-600 avx-fade-in-up shadow-md border border-blue-200">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <p className="font-semibold text-slate-900">
-                    Sarah Chen
-                  </p>
-                  <p className="text-xs text-slate-600 mt-1">
-                    CTO, Series B SaaS Platform
-                  </p>
-                </div>
-                <p className="text-yellow-400 text-sm">★★★★★</p>
-              </div>
-              <p className="text-slate-700 text-sm">
-                "They understood our architecture problem immediately. Delivered a complete refactor in 8 weeks—no delays, no excuses. Now our API handles 10x the throughput."
-              </p>
-            </div>
-
-            <div className="box-on-light p-8 rounded-xl border-l-4 border-purple-600 avx-fade-in-up shadow-md border border-blue-200">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <p className="font-semibold text-slate-900">
-                    Michael Rodriguez
-                  </p>
-                  <p className="text-xs text-slate-600 mt-1">
-                    VP Engineering, Fintech Startup
-                  </p>
-                </div>
-                <p className="text-yellow-400 text-sm">★★★★★</p>
-              </div>
-              <p className="text-slate-700 text-sm">
-                "Needed senior expertise fast. They paired directly with my team, shipped a payment system in 3 months, and stayed for 30 days post-launch. No hand-off friction."
-              </p>
-            </div>
-
-            <div className="box-on-light p-8 rounded-xl border-l-4 border-emerald-600 avx-fade-in-up shadow-md border border-blue-200">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <p className="font-semibold text-slate-900">
-                    Jessica Kim
-                  </p>
-                  <p className="text-xs text-slate-600 mt-1">
-                    Founder, Enterprise SaaS
-                  </p>
-                </div>
-                <p className="text-yellow-400 text-sm">★★★★★</p>
-              </div>
-              <p className="text-slate-700 text-sm">
-                "Transparent pricing, fixed timeline, and one engineer we trusted completely. They navigated legacy code better than our internal team. Highly recommend."
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="contact" className="py-24 bg-gradient-to-b from-black to-blue-900 text-site-foreground scroll-mt-24 overflow-hidden relative">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-600 rounded-full blur-3xl" />
+      {/* ─── CTA ─── */}
+      <section
+        id="contact"
+        className="py-28 bg-slate-950 relative overflow-hidden scroll-mt-20"
+      >
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600 rounded-full blur-[140px]" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-600 rounded-full blur-[120px]" />
         </div>
 
-        <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
-          <div className="avx-fade-in-up">
-            <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-site-foreground">
-              Ready to Ship?
-            </h2>
-            <p className="text-xl text-slate-200 mb-10 max-w-2xl mx-auto">
-              Share your product roadmap, challenges, and timeline. A senior engineer will respond—not a salesperson.
-            </p>
-          </div>
-
+        <div className="max-w-3xl mx-auto px-6 text-center relative z-10 avx-fade-in-up">
+          <p className="text-xs font-bold tracking-[0.25em] uppercase text-blue-400 mb-6">
+            Start a Project
+          </p>
+          <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+            Ready to work with<br />engineers who give a damn?
+          </h2>
+          <p className="text-slate-400 text-xl mb-10 max-w-xl mx-auto leading-relaxed">
+            Send us your project, your constraints, and your timeline. A senior
+            engineer responds — not a salesperson.
+          </p>
           <a
             href="mailto:manager@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
-            className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-12 py-4 rounded-lg font-semibold text-lg transition transform hover:scale-105 active:scale-95 shadow-lg avx-fade-in-up"
+            className="inline-block bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
           >
-            Get Started
+            Get in Touch
           </a>
-
-          <p className="mt-6 text-sm text-slate-300 avx-fade-in-up">
-            manager@axionvextech.com • Global, remote-first team
+          <p className="mt-6 text-slate-500 text-sm">
+            manager@axionvextech.com
           </p>
         </div>
       </section>

@@ -3,15 +3,15 @@
 /* Global Theme Variables */
 
 :root {
-  --background: #ffffff; /* main site background: white for clean, tidy look */
-  --foreground: #0B1B3A; /* primary text color on light background */
-  --site-dark: #0B1B3A; /* reserved dark color for accent sections */
-  --primary-accent: #7C3AED; /* purple */
-  --secondary-accent: #00BFA6; /* teal */
-  --dark-bg: #0a192f; /* deep navy */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --site-dark: #0f172a;
+  --primary-accent: #3b82f6;
+  --secondary-accent: #6366f1;
+  --dark-bg: #020617;
   --light-bg: #ffffff;
-  --cta-gradient-from: #7C3AED;
-  --cta-gradient-to: #00BFA6;
+  --cta-gradient-from: #3b82f6;
+  --cta-gradient-to: #6366f1;
 }
 
 @theme inline {
@@ -25,66 +25,48 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a192f;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Accent utility classes */
-.bg-primary-accent {
-  background-color: var(--primary-accent) !important;
-}
-.bg-secondary-accent {
-  background-color: var(--secondary-accent) !important;
-}
-.bg-dark-bg {
-  background-color: var(--dark-bg) !important;
-}
-.bg-site-dark {
-  background-color: var(--site-dark) !important;
-}
-.text-primary-accent {
-  color: var(--primary-accent) !important;
-}
-.text-secondary-accent {
-  color: var(--secondary-accent) !important;
-}
-.text-dark-bg {
-  color: var(--dark-bg) !important;
-}
-.text-site-foreground {
-  color: var(--foreground) !important;
-}
-
-/* Section utilities: use these to create alternating light/dark sections */
+/* Section utilities */
 .section-light {
   background-color: var(--light-bg) !important;
-  color: var(--dark-bg) !important;
+  color: var(--site-dark) !important;
+}
+.section-muted {
+  background-color: #f8fafc !important;
+  color: var(--site-dark) !important;
 }
 .section-dark {
   background-color: var(--site-dark) !important;
-  color: var(--light-bg) !important;
+  color: #ffffff !important;
 }
 
-/* Box variants to sit on top of section backgrounds */
+/* Box variants */
 .box-on-light {
   background-color: #ffffff;
-  color: var(--dark-bg);
+  color: var(--site-dark);
+}
+.box-on-muted {
+  background-color: #f8fafc;
+  color: var(--site-dark);
 }
 .box-on-dark {
-  background-color: rgba(255,255,255,0.04);
-  color: var(--foreground);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #f1f5f9;
+  border-color: rgba(255, 255, 255, 0.08);
 }
+
 .cta-gradient {
-  background-image: linear-gradient(to right, var(--cta-gradient-from), var(--cta-gradient-to));
+  background-image: linear-gradient(
+    135deg,
+    var(--cta-gradient-from),
+    var(--cta-gradient-to)
+  );
   color: #fff !important;
 }
 
@@ -92,7 +74,7 @@ body {
 @keyframes fade-in-up {
   0% {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
@@ -102,44 +84,38 @@ body {
 
 .avx-fade-in-up {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(20px);
   will-change: transform, opacity;
 }
 
 .avx-fade-in-up-delay {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(20px);
   will-change: transform, opacity;
 }
 
 .avx-fade-in-up.avx-in {
-  animation: fade-in-up 0.6s ease-out both;
+  animation: fade-in-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .avx-fade-in-up-delay.avx-in {
-  animation: fade-in-up 0.8s ease-out both;
+  animation: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Smooth scrolling for internal anchors */
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
+/* Hero graphic float */
 @keyframes avx-float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
 }
 
 .avx-hero-graphic {
   opacity: 0;
-  transform: translateY(0);
   will-change: transform, opacity;
 }
 
@@ -147,3 +123,9 @@ html {
   opacity: 1;
   animation: avx-float 6s ease-in-out infinite;
 }
+
+/* Accent utilities */
+.text-primary-accent { color: var(--primary-accent) !important; }
+.bg-primary-accent { background-color: var(--primary-accent) !important; }
+.text-site-foreground { color: var(--foreground) !important; }
+.bg-site-dark { background-color: var(--site-dark) !important; }
