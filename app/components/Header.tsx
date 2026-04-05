@@ -9,27 +9,27 @@ export default function Header({ page }: HeaderProps) {
   const navItems =
     page === "home"
       ? [
-          { label: "Services", href: "#services", internal: false },
-          { label: "Work", href: "/work", internal: true },
-          { label: "Why AxionvexTech", href: "#why", internal: false },
-          { label: "Recruiting", href: "/recruiting", internal: true },
-          { label: "Contact", href: "#contact", internal: false },
+          { label: "Services", href: "#services" },
+          { label: "Work", href: "/work" },
+          { label: "Why AxionvexTech", href: "#why" },
+          { label: "Recruiting", href: "/recruiting" },
+          { label: "Contact", href: "#contact" },
         ]
       : page === "recruiting"
       ? [
-          { label: "Home", href: "/", internal: true },
-          { label: "How It Works", href: "#process", internal: false },
-          { label: "Open Roles", href: "#positions", internal: false },
-          { label: "Apply", href: "#apply", internal: false },
+          { label: "Home", href: "/" },
+          { label: "How It Works", href: "#process" },
+          { label: "Open Roles", href: "#positions" },
+          { label: "Apply", href: "#apply" },
         ]
       : [
-          { label: "Home", href: "/", internal: true },
-          { label: "Services", href: "/#services", internal: true },
-          { label: "Recruiting", href: "/recruiting", internal: true },
-          { label: "Contact", href: "/#contact", internal: true },
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/#services" },
+          { label: "Recruiting", href: "/recruiting" },
+          { label: "Contact", href: "/#contact" },
         ];
 
-  const ctaButton =
+  const cta =
     page === "recruiting"
       ? { label: "Apply Now", href: "#apply" }
       : { label: "Start a Project", href: page === "home" ? "#contact" : "/#contact" };
@@ -52,43 +52,35 @@ export default function Header({ page }: HeaderProps) {
         </Link>
 
         <div className="hidden md:flex items-center gap-8 text-sm text-slate-600">
-          {navItems.map((item) =>
-            item.internal ? (
-              <Link
+          {navItems.map((item) => {
+            const isPage = item.href.startsWith("/");
+            const Component = isPage ? Link : "a";
+            return (
+              <Component
                 key={item.href}
                 href={item.href}
                 className="hover:text-slate-900 transition-colors font-medium"
               >
                 {item.label}
-              </Link>
-            ) : (
-              <a
-                key={item.href}
-                href={item.href}
-                className="hover:text-slate-900 transition-colors font-medium"
-              >
-                {item.label}
-              </a>
-            )
-          )}
+              </Component>
+            );
+          })}
 
-          {ctaButton.href.startsWith("/") || ctaButton.href.startsWith("#") ? (
-            ctaButton.href.startsWith("/") ? (
-              <Link
-                href={ctaButton.href}
-                className="ml-2 bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
-              >
-                {ctaButton.label}
-              </Link>
-            ) : (
-              <a
-                href={ctaButton.href}
-                className="ml-2 bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
-              >
-                {ctaButton.label}
-              </a>
-            )
-          ) : null}
+          {cta.href.startsWith("/") ? (
+            <Link
+              href={cta.href}
+              className="ml-2 bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+            >
+              {cta.label}
+            </Link>
+          ) : (
+            <a
+              href={cta.href}
+              className="ml-2 bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+            >
+              {cta.label}
+            </a>
+          )}
         </div>
       </div>
     </nav>

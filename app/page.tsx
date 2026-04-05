@@ -560,44 +560,50 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                tag: "Platform Modernization",
-                body: "Took over a SaaS codebase where deploys took two days and nobody wanted to touch the backend. Restructured the data layer, broke apart tightly-coupled modules, and set up a CI pipeline that let the team ship daily instead of monthly.",
+                tag: "Fintech",
+                title: "Payment API Rebuild",
+                body: "Redesigned a synchronous payment pipeline into an event-driven architecture. Resolved transaction failures under load, added retry logic, and built a compliance-ready audit trail.",
                 accent: "border-blue-500",
                 mockup: "saas" as const,
-                slug: "platform-modernization",
+                slug: "payment-api-rebuild",
               },
               {
-                tag: "Internal Operations Systems",
-                body: "Built a custom operations platform replacing a patchwork of spreadsheets and manual steps. Workflow automation, role-based access, audit logging — the kind of internal tool that actually gets used because it was built around how the team already works.",
+                tag: "Internal Systems",
+                title: "Internal Operations Platform",
+                body: "Built a custom operations platform replacing a patchwork of spreadsheets and manual steps. Workflow automation, role-based access, audit logging — designed around how the team actually works.",
                 accent: "border-indigo-500",
                 mockup: "ops" as const,
-                slug: "internal-operations",
+                slug: "internal-operations-platform",
               },
               {
-                tag: "Backend & Cloud Improvement",
-                body: "Inherited a production backend with no observability, flaky deployments, and a staging environment that did not match production. Set up structured logging, container-based deploys, and proper environment parity. The on-call rotation stopped being a nightmare.",
+                tag: "Cloud & Infrastructure",
+                title: "Backend Migration & System Cleanup",
+                body: "Took over a production backend with no observability, manual SSH deploys, and a staging environment that did not match production. Containerized, added structured logging, built a deploy pipeline with rollback.",
                 accent: "border-slate-700",
                 mockup: "cloud" as const,
-                slug: "backend-cloud",
+                slug: "backend-migration-cleanup",
               },
             ].map((item) => (
               <Link
-                key={item.tag}
-                href={`/work#${item.slug}`}
+                key={item.slug}
+                href={`/work/${item.slug}`}
                 className={`bg-slate-50 rounded-xl border border-slate-200 border-t-2 ${item.accent} overflow-hidden avx-fade-in-up hover:shadow-md transition-shadow block`}
               >
                 <div className="p-3 pb-0">
                   <DashboardMockup variant={item.mockup} />
                 </div>
                 <div className="p-6 pt-5">
-                  <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400 mb-3">
+                  <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400 mb-2">
                     {item.tag}
                   </p>
-                  <p className="text-slate-700 text-sm leading-relaxed mb-3">
+                  <h3 className="text-base font-bold text-slate-900 mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
                     {item.body}
                   </p>
                   <p className="text-blue-600 text-sm font-semibold">
-                    Read full case study →
+                    Read case study →
                   </p>
                 </div>
               </Link>
