@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 interface FooterProps {
-  page?: "home" | "recruiting";
+  page?: "home" | "recruiting" | "work";
 }
 
 export default function Footer({ page = "home" }: FooterProps) {
@@ -19,121 +19,52 @@ export default function Footer({ page = "home" }: FooterProps) {
             </p>
           </div>
 
-          {page === "home" ? (
-            <>
-              <div>
-                <p className="text-white text-sm font-semibold mb-4">
-                  Services
-                </p>
-                <ul className="space-y-2.5 text-sm">
-                  <li>
-                    <a
-                      href="#services"
-                      className="hover:text-white transition-colors"
-                    >
-                      Product Engineering
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#services"
-                      className="hover:text-white transition-colors"
-                    >
-                      Technical Strategy
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#services"
-                      className="hover:text-white transition-colors"
-                    >
-                      Cloud & Reliability
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <p className="text-white text-sm font-semibold mb-4">
-                  Company
-                </p>
-                <ul className="space-y-2.5 text-sm">
-                  <li>
-                    <a
-                      href="#why"
-                      className="hover:text-white transition-colors"
-                    >
-                      Why AxionvexTech
-                    </a>
-                  </li>
-                  <li>
-                    <Link
-                      href="/recruiting"
-                      className="hover:text-white transition-colors"
-                    >
-                      Recruiting
-                    </Link>
-                  </li>
-                  <li>
-                    <a
-                      href="mailto:manager@axionvextech.com"
-                      className="hover:text-white transition-colors"
-                    >
-                      Contact
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </>
-          ) : (
-            <>
-              <div>
-                <p className="text-white text-sm font-semibold mb-4">
-                  Positions
-                </p>
-                <ul className="space-y-2.5 text-sm">
-                  <li>
-                    <a
-                      href="#positions"
-                      className="hover:text-white transition-colors"
-                    >
-                      Open Roles
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#apply"
-                      className="hover:text-white transition-colors"
-                    >
-                      Apply
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <p className="text-white text-sm font-semibold mb-4">
-                  Company
-                </p>
-                <ul className="space-y-2.5 text-sm">
-                  <li>
-                    <Link
-                      href="/"
-                      className="hover:text-white transition-colors"
-                    >
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <a
-                      href="mailto:manager@axionvextech.com"
-                      className="hover:text-white transition-colors"
-                    >
-                      Contact
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </>
-          )}
+          <div>
+            <p className="text-white text-sm font-semibold mb-4">Services</p>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link href="/#services" className="hover:text-white transition-colors">
+                  Product Engineering
+                </Link>
+              </li>
+              <li>
+                <Link href="/#services" className="hover:text-white transition-colors">
+                  Technical Strategy
+                </Link>
+              </li>
+              <li>
+                <Link href="/#services" className="hover:text-white transition-colors">
+                  Cloud & Reliability
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-white text-sm font-semibold mb-4">Company</p>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link href="/work" className="hover:text-white transition-colors">
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/#why" className="hover:text-white transition-colors">
+                  Why AxionvexTech
+                </Link>
+              </li>
+              <li>
+                <Link href="/recruiting" className="hover:text-white transition-colors">
+                  Recruiting
+                </Link>
+              </li>
+              <li>
+                <a href="mailto:manager@axionvextech.com" className="hover:text-white transition-colors">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="border-t border-white/[0.06] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -141,10 +72,7 @@ export default function Footer({ page = "home" }: FooterProps) {
             &copy; 2026 AxionvexTech. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-slate-500">
-            <a
-              href="mailto:manager@axionvextech.com"
-              className="hover:text-white transition-colors"
-            >
+            <a href="mailto:manager@axionvextech.com" className="hover:text-white transition-colors">
               manager@axionvextech.com
             </a>
             <span className="text-slate-700">Remote-first team</span>

@@ -540,13 +540,21 @@ export default function Home() {
       {/* ═══ 8. OUTCOMES ═══ */}
       <section id="work" className="py-24 bg-white scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-xl mb-16 avx-fade-in-up">
-            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
-              Outcomes
-            </p>
-            <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
-              Real outcomes, not generic promises.
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16 avx-fade-in-up">
+            <div className="max-w-xl">
+              <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
+                Outcomes
+              </p>
+              <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+                Real outcomes, not generic promises.
+              </h2>
+            </div>
+            <Link
+              href="/work"
+              className="text-blue-600 hover:text-blue-500 text-sm font-semibold transition-colors flex-shrink-0"
+            >
+              View all case studies →
+            </Link>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -556,38 +564,43 @@ export default function Home() {
                 body: "Took over a SaaS codebase where deploys took two days and nobody wanted to touch the backend. Restructured the data layer, broke apart tightly-coupled modules, and set up a CI pipeline that let the team ship daily instead of monthly.",
                 accent: "border-blue-500",
                 mockup: "saas" as const,
+                slug: "platform-modernization",
               },
               {
                 tag: "Internal Operations Systems",
                 body: "Built a custom operations platform replacing a patchwork of spreadsheets and manual steps. Workflow automation, role-based access, audit logging — the kind of internal tool that actually gets used because it was built around how the team already works.",
                 accent: "border-indigo-500",
                 mockup: "ops" as const,
+                slug: "internal-operations",
               },
               {
                 tag: "Backend & Cloud Improvement",
                 body: "Inherited a production backend with no observability, flaky deployments, and a staging environment that did not match production. Set up structured logging, container-based deploys, and proper environment parity. The on-call rotation stopped being a nightmare.",
                 accent: "border-slate-700",
                 mockup: "cloud" as const,
+                slug: "backend-cloud",
               },
             ].map((item) => (
-              <div
+              <Link
                 key={item.tag}
-                className={`bg-slate-50 rounded-xl border border-slate-200 border-t-2 ${item.accent} overflow-hidden avx-fade-in-up`}
+                href={`/work#${item.slug}`}
+                className={`bg-slate-50 rounded-xl border border-slate-200 border-t-2 ${item.accent} overflow-hidden avx-fade-in-up hover:shadow-md transition-shadow block`}
               >
-                {/* Dashboard mockup */}
                 <div className="p-3 pb-0">
                   <DashboardMockup variant={item.mockup} />
                 </div>
-                {/* Text */}
                 <div className="p-6 pt-5">
                   <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400 mb-3">
                     {item.tag}
                   </p>
-                  <p className="text-slate-700 text-sm leading-relaxed">
+                  <p className="text-slate-700 text-sm leading-relaxed mb-3">
                     {item.body}
                   </p>
+                  <p className="text-blue-600 text-sm font-semibold">
+                    Read full case study →
+                  </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -622,31 +635,47 @@ export default function Home() {
             </div>
 
             {/* Visual: role cards */}
-            <div className="space-y-4 avx-fade-in-up-delay">
+            <div className="space-y-3 avx-fade-in-up-delay">
               {[
                 {
                   role: "Talent & Operations Coordinator",
-                  type: "Remote · Part-time to full-time",
+                  status: "Open",
                   accent: "border-blue-500",
+                  statusColor: "bg-emerald-400",
                 },
                 {
                   role: "Client-Facing Technical Lead",
-                  type: "Remote · Project-based",
+                  status: "Open",
                   accent: "border-indigo-500",
+                  statusColor: "bg-emerald-400",
+                },
+                {
+                  role: "Full-Stack · Backend · Frontend",
+                  status: "Expansion",
+                  accent: "border-slate-600",
+                  statusColor: "bg-yellow-400",
                 },
               ].map((pos) => (
                 <Link
                   key={pos.role}
                   href="/recruiting#positions"
-                  className={`block bg-white/[0.04] border border-white/[0.07] ${pos.accent} border-l-2 rounded-xl p-6 hover:bg-white/[0.07] transition-colors`}
+                  className={`block bg-white/[0.04] border border-white/[0.07] ${pos.accent} border-l-2 rounded-xl px-6 py-4 hover:bg-white/[0.07] transition-colors`}
                 >
-                  <p className="text-white font-semibold mb-1">{pos.role}</p>
-                  <p className="text-slate-500 text-sm">{pos.type}</p>
-                  <p className="text-blue-400 text-sm mt-3 font-medium">
-                    View role →
-                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-white font-semibold text-sm">{pos.role}</p>
+                    <div className="flex items-center gap-2">
+                      <div className={`w-1.5 h-1.5 rounded-full ${pos.statusColor}`} />
+                      <span className="text-slate-500 text-xs">{pos.status}</span>
+                    </div>
+                  </div>
                 </Link>
               ))}
+              <Link
+                href="/recruiting"
+                className="block text-center text-blue-400 hover:text-blue-300 text-sm font-medium pt-2 transition-colors"
+              >
+                View all 10+ roles →
+              </Link>
             </div>
           </div>
         </div>
@@ -737,21 +766,13 @@ export default function Home() {
             Tell us what you are building, what is blocked, or what needs to
             improve.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <a
-              href="mailto:manager@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
-              className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
-            >
-              Start a Project
-            </a>
-            <a
-              href="mailto:manager@axionvextech.com?subject=General%20Inquiry%20-%20AxionvexTech"
-              className="border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-white px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
-            >
-              Contact Us
-            </a>
-          </div>
-          <p className="mt-8 text-slate-500 text-sm">
+          <a
+            href="mailto:manager@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
+            className="inline-block bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
+          >
+            Start a Project
+          </a>
+          <p className="mt-6 text-slate-500 text-sm">
             manager@axionvextech.com
           </p>
         </div>
