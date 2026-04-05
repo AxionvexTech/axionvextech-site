@@ -1,24 +1,25 @@
-'use client';
+"use client";
 
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState } from "react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    position: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    position: "",
+    message: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -26,49 +27,37 @@ export default function ContactForm() {
     setIsLoading(true);
 
     try {
-      // Send email using mailto as a fallback
-      const subject = `Job Application: ${formData.position}`;
-      const body = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nPosition: ${formData.position}\n\nMessage:\n${formData.message}`;
-      
-      // Try sending via email API (you can replace this with your actual backend)
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       }).catch(() => null);
 
-      // Always show success message after trying to send
       setSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        position: '',
-        message: '',
-      });
-
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
+      setFormData({ name: "", email: "", phone: "", position: "", message: "" });
+      setTimeout(() => setSubmitted(false), 5000);
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
     } finally {
       setIsLoading(false);
     }
   };
 
+  const inputStyles =
+    "w-full px-4 py-2.5 bg-white/[0.06] border border-white/[0.1] rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 text-sm transition-colors";
+  const labelStyles = "block text-sm font-medium text-slate-300 mb-2";
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg">
+    <form onSubmit={handleSubmit} className="space-y-5">
       {submitted && (
-        <div className="bg-green-100 dark:bg-green-900 border border-green-400 dark:border-green-700 text-green-800 dark:text-green-100 px-4 py-3 rounded-lg">
-          Thank you for your application! We'll review it and get back to you soon.
+        <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-4 py-3 rounded-lg text-sm">
+          Application received. We review every submission and will be in touch
+          if there is a fit.
         </div>
       )}
 
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <label htmlFor="name" className={labelStyles}>
           Full Name
         </label>
         <input
@@ -78,12 +67,13 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-blue-600 dark:bg-gray-800 dark:text-white"
+          placeholder="Your full name"
+          className={inputStyles}
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <label htmlFor="email" className={labelStyles}>
           Email Address
         </label>
         <input
@@ -93,13 +83,15 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-blue-600 dark:bg-gray-800 dark:text-white"
+          placeholder="you@example.com"
+          className={inputStyles}
         />
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-          Phone Number
+        <label htmlFor="phone" className={labelStyles}>
+          Phone Number{" "}
+          <span className="text-slate-500 font-normal">(optional)</span>
         </label>
         <input
           type="tel"
@@ -107,13 +99,14 @@ export default function ContactForm() {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-blue-600 dark:bg-gray-800 dark:text-white"
+          placeholder="+1 (555) 000-0000"
+          className={inputStyles}
         />
       </div>
 
       <div>
-        <label htmlFor="position" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-          Position of Interest
+        <label htmlFor="position" className={labelStyles}>
+          Role You&rsquo;re Applying For
         </label>
         <select
           id="position"
@@ -121,17 +114,26 @@ export default function ContactForm() {
           value={formData.position}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-blue-600 dark:bg-gray-800 dark:text-white"
+          className={inputStyles}
         >
-          <option value="">Select a position...</option>
-          <option value="Recruiter / Virtual Assistant">Recruiter / Virtual Assistant</option>
-          <option value="Technical Lead & Client Interview Specialist">Technical Lead & Client Interview Specialist</option>
+          <option value="" className="bg-slate-900">
+            Select a role...
+          </option>
+          <option value="Talent & Operations Coordinator" className="bg-slate-900">
+            Talent & Operations Coordinator
+          </option>
+          <option value="Client-Facing Technical Lead" className="bg-slate-900">
+            Client-Facing Technical Lead
+          </option>
+          <option value="Other / Future Role" className="bg-slate-900">
+            Other / Future Role
+          </option>
         </select>
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-          Cover Letter / Message
+        <label htmlFor="message" className={labelStyles}>
+          Tell us about work you&rsquo;re proud of
         </label>
         <textarea
           id="message"
@@ -140,17 +142,17 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           rows={5}
-          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-blue-600 dark:bg-gray-800 dark:text-white"
-          placeholder="Tell us about yourself and why you're interested in this role..."
+          placeholder="What have you built, shipped, or solved that you'd want us to know about? Be specific."
+          className={inputStyles}
         />
       </div>
 
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white px-6 py-3 rounded-lg font-semibold transition"
+        className="w-full bg-blue-600 hover:bg-blue-500 disabled:bg-slate-700 disabled:text-slate-400 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-colors"
       >
-        {isLoading ? 'Submitting...' : 'Submit Application'}
+        {isLoading ? "Submitting..." : "Submit Application"}
       </button>
     </form>
   );

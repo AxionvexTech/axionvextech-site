@@ -9,18 +9,18 @@ export default function Footer({ page = "home" }: FooterProps) {
     <footer className="bg-slate-950 text-slate-400 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto px-6 py-14">
         <div className="grid md:grid-cols-4 gap-10 mb-10">
+          <div className="md:col-span-2">
+            <p className="text-white font-bold text-lg mb-3 tracking-tight">
+              AxionvexTech
+            </p>
+            <p className="text-sm leading-relaxed text-slate-500 max-w-sm">
+              A fast-growing engineering agency focused on production systems,
+              technical ownership, and reliable delivery.
+            </p>
+          </div>
+
           {page === "home" ? (
             <>
-              <div className="md:col-span-2">
-                <p className="text-white font-bold text-lg mb-3 tracking-tight">
-                  AxionvexTech
-                </p>
-                <p className="text-sm leading-relaxed text-slate-500 max-w-sm">
-                  Engineering agency. Senior engineers only. We build
-                  production systems for product teams that can&rsquo;t afford
-                  to cut corners.
-                </p>
-              </div>
               <div>
                 <p className="text-white text-sm font-semibold mb-4">
                   Services
@@ -31,7 +31,7 @@ export default function Footer({ page = "home" }: FooterProps) {
                       href="#services"
                       className="hover:text-white transition-colors"
                     >
-                      Product Development
+                      Product Engineering
                     </a>
                   </li>
                   <li>
@@ -47,7 +47,7 @@ export default function Footer({ page = "home" }: FooterProps) {
                       href="#services"
                       className="hover:text-white transition-colors"
                     >
-                      Infrastructure & Ops
+                      Cloud & Reliability
                     </a>
                   </li>
                 </ul>
@@ -59,10 +59,10 @@ export default function Footer({ page = "home" }: FooterProps) {
                 <ul className="space-y-2.5 text-sm">
                   <li>
                     <a
-                      href="#process"
+                      href="#why"
                       className="hover:text-white transition-colors"
                     >
-                      How We Work
+                      Why AxionvexTech
                     </a>
                   </li>
                   <li>
@@ -70,7 +70,7 @@ export default function Footer({ page = "home" }: FooterProps) {
                       href="/recruiting"
                       className="hover:text-white transition-colors"
                     >
-                      Join the Team
+                      Recruiting
                     </Link>
                   </li>
                   <li>
@@ -86,16 +86,6 @@ export default function Footer({ page = "home" }: FooterProps) {
             </>
           ) : (
             <>
-              <div className="md:col-span-2">
-                <p className="text-white font-bold text-lg mb-3 tracking-tight">
-                  AxionvexTech
-                </p>
-                <p className="text-sm leading-relaxed text-slate-500 max-w-sm">
-                  Engineering agency. Senior engineers only. We build
-                  production systems for product teams that can&rsquo;t afford
-                  to cut corners.
-                </p>
-              </div>
               <div>
                 <p className="text-white text-sm font-semibold mb-4">
                   Positions
@@ -150,12 +140,15 @@ export default function Footer({ page = "home" }: FooterProps) {
           <p className="text-sm text-slate-600">
             &copy; 2026 AxionvexTech. All rights reserved.
           </p>
-          <a
-            href="mailto:manager@axionvextech.com"
-            className="text-sm text-slate-500 hover:text-white transition-colors"
-          >
-            manager@axionvextech.com
-          </a>
+          <div className="flex items-center gap-6 text-sm text-slate-500">
+            <a
+              href="mailto:manager@axionvextech.com"
+              className="hover:text-white transition-colors"
+            >
+              manager@axionvextech.com
+            </a>
+            <span className="text-slate-700">Remote-first team</span>
+          </div>
         </div>
       </div>
     </footer>

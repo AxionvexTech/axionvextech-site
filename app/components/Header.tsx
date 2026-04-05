@@ -10,12 +10,14 @@ export default function Header({ page }: HeaderProps) {
     page === "home"
       ? [
           { label: "Services", href: "#services", internal: false },
-          { label: "Our Work", href: "#work", internal: false },
-          { label: "How We Work", href: "#process", internal: false },
+          { label: "Work", href: "#work", internal: false },
+          { label: "Why AxionvexTech", href: "#why", internal: false },
+          { label: "Recruiting", href: "/recruiting", internal: true },
           { label: "Contact", href: "#contact", internal: false },
         ]
       : [
           { label: "Home", href: "/", internal: true },
+          { label: "How It Works", href: "#process", internal: false },
           { label: "Open Roles", href: "#positions", internal: false },
           { label: "Apply", href: "#apply", internal: false },
         ];
@@ -59,12 +61,12 @@ export default function Header({ page }: HeaderProps) {
           )}
 
           {page === "home" ? (
-            <Link
-              href="/recruiting"
-              className="ml-2 bg-slate-900 hover:bg-slate-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+            <a
+              href="#contact"
+              className="ml-2 bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
-              Join the Team
-            </Link>
+              Start a Project
+            </a>
           ) : (
             <a
               href="#apply"

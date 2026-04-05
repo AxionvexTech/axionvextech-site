@@ -4,6 +4,9 @@ import Link from "next/link";
 import ScrollReveal from "./components/ScrollReveal";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HeroTerminal from "./components/HeroTerminal";
+import DashboardMockup from "./components/DashboardMockup";
+import ServiceIcon from "./components/ServiceIcon";
 
 export default function Home() {
   const schemaData = {
@@ -43,9 +46,8 @@ export default function Home() {
       />
       <Header page="home" />
 
-      {/* ─── HERO ─── */}
+      {/* ═══ 1. HERO ═══ */}
       <section className="relative overflow-hidden bg-slate-950">
-        {/* Subtle grid texture */}
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -54,80 +56,190 @@ export default function Home() {
             backgroundSize: "60px 60px",
           }}
         />
-        {/* Glow */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full blur-[120px] opacity-10 pointer-events-none" />
 
-        <div className="relative max-w-6xl mx-auto px-6 py-28 md:py-36">
-          <div className="max-w-3xl avx-fade-in-up">
-            <p className="mb-6 text-xs font-bold tracking-[0.25em] uppercase text-blue-400">
-              Engineering Agency · Remote-First
-            </p>
-            <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.06] text-white mb-7 tracking-tight">
-              We build systems<br className="hidden sm:block" /> that hold up.
-            </h1>
-            <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
-              A selective team of senior engineers working on products where
-              reliability and ownership actually matter. No juniors. No
-              handoffs. No filler.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href="#contact"
-                className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors text-base"
-              >
-                Start a Project
-              </a>
-              <Link
-                href="/recruiting"
-                className="border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-white px-8 py-3.5 rounded-lg font-semibold transition-colors text-base"
-              >
-                Join the Team →
-              </Link>
+        <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-32">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* Left: copy */}
+            <div className="avx-fade-in-up">
+              <p className="mb-6 text-xs font-bold tracking-[0.25em] uppercase text-blue-400">
+                For SaaS, Fintech & Product-Focused Teams
+              </p>
+
+              <h1 className="text-5xl md:text-6xl lg:text-[4.2rem] font-extrabold leading-[1.06] text-white mb-6 tracking-tight">
+                We build production systems with senior engineers only.
+              </h1>
+
+              <p className="text-lg text-slate-400 mb-10 max-w-lg leading-relaxed">
+                No junior handoffs. No bloated process. No weak execution. We
+                are a fast-growing engineering agency that embeds senior
+                engineers directly into product teams — to own delivery, not
+                just fill seats.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="#contact"
+                  className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors text-base"
+                >
+                  Start a Project
+                </a>
+                <a
+                  href="#process"
+                  className="border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-white px-8 py-3.5 rounded-lg font-semibold transition-colors text-base"
+                >
+                  See How We Work
+                </a>
+              </div>
             </div>
+
+            {/* Right: terminal */}
+            <div className="hidden md:block avx-fade-in-up-delay">
+              <HeroTerminal />
+            </div>
+          </div>
+
+          {/* Trust row */}
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 avx-fade-in-up">
+            {[
+              { label: "Senior engineers only" },
+              { label: "Ships to production, not staging" },
+              { label: "Your engineer owns the outcome" },
+              { label: "Start in 1–2 weeks" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                <p className="text-sm text-slate-400 font-medium">
+                  {item.label}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Fade to white */}
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-white pointer-events-none" />
       </section>
 
-      {/* ─── TRUST BAR ─── */}
-      <section className="py-14 bg-white border-b border-slate-100">
+      {/* ═══ 2. CREDIBILITY INTRO ═══ */}
+      <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 avx-fade-in-up">
+          <div className="grid md:grid-cols-5 gap-12 md:gap-16 items-center avx-fade-in-up">
+            <div className="md:col-span-3">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight leading-snug">
+                Built for teams that need more than extra hands.
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed">
+                Product teams hire us when they are shipping fast, modernizing
+                legacy systems, or scaling platforms where downtime has a real
+                cost. We handle the architecture, the backend, the cloud, the
+                full-stack delivery — whatever requires senior engineering weight
+                that the current team does not have.
+              </p>
+            </div>
+            {/* Visual: quick-stat cluster */}
+            <div className="md:col-span-2 grid grid-cols-2 gap-3">
+              {[
+                {
+                  label: "Avg. time to first deploy",
+                  value: "< 2 weeks",
+                  color: "border-blue-500",
+                },
+                {
+                  label: "Managed system uptime",
+                  value: "99.9%",
+                  color: "border-indigo-500",
+                },
+                {
+                  label: "Client projects delivered",
+                  value: "100+",
+                  color: "border-slate-300",
+                },
+                {
+                  label: "Avg. engagement length",
+                  value: "6+ months",
+                  color: "border-slate-300",
+                },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className={`bg-slate-50 border ${stat.color} border-t-2 rounded-xl p-4`}
+                >
+                  <p className="text-2xl font-extrabold text-slate-900">
+                    {stat.value}
+                  </p>
+                  <p className="text-xs text-slate-500 mt-1">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 3. WHY TEAMS WORK WITH US ═══ */}
+      <section id="why" className="py-24 bg-slate-50 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-xl mb-16 avx-fade-in-up">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
+              Why AxionvexTech
+            </p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+              Why teams work with us.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 avx-fade-in-up">
             {[
-              { value: "Senior only", label: "No juniors, no offshore" },
-              { value: "100+", label: "Client projects delivered" },
-              { value: "99.9%", label: "Uptime on managed systems" },
-              { value: "1–2 weeks", label: "Typical time to start" },
-            ].map((stat) => (
-              <div key={stat.value} className="text-center">
-                <p className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-1">
-                  {stat.value}
+              {
+                title: "Senior ownership from day one",
+                body: "Every engagement starts with a senior engineer who owns the project end-to-end. No ramp-up period, no management layers between you and the person doing the work.",
+              },
+              {
+                title: "Fast without chaos",
+                body: "We move quickly because we scope carefully and communicate directly. No standups that should have been a message. No process that exists for its own sake.",
+              },
+              {
+                title: "Built for real production work",
+                body: "We work on systems that are live, serving users, and under real constraints. Our engineers operate in production environments — not sandboxes.",
+              },
+              {
+                title: "Clean handoff, not dependency",
+                body: "When we leave, your team can run what we built without calling us. Documented decisions, clean code, monitoring in place. We do not build job security into your system.",
+              },
+              {
+                title: "Embedded, not outsourced",
+                body: "We work in your repo, your Slack, your sprint. Your team should forget we are external — that is the point. We are here to build, not to invoice.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="bg-white rounded-xl p-7 border border-slate-200 hover:shadow-sm transition-shadow"
+              >
+                <div className="w-8 h-0.5 bg-blue-600 rounded mb-5" />
+                <h3 className="text-base font-bold text-slate-900 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {item.body}
                 </p>
-                <p className="text-sm text-slate-500">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ─── SERVICES ─── */}
-      <section
-        id="services"
-        className="py-24 bg-slate-50 scroll-mt-20"
-      >
+      {/* ═══ 4. SERVICES ═══ */}
+      <section id="services" className="py-24 bg-white scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-xl mb-16 avx-fade-in-up">
             <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
-              What We Build
+              Services
             </p>
             <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
-              Three areas. Serious depth in all of them.
+              Three areas. Serious depth in each.
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              We don't spread thin across every technology. We go deep in the
-              areas that drive real product outcomes.
+              We do not spread across every technology. We go deep where it
+              matters most.
             </p>
           </div>
 
@@ -135,9 +247,10 @@ export default function Home() {
             {[
               {
                 accent: "bg-blue-600",
-                tag: "Product Development",
+                icon: "product" as const,
+                tag: "Product Engineering",
                 title: "Full-stack builds that ship.",
-                body: "Greenfield SaaS platforms, modernizing legacy codebases, building APIs that scale. We own delivery end-to-end — from architecture to production.",
+                body: "Greenfield SaaS platforms, legacy modernization, and scalable APIs. We own delivery end-to-end — from architecture decisions to production deployment.",
                 points: [
                   "SaaS platforms & internal tools",
                   "Frontend systems & design systems",
@@ -146,9 +259,10 @@ export default function Home() {
               },
               {
                 accent: "bg-indigo-600",
+                icon: "strategy" as const,
                 tag: "Technical Strategy",
                 title: "Architecture that ages well.",
-                body: "System design, scalability assessments, and tech-debt triage. We help teams make the right call before it's expensive to change.",
+                body: "System design, scalability assessments, and tech-debt triage. We help teams make the right call before it becomes expensive to change.",
                 points: [
                   "Architecture review & redesign",
                   "Performance bottleneck analysis",
@@ -157,9 +271,10 @@ export default function Home() {
               },
               {
                 accent: "bg-slate-800",
-                tag: "Infrastructure & Ops",
+                icon: "cloud" as const,
+                tag: "Cloud & Reliability",
                 title: "Production systems, properly run.",
-                body: "Cloud architecture, CI/CD, observability, and reliability engineering for systems that can't afford downtime.",
+                body: "Cloud architecture, CI/CD, observability, and reliability engineering for systems that serve real users and cannot afford downtime.",
                 points: [
                   "Cloud setup & migration",
                   "Observability, alerting & SLOs",
@@ -169,12 +284,14 @@ export default function Home() {
             ].map((service) => (
               <div
                 key={service.tag}
-                className="bg-white rounded-xl p-8 border border-slate-200 hover:shadow-md transition-shadow avx-fade-in-up"
+                className="bg-slate-50 rounded-xl p-8 border border-slate-200 hover:shadow-md transition-shadow avx-fade-in-up"
               >
-                <div className={`w-10 h-1 ${service.accent} rounded mb-6`} />
-                <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400 mb-3">
-                  {service.tag}
-                </p>
+                <div className="flex items-center gap-3 mb-6">
+                  <ServiceIcon type={service.icon} />
+                  <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400">
+                    {service.tag}
+                  </p>
+                </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3 leading-snug">
                   {service.title}
                 </h3>
@@ -200,71 +317,274 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── CASE STUDIES ─── */}
+      {/* ═══ 5. ENGINEERING CULTURE ═══ */}
+      <section className="py-24 bg-slate-950 relative overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-80 h-80 bg-indigo-600 rounded-full blur-[100px] opacity-10 pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-6 relative">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+            {/* Left: copy */}
+            <div className="avx-fade-in-up">
+              <p className="text-xs font-bold tracking-[0.25em] uppercase text-blue-400 mb-5">
+                Engineering Culture
+              </p>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-10 leading-tight tracking-tight">
+                How we work.
+              </h2>
+
+              <div className="space-y-6">
+                {[
+                  "We do not ship unstable code just to move fast.",
+                  "We do not hide engineers behind non-technical layers.",
+                  "We care about architecture, maintainability, and handoff.",
+                  "We solve problems end-to-end, not task-by-task.",
+                  "We expect ownership, communication, and technical honesty.",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-4">
+                    <div className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2.5 flex-shrink-0" />
+                    <p className="text-slate-300 text-lg leading-relaxed">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-12 text-slate-500 text-base font-medium">
+                Small team mindset. Senior standards. Real delivery.
+              </p>
+            </div>
+
+            {/* Right: code review visual */}
+            <div className="hidden md:block avx-fade-in-up-delay">
+              <div className="bg-white/[0.03] border border-white/[0.07] rounded-xl overflow-hidden">
+                {/* PR header */}
+                <div className="px-5 py-4 border-b border-white/[0.06]">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-2 h-2 rounded-full bg-emerald-400" />
+                    <span className="text-emerald-400 text-xs font-mono font-bold">
+                      Approved
+                    </span>
+                  </div>
+                  <p className="text-white text-sm font-semibold">
+                    refactor: migrate payment service to event-driven
+                    architecture
+                  </p>
+                  <p className="text-slate-500 text-xs mt-1 font-mono">
+                    +847 &minus;1,203 across 14 files
+                  </p>
+                </div>
+
+                {/* Code diff */}
+                <div className="px-5 py-4 font-mono text-xs space-y-2">
+                  <div className="flex gap-3">
+                    <span className="text-slate-600 select-none w-6 text-right">
+                      42
+                    </span>
+                    <span className="text-red-400/70 line-through">
+                      await processPaymentSync(order);
+                    </span>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="text-slate-600 select-none w-6 text-right">
+                      42
+                    </span>
+                    <span className="text-emerald-400">
+                      await eventBus.emit(&apos;payment.initiated&apos;,
+                      order);
+                    </span>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="text-slate-600 select-none w-6 text-right">
+                      43
+                    </span>
+                    <span className="text-emerald-400">
+                      await eventBus.emit(&apos;audit.log&apos;,{" "}
+                      {"{ action, orderId }"});
+                    </span>
+                  </div>
+                </div>
+
+                {/* Review comment */}
+                <div className="mx-5 mb-5 bg-blue-500/10 border border-blue-500/20 rounded-lg p-3">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <div className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center text-[10px] text-white font-bold">
+                      A
+                    </div>
+                    <span className="text-blue-400 text-xs font-medium">
+                      Senior Engineer
+                    </span>
+                  </div>
+                  <p className="text-slate-400 text-xs leading-relaxed">
+                    Clean separation. This lets us add retry logic and dead
+                    letter handling without touching the payment flow. Ship it.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 6. MOMENTUM ═══ */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-5 gap-12 md:gap-16 items-start avx-fade-in-up">
+            <div className="md:col-span-3">
+              <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-5">
+                Momentum
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight leading-snug">
+                Built for momentum.
+              </h2>
+              <div className="space-y-5 text-lg text-slate-600 leading-relaxed">
+                <p>
+                  AxionvexTech is growing through execution — not through
+                  pitching.
+                </p>
+                <p>
+                  Every quarter, we take on more complex systems, work with
+                  stronger teams, and raise the bar on what we deliver. We hire
+                  slowly. We keep people long. We stay lean enough that every
+                  client engagement still has a senior engineer who knows their
+                  name.
+                </p>
+                <p className="text-slate-900 font-medium">
+                  This is how we scale: carefully, selectively, and with
+                  standards intact.
+                </p>
+              </div>
+            </div>
+
+            {/* Visual: growth signals */}
+            <div className="md:col-span-2 space-y-4">
+              {[
+                {
+                  signal: "Team",
+                  detail: "Selectively expanding for the first time",
+                  accent: "bg-blue-600",
+                },
+                {
+                  signal: "Clients",
+                  detail: "New engagements starting monthly",
+                  accent: "bg-indigo-600",
+                },
+                {
+                  signal: "Complexity",
+                  detail: "Taking on larger, more technical projects",
+                  accent: "bg-slate-700",
+                },
+                {
+                  signal: "Standards",
+                  detail: "Higher bar with every engagement",
+                  accent: "bg-emerald-600",
+                },
+              ].map((item) => (
+                <div
+                  key={item.signal}
+                  className="flex items-center gap-4 bg-slate-50 border border-slate-200 rounded-xl px-5 py-4"
+                >
+                  <div className={`w-2 h-8 ${item.accent} rounded-full`} />
+                  <div>
+                    <p className="font-bold text-slate-900 text-sm">
+                      {item.signal}
+                    </p>
+                    <p className="text-slate-500 text-xs">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 7. SELECTIVE POSITIONING ═══ */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div className="avx-fade-in-up">
+              <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-5">
+                Fit
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-snug">
+                Not every project is a fit.
+              </h2>
+            </div>
+
+            <div className="avx-fade-in-up">
+              <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                We work best with teams that value:
+              </p>
+              <ul className="space-y-4 mb-10">
+                {[
+                  "Code that works a year from now, not just at the demo",
+                  "Talking directly to the engineer, not through a project manager",
+                  "One person owning the outcome, not five people owning tasks",
+                  "Honest timelines over optimistic ones",
+                  "Shipping under real constraints, not ideal conditions",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-slate-900 flex-shrink-0" />
+                    <p className="text-slate-800 font-medium">{item}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-slate-500 text-base leading-relaxed">
+                If the priority is just finding the cheapest vendor, we are
+                probably not the right match.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 8. OUTCOMES ═══ */}
       <section id="work" className="py-24 bg-white scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-xl mb-16 avx-fade-in-up">
             <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
-              Selected Work
+              Outcomes
             </p>
             <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
-              Real projects. Real outcomes.
+              Real outcomes, not generic promises.
             </h2>
-            <p className="text-slate-600 text-lg leading-relaxed">
-              A few examples of what good engineering work looks like in
-              practice.
-            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                category: "Fintech",
-                title: "Payment API Rebuild",
-                body: "Core payment processing infrastructure was bottlenecking at peak load. Redesigned the architecture, refactored the pipeline, migrated with zero downtime.",
-                metric: "10×",
-                metricLabel: "throughput increase",
-                color: "border-blue-500",
-                metricColor: "text-blue-600",
+                tag: "Platform Modernization",
+                body: "Took over a SaaS codebase where deploys took two days and nobody wanted to touch the backend. Restructured the data layer, broke apart tightly-coupled modules, and set up a CI pipeline that let the team ship daily instead of monthly.",
+                accent: "border-blue-500",
+                mockup: "saas" as const,
               },
               {
-                category: "E-Commerce",
-                title: "Mobile Platform from Zero",
-                body: "Greenfield iOS and Android app — real-time order tracking, payment integration, and backend API — scoped, built, and shipped in four months.",
-                metric: "4 months",
-                metricLabel: "concept to production",
-                color: "border-indigo-500",
-                metricColor: "text-indigo-600",
+                tag: "Internal Operations Systems",
+                body: "Built a custom operations platform replacing a patchwork of spreadsheets and manual steps. Workflow automation, role-based access, audit logging — the kind of internal tool that actually gets used because it was built around how the team already works.",
+                accent: "border-indigo-500",
+                mockup: "ops" as const,
               },
               {
-                category: "SaaS",
-                title: "Backend Migration",
-                body: "Moved a monolithic codebase to a service-oriented architecture. The team could finally ship features independently without stepping on each other.",
-                metric: "99.99%",
-                metricLabel: "uptime through migration",
-                color: "border-slate-700",
-                metricColor: "text-slate-700",
+                tag: "Backend & Cloud Improvement",
+                body: "Inherited a production backend with no observability, flaky deployments, and a staging environment that did not match production. Set up structured logging, container-based deploys, and proper environment parity. The on-call rotation stopped being a nightmare.",
+                accent: "border-slate-700",
+                mockup: "cloud" as const,
               },
-            ].map((cs) => (
+            ].map((item) => (
               <div
-                key={cs.title}
-                className={`bg-white rounded-xl p-8 border border-slate-200 border-t-2 ${cs.color} hover:shadow-md transition-shadow avx-fade-in-up`}
+                key={item.tag}
+                className={`bg-slate-50 rounded-xl border border-slate-200 border-t-2 ${item.accent} overflow-hidden avx-fade-in-up`}
               >
-                <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400 mb-3">
-                  {cs.category}
-                </p>
-                <h3 className="text-xl font-bold text-slate-900 mb-4 leading-snug">
-                  {cs.title}
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-8">
-                  {cs.body}
-                </p>
-                <div className="mt-auto border-t border-slate-100 pt-5">
-                  <p className={`text-3xl font-extrabold ${cs.metricColor}`}>
-                    {cs.metric}
+                {/* Dashboard mockup */}
+                <div className="p-3 pb-0">
+                  <DashboardMockup variant={item.mockup} />
+                </div>
+                {/* Text */}
+                <div className="p-6 pt-5">
+                  <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400 mb-3">
+                    {item.tag}
                   </p>
-                  <p className="text-xs text-slate-500 mt-1">
-                    {cs.metricLabel}
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    {item.body}
                   </p>
                 </div>
               </div>
@@ -273,90 +593,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── HOW WE DELIVER ─── */}
-      <section id="process" className="py-24 bg-slate-50 scroll-mt-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-xl mb-16 avx-fade-in-up">
-            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
-              How We Work
-            </p>
-            <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
-              Delivery without the theater.
-            </h2>
-            <p className="text-slate-600 text-lg leading-relaxed">
-              No status decks. No account managers. One senior engineer owns
-              your project and moves it forward.
-            </p>
-          </div>
+      {/* ═══ 9. RECRUITING TEASER ═══ */}
+      <section className="py-24 bg-slate-950 relative overflow-hidden">
+        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-blue-600 rounded-full blur-[120px] opacity-[0.08] pointer-events-none" />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                num: "01",
-                title: "One owner per project",
-                body: "A senior engineer takes point on your project end-to-end. They're accountable for the outcome — not just the tasks.",
-              },
-              {
-                num: "02",
-                title: "Aligned before we build",
-                body: "We spend time upfront mapping your constraints, goals, and success criteria. Surprises are expensive. We design them out.",
-              },
-              {
-                num: "03",
-                title: "Short cycles, real feedback",
-                body: "We ship in increments. You see progress weekly. We course-correct early instead of discovering problems at handover.",
-              },
-              {
-                num: "04",
-                title: "Production-ready from day one",
-                body: "Monitoring, logging, and documentation aren't afterthoughts. Your team inherits a system they can actually own.",
-              },
-              {
-                num: "05",
-                title: "No vendor lock-in",
-                body: "We use mainstream tools your team already knows. We're not building job security into your architecture.",
-              },
-              {
-                num: "06",
-                title: "You're in the loop, always",
-                body: "Direct access to your engineer. Clear status on what's done, what's next, and what's blocking — without having to ask.",
-              },
-            ].map((item) => (
-              <div
-                key={item.num}
-                className="bg-white rounded-xl p-7 border border-slate-200 avx-fade-in-up hover:shadow-sm transition-shadow"
-              >
-                <p className="text-xs font-bold text-slate-300 mb-4 tracking-widest">
-                  {item.num}
-                </p>
-                <h3 className="text-base font-bold text-slate-900 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── ENGINEERING CULTURE TEASER ─── */}
-      <section className="py-24 bg-slate-950 overflow-hidden relative">
-        <div className="absolute top-0 right-1/4 w-80 h-80 bg-indigo-600 rounded-full blur-[100px] opacity-10 pointer-events-none" />
         <div className="max-w-6xl mx-auto px-6 relative">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div className="avx-fade-in-up">
               <p className="text-xs font-bold tracking-[0.25em] uppercase text-blue-400 mb-5">
-                We're Hiring
+                Recruiting
               </p>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-                Built for engineers who own their work.
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6 tracking-tight leading-snug">
+                Join a team that is growing the right way.
               </h2>
-              <p className="text-slate-400 text-lg leading-relaxed mb-8">
-                Everyone here is senior. Everyone ships to production. No one
-                waits to be told what to do. We're a small team growing
-                deliberately — if you value craft and ownership, read on.
+              <p className="text-slate-400 text-lg leading-relaxed mb-10">
+                We are selectively expanding with engineers and operators who
+                can handle real ownership, communicate clearly, and work in
+                environments where the code you write runs in production the
+                same week. If that sounds like the kind of place you have been
+                looking for — we should talk.
               </p>
               <Link
                 href="/recruiting"
@@ -366,22 +621,95 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 avx-fade-in-up">
+            {/* Visual: role cards */}
+            <div className="space-y-4 avx-fade-in-up-delay">
               {[
-                "Senior engineers only",
-                "Ownership from day one",
-                "Code reviews that matter",
-                "Direct client contact",
-                "Async-first culture",
-                "Remote & flexible",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="bg-white/[0.04] border border-white/[0.07] rounded-xl p-5 hover:bg-white/[0.07] transition-colors"
+                {
+                  role: "Talent & Operations Coordinator",
+                  type: "Remote · Part-time to full-time",
+                  accent: "border-blue-500",
+                },
+                {
+                  role: "Client-Facing Technical Lead",
+                  type: "Remote · Project-based",
+                  accent: "border-indigo-500",
+                },
+              ].map((pos) => (
+                <Link
+                  key={pos.role}
+                  href="/recruiting#positions"
+                  className={`block bg-white/[0.04] border border-white/[0.07] ${pos.accent} border-l-2 rounded-xl p-6 hover:bg-white/[0.07] transition-colors`}
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-400 mb-3" />
-                  <p className="text-white text-sm font-medium leading-snug">
-                    {item}
+                  <p className="text-white font-semibold mb-1">{pos.role}</p>
+                  <p className="text-slate-500 text-sm">{pos.type}</p>
+                  <p className="text-blue-400 text-sm mt-3 font-medium">
+                    View role →
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 10. PROCESS ═══ */}
+      <section id="process" className="py-24 bg-white scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-xl mb-16 avx-fade-in-up">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
+              Process
+            </p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+              A delivery process built for speed and clarity.
+            </h2>
+          </div>
+
+          {/* Process steps with connector */}
+          <div className="relative avx-fade-in-up">
+            {/* Horizontal connector line — desktop only */}
+            <div className="hidden md:block absolute top-[52px] left-[calc(12.5%+12px)] right-[calc(12.5%+12px)] h-px bg-slate-200" />
+
+            <div className="grid md:grid-cols-4 gap-6">
+              {[
+                {
+                  num: "01",
+                  title: "Discovery",
+                  body: "We align on goals, constraints, technical reality, and where the real leverage is.",
+                  accent: "bg-blue-600",
+                },
+                {
+                  num: "02",
+                  title: "Plan",
+                  body: "We define the technical approach, expected outcomes, risks, and execution path.",
+                  accent: "bg-indigo-600",
+                },
+                {
+                  num: "03",
+                  title: "Build",
+                  body: "We work in short cycles with clear communication and visible progress.",
+                  accent: "bg-violet-600",
+                },
+                {
+                  num: "04",
+                  title: "Launch & Support",
+                  body: "We launch safely, stabilize quickly, and leave the system in a condition your team can continue to own.",
+                  accent: "bg-emerald-600",
+                },
+              ].map((step) => (
+                <div key={step.num} className="relative text-center md:text-left">
+                  {/* Step indicator */}
+                  <div className="flex justify-center md:justify-start mb-6">
+                    <div
+                      className={`relative z-10 w-10 h-10 rounded-full ${step.accent} flex items-center justify-center text-white text-sm font-bold shadow-lg`}
+                    >
+                      {step.num}
+                    </div>
+                  </div>
+                  <h3 className="text-base font-bold text-slate-900 mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {step.body}
                   </p>
                 </div>
               ))}
@@ -390,104 +718,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── FAQ ─── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-16 avx-fade-in-up">
-            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
-              FAQ
-            </p>
-            <h2 className="text-4xl font-bold text-slate-900 tracking-tight">
-              Questions we hear often.
-            </h2>
-          </div>
-
-          <div className="space-y-3 avx-fade-in-up">
-            {[
-              {
-                q: "What types of projects are the best fit?",
-                a: "Teams building web applications where quality, reliability, and maintainability matter — SaaS platforms, internal tools, data-heavy dashboards, customer-facing portals. If you need something fast and disposable, we're probably not the right fit.",
-              },
-              {
-                q: "Do you replace our internal team?",
-                a: "No. We extend your team's capacity with senior engineering weight — particularly useful when your roadmap has outgrown your current headcount or you need an outside perspective on architecture.",
-              },
-              {
-                q: "How fast can we get started?",
-                a: "Discovery and consulting engagements typically start within 1–2 weeks. For larger builds, we scope first, then align on timeline. We don't take on projects we can't commit to properly.",
-              },
-              {
-                q: "What tech stack do you use?",
-                a: "We use what's right for the project. Typically: React, Next.js, Node, Python, PostgreSQL, AWS/GCP. We don't introduce technology for its own sake.",
-              },
-            ].map((item) => (
-              <div
-                key={item.q}
-                className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-slate-300 transition-colors"
-              >
-                <h3 className="font-semibold text-slate-900 mb-2">{item.q}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {item.a}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── TESTIMONIALS ─── */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-xl mb-16 avx-fade-in-up">
-            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
-              Clients
-            </p>
-            <h2 className="text-4xl font-bold text-slate-900 tracking-tight">
-              What teams say after working with us.
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                quote:
-                  "They understood our architecture problem immediately. Delivered a complete refactor in 8 weeks — no delays, no excuses. Our API now handles 10× the throughput.",
-                name: "Sarah Chen",
-                role: "CTO, Series B SaaS",
-              },
-              {
-                quote:
-                  "Needed senior expertise fast. They paired with my team, shipped a payment system in 3 months, and stayed for 30 days post-launch. No hand-off friction.",
-                name: "Michael Rodriguez",
-                role: "VP Engineering, Fintech Startup",
-              },
-              {
-                quote:
-                  "Transparent pricing, fixed timeline, one engineer we trusted completely. They navigated our legacy codebase better than most of our internal team.",
-                name: "Jessica Kim",
-                role: "Founder, Enterprise SaaS",
-              },
-            ].map((t) => (
-              <div
-                key={t.name}
-                className="bg-white rounded-xl p-8 border border-slate-200 avx-fade-in-up"
-              >
-                <p className="text-slate-700 text-sm leading-relaxed mb-8">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="border-t border-slate-100 pt-5">
-                  <p className="font-semibold text-slate-900 text-sm">
-                    {t.name}
-                  </p>
-                  <p className="text-xs text-slate-500 mt-0.5">{t.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── CTA ─── */}
+      {/* ═══ 11. FINAL CTA ═══ */}
       <section
         id="contact"
         className="py-28 bg-slate-950 relative overflow-hidden scroll-mt-20"
@@ -498,23 +729,29 @@ export default function Home() {
         </div>
 
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10 avx-fade-in-up">
-          <p className="text-xs font-bold tracking-[0.25em] uppercase text-blue-400 mb-6">
-            Start a Project
-          </p>
-          <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight leading-tight">
-            Ready to work with<br />engineers who give a damn?
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+            Work with senior engineers
+            <br className="hidden sm:block" /> who can actually deliver.
           </h2>
           <p className="text-slate-400 text-xl mb-10 max-w-xl mx-auto leading-relaxed">
-            Send us your project, your constraints, and your timeline. A senior
-            engineer responds — not a salesperson.
+            Tell us what you are building, what is blocked, or what needs to
+            improve.
           </p>
-          <a
-            href="mailto:manager@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
-            className="inline-block bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
-          >
-            Get in Touch
-          </a>
-          <p className="mt-6 text-slate-500 text-sm">
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
+            <a
+              href="mailto:manager@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
+              className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
+            >
+              Start a Project
+            </a>
+            <a
+              href="mailto:manager@axionvextech.com?subject=General%20Inquiry%20-%20AxionvexTech"
+              className="border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-white px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
+            >
+              Contact Us
+            </a>
+          </div>
+          <p className="mt-8 text-slate-500 text-sm">
             manager@axionvextech.com
           </p>
         </div>

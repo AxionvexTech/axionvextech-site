@@ -17,7 +17,7 @@ export default function Recruiting() {
     <div className="min-h-screen bg-white">
       <Header page="recruiting" />
 
-      {/* ─── HERO ─── */}
+      {/* ═══ 1. HERO ═══ */}
       <section className="relative overflow-hidden bg-slate-950">
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -29,296 +29,223 @@ export default function Recruiting() {
         />
         <div className="absolute top-0 right-1/3 w-96 h-96 bg-indigo-600 rounded-full blur-[120px] opacity-10 pointer-events-none" />
 
-        <div className="relative max-w-6xl mx-auto px-6 py-28 md:py-36">
-          <div className="max-w-2xl">
-            <p className="mb-5 text-xs font-bold tracking-[0.25em] uppercase text-blue-400">
-              We&rsquo;re Hiring
-            </p>
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.06] text-white mb-6 tracking-tight">
-              We hire slowly.<br />We keep people long.
-            </h1>
-            <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
-              We&rsquo;re a small team of senior engineers building real systems
-              for real clients. If you want ownership, growth, and work that
-              actually challenges you — this is worth reading.
-            </p>
-            <a
-              href="#positions"
-              className="inline-block bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors text-base"
-            >
-              See Open Roles
-            </a>
+        <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-32">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div>
+              <p className="mb-5 text-xs font-bold tracking-[0.25em] uppercase text-blue-400">
+                Selective Hiring · Engineering Agency
+              </p>
+              <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.06] text-white mb-6 tracking-tight">
+                We hire slowly.
+                <br />
+                We keep people long.
+              </h1>
+              <p className="text-lg text-slate-400 mb-10 max-w-xl leading-relaxed">
+                AxionvexTech is a growing engineering agency expanding its team
+                for the first time. We are not mass-hiring. We are looking for a
+                small number of people who can handle real ownership, ship real
+                systems, and grow with us as the work gets more complex.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="#positions"
+                  className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors text-base"
+                >
+                  See Open Roles
+                </a>
+                <a
+                  href="#process"
+                  className="border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-white px-8 py-3.5 rounded-lg font-semibold transition-colors text-base"
+                >
+                  How Joining Works
+                </a>
+              </div>
+            </div>
+
+            {/* Right: pipeline status */}
+            <div className="hidden md:block">
+              <div className="bg-white/[0.03] border border-white/[0.07] rounded-xl overflow-hidden">
+                <div className="px-5 py-4 border-b border-white/[0.06]">
+                  <p className="text-white text-sm font-semibold">
+                    Hiring Pipeline — Live Status
+                  </p>
+                  <p className="text-slate-500 text-xs mt-1">
+                    Updated as positions open and close
+                  </p>
+                </div>
+                <div className="p-5 space-y-3">
+                  {[
+                    {
+                      role: "Talent & Operations Coordinator",
+                      status: "Actively Hiring",
+                      color: "bg-emerald-400",
+                    },
+                    {
+                      role: "Client-Facing Technical Lead",
+                      status: "Actively Hiring",
+                      color: "bg-emerald-400",
+                    },
+                    {
+                      role: "Senior Full-Stack Engineer",
+                      status: "Opening Soon",
+                      color: "bg-yellow-400",
+                    },
+                    {
+                      role: "Senior Backend Engineer",
+                      status: "Opening Soon",
+                      color: "bg-yellow-400",
+                    },
+                    {
+                      role: "DevOps / Cloud Engineer",
+                      status: "Pipeline Building",
+                      color: "bg-slate-500",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.role}
+                      className="flex items-center justify-between bg-white/[0.03] rounded-lg px-4 py-3"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={`w-2 h-2 rounded-full ${item.color}`}
+                        />
+                        <span className="text-slate-300 text-sm">
+                          {item.role}
+                        </span>
+                      </div>
+                      <span className="text-slate-500 text-xs font-medium">
+                        {item.status}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-white pointer-events-none" />
       </section>
 
-      {/* ─── ABOUT THE TEAM ─── */}
-      <section className="py-24 bg-white">
+      {/* ═══ 2. HOW JOINING WORKS ═══ */}
+      <section id="process" className="py-24 bg-white scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-5">
-                Who We Are
-              </p>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
-                A small team. High standards. Growing fast.
-              </h2>
-              <div className="space-y-4 text-slate-600 leading-relaxed">
-                <p>
-                  We&rsquo;re not a large agency. We&rsquo;re a tight group of
-                  senior engineers — distributed across time zones — who work
-                  closely, move fast, and hold each other to a high standard.
-                </p>
-                <p>
-                  Everyone here owns their work from start to finish.
-                  There&rsquo;s no one to hand it off to, and we prefer it that
-                  way. The people who thrive here are the ones who would rather
-                  have full ownership of something real than be a small cog in
-                  something large.
-                </p>
-                <p>
-                  We&rsquo;re currently expanding our team for the first time
-                  since we started. If you join now, you&rsquo;re joining early
-                  — when the decisions you make actually shape what this becomes.
-                </p>
-              </div>
-            </div>
+          <div className="max-w-xl mb-16">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
+              How Joining Works
+            </p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+              A clear process. No surprises.
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              We do not ghost candidates. We do not run endless interview loops.
+              Here is exactly what happens when you apply.
+            </p>
+          </div>
 
-            <div className="grid grid-cols-2 gap-4">
+          {/* Pipeline steps */}
+          <div className="relative">
+            <div className="hidden md:block absolute top-[28px] left-[calc(10%+20px)] right-[calc(10%+20px)] h-px bg-slate-200" />
+
+            <div className="grid md:grid-cols-5 gap-6">
               {[
                 {
-                  title: "Remote-first",
-                  body: "Distributed team. Async by default. We hire for output, not presence.",
+                  num: "01",
+                  title: "Application",
+                  body: "You fill out the form with your background and the kind of work you are proud of. No cover letter template. Be specific.",
+                  accent: "bg-blue-600",
                 },
                 {
-                  title: "Async-first",
-                  body: "We communicate when it matters. No standups for the sake of it.",
+                  num: "02",
+                  title: "Screening",
+                  body: "We review your application within one week. If there is a potential fit, we schedule a short introductory call.",
+                  accent: "bg-blue-600",
                 },
                 {
-                  title: "Ownership-heavy",
-                  body: "You run your work. You make decisions. You own the outcomes.",
+                  num: "03",
+                  title: "Interview",
+                  body: "A focused conversation with a senior team member. We talk about real work, real constraints, and how you think — not trivia questions.",
+                  accent: "bg-indigo-600",
                 },
                 {
-                  title: "Growing",
-                  body: "New client projects every month. Team expanding deliberately.",
+                  num: "04",
+                  title: "Internal Review",
+                  body: "We discuss fit, expectations, and role alignment as a team. You hear back within a few days — either way.",
+                  accent: "bg-indigo-600",
                 },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="bg-slate-50 border border-slate-200 rounded-xl p-6"
-                >
-                  <p className="font-bold text-slate-900 text-sm mb-2">
-                    {item.title}
-                  </p>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    {item.body}
+                {
+                  num: "05",
+                  title: "Onboarding",
+                  body: "You get access, context, and a real assignment. No training videos. You start working with the team on a real project.",
+                  accent: "bg-emerald-600",
+                },
+              ].map((step) => (
+                <div key={step.num} className="relative text-center md:text-left">
+                  <div className="flex justify-center md:justify-start mb-5">
+                    <div
+                      className={`relative z-10 w-10 h-10 rounded-full ${step.accent} flex items-center justify-center text-white text-xs font-bold shadow-lg`}
+                    >
+                      {step.num}
+                    </div>
+                  </div>
+                  <h3 className="text-sm font-bold text-slate-900 mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {step.body}
                   </p>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ─── ENGINEERING CULTURE ─── */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-xl mb-16">
-            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
-              How We Work
+          {/* Timeline note */}
+          <div className="mt-14 bg-slate-50 border border-slate-200 rounded-xl px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0 mt-1 sm:mt-0" />
+            <p className="text-slate-600 text-sm">
+              <span className="font-semibold text-slate-900">
+                Typical timeline:
+              </span>{" "}
+              Application to onboarding takes 2–3 weeks. We move quickly because
+              our process is focused, not because we cut corners.
             </p>
-            <h2 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-4">
-              Engineering culture, not just engineering.
-            </h2>
-            <p className="text-slate-600 text-lg leading-relaxed">
-              Culture isn&rsquo;t a perk. It&rsquo;s how we work day to day.
-              Here&rsquo;s what that actually looks like here.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Code review is real",
-                body: "We actually read each other's PRs. We leave comments that matter. If something's wrong, we say it — clearly and constructively.",
-              },
-              {
-                title: "You ship to production",
-                body: "Everyone deploys. Everyone monitors what they ship. If something goes wrong at 2am, the person who wrote it knows why.",
-              },
-              {
-                title: "Ownership means all of it",
-                body: "Discovery, architecture, implementation, testing, deployment. You don't hand off — you see it through.",
-              },
-              {
-                title: "We write things down",
-                body: "Decisions get documented. Code gets documented. We don't rebuild context from scratch every time someone asks a question.",
-              },
-              {
-                title: "Direct client contact",
-                body: "Senior team members talk to clients. You'll understand the business context behind what you're building.",
-              },
-              {
-                title: "No \"not my job\"",
-                body: "We're small. If you see a problem — in the code, in the process, in the communication — you raise it or you fix it.",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="bg-white border border-slate-200 rounded-xl p-7 hover:shadow-sm transition-shadow"
-              >
-                <div className="w-8 h-0.5 bg-blue-600 mb-5" />
-                <h3 className="font-bold text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {item.body}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* ─── WHO SHOULD + SHOULD NOT JOIN ─── */}
-      <section className="py-24 bg-white">
+      {/* ═══ 3. CORE ROLES — ACTIVE HIRING ═══ */}
+      <section id="positions" className="py-24 bg-slate-50 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-xl mb-16">
-            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
-              Fit
-            </p>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-2 h-2 rounded-full bg-emerald-400" />
+              <p className="text-xs font-bold tracking-[0.2em] uppercase text-emerald-600">
+                Actively Hiring
+              </p>
+            </div>
             <h2 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight">
-              This environment isn&rsquo;t for everyone.<br />
-              It shouldn&rsquo;t be.
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Who should join */}
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-8">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
-                <h3 className="text-xl font-bold text-slate-900">
-                  You&rsquo;ll thrive here if...
-                </h3>
-              </div>
-              <ul className="space-y-5">
-                {[
-                  "You've shipped production systems you're genuinely proud of",
-                  "You're comfortable owning a problem from discovery to deployment",
-                  "You communicate clearly in writing — async is your default",
-                  "You get better from specific feedback, not defensive",
-                  "You'd rather have ownership of something hard than comfort in something easy",
-                  "You read error logs before asking for help",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="text-blue-500 font-bold mt-0.5 flex-shrink-0">
-                      ✓
-                    </span>
-                    <span className="text-slate-700 text-sm leading-relaxed">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Who should NOT join */}
-            <div className="bg-slate-950 border border-slate-800 rounded-xl p-8">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-2.5 h-2.5 rounded-full bg-slate-500" />
-                <h3 className="text-xl font-bold text-white">
-                  This isn&rsquo;t a fit if...
-                </h3>
-              </div>
-              <ul className="space-y-5">
-                {[
-                  "You need someone to structure your day or tell you what to do",
-                  "You treat code review as a checkbox, not a conversation",
-                  "You go quiet when things get hard or ambiguous",
-                  "You're looking for an easy remote job",
-                  "You separate \"my code\" from \"my responsibility\"",
-                  "You'd rather look busy than be useful",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="text-slate-500 font-bold mt-0.5 flex-shrink-0">
-                      ✕
-                    </span>
-                    <span className="text-slate-400 text-sm leading-relaxed">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── MOMENTUM ─── */}
-      <section className="py-20 bg-slate-50 border-y border-slate-200">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 items-center">
-            <div className="md:col-span-2">
-              <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
-                Momentum
-              </p>
-              <h2 className="text-3xl font-bold text-slate-900 mb-4 tracking-tight">
-                We&rsquo;re growing. Right now.
-              </h2>
-              <p className="text-slate-600 leading-relaxed">
-                New client projects starting monthly. Team expanding for the
-                first time since we started. If you join now, you&rsquo;re
-                joining at the point where your work shapes what this becomes —
-                not maintaining someone else&rsquo;s decisions.
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
-              <p className="text-3xl font-extrabold text-slate-900 mb-1">
-                Growing
-              </p>
-              <p className="text-slate-500 text-sm">
-                New client projects every month
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
-              <p className="text-3xl font-extrabold text-slate-900 mb-1">
-                Expanding
-              </p>
-              <p className="text-slate-500 text-sm">
-                First team expansion since launch
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── OPEN POSITIONS ─── */}
-      <section id="positions" className="py-24 bg-white scroll-mt-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-xl mb-16">
-            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
-              Open Roles
-            </p>
-            <h2 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight">
-              Two open positions.
+              Core roles. Open now.
             </h2>
           </div>
 
           {/* Position 1 */}
-          <div className="mb-8 bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+          <div className="mb-8 bg-white border border-slate-200 rounded-xl overflow-hidden">
             <div className="border-l-4 border-blue-500 p-8 md:p-10">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-8">
                 <div>
-                  <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400 mb-2">
-                    Role 01
-                  </p>
+                  <div className="flex items-center gap-2 mb-2">
+                    <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400">
+                      Role 01
+                    </p>
+                    <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      Open
+                    </span>
+                  </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
                     Talent & Operations Coordinator
                   </h3>
-                  <p className="text-slate-500 mt-2">
+                  <p className="text-slate-500 mt-2 text-sm">
                     Remote · Part-time to full-time · Americas timezone preferred
                   </p>
                 </div>
@@ -338,9 +265,9 @@ export default function Recruiting() {
                   <ul className="space-y-3">
                     {[
                       "Source and qualify senior engineering candidates across job platforms, LinkedIn, and developer communities",
-                      "Conduct initial screens — you'll need to assess technical credibility, not just culture fit",
-                      "Manage candidate pipeline and communications from first contact through offer",
-                      "Coordinate scheduling and logistics between candidates and our engineering leads",
+                      "Conduct initial screens — assess technical credibility, not just culture fit",
+                      "Manage the full candidate pipeline from first contact through offer",
+                      "Coordinate scheduling and logistics between candidates and engineering leads",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <span className="text-blue-500 mt-0.5 flex-shrink-0">
@@ -361,9 +288,9 @@ export default function Recruiting() {
                   <ul className="space-y-3">
                     {[
                       "2+ years in recruitment, sourcing, or operations",
-                      "Basic understanding of web development — enough to distinguish real experience from resume padding",
-                      "Strong written English — you'll be the first impression for candidates",
-                      "Organized, self-directed, no hand-holding required",
+                      "Enough web development knowledge to distinguish real experience from resume padding",
+                      "Strong written English — you are the first impression candidates have of this company",
+                      "Self-directed and organized. No hand-holding available.",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <span className="text-slate-400 mt-0.5 flex-shrink-0 font-bold">
@@ -379,30 +306,37 @@ export default function Recruiting() {
               </div>
 
               <div className="border-t border-slate-200 pt-8">
-                <h4 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">
-                  Growth Opportunity
+                <h4 className="font-bold text-slate-900 mb-3 text-sm uppercase tracking-wide">
+                  Growth Path
                 </h4>
                 <p className="text-slate-600 text-sm leading-relaxed max-w-2xl">
-                  As we grow, this role grows. You&rsquo;re building the hiring
-                  foundation for an engineering team — there&rsquo;s a clear
-                  path into operations leadership as we scale.
+                  You are building the hiring foundation for a growing
+                  engineering team. As client volume increases, this role expands
+                  into operations leadership — managing process, tooling, and
+                  team coordination at a higher level.
                 </p>
               </div>
             </div>
           </div>
 
           {/* Position 2 */}
-          <div className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+          <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
             <div className="border-l-4 border-indigo-500 p-8 md:p-10">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-8">
                 <div>
-                  <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400 mb-2">
-                    Role 02
-                  </p>
+                  <div className="flex items-center gap-2 mb-2">
+                    <p className="text-xs font-bold tracking-[0.15em] uppercase text-slate-400">
+                      Role 02
+                    </p>
+                    <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      Open
+                    </span>
+                  </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
                     Client-Facing Technical Lead
                   </h3>
-                  <p className="text-slate-500 mt-2">
+                  <p className="text-slate-500 mt-2 text-sm">
                     Remote · Project-based · Americas or Europe timezone
                   </p>
                 </div>
@@ -416,12 +350,12 @@ export default function Recruiting() {
 
               <div className="mb-8">
                 <p className="text-slate-600 leading-relaxed max-w-2xl">
-                  You&rsquo;re the first engineer a client talks to. You run
-                  technical discovery calls, understand what they&rsquo;re
-                  actually trying to build, translate it into something our
-                  team can execute, and then stay involved through delivery.
-                  This isn&rsquo;t a sales role — it&rsquo;s an engineering
-                  role that requires clear communication.
+                  You are the first engineer a client talks to. You run
+                  technical discovery calls, understand what they are actually
+                  trying to build, translate it into something our team can
+                  execute, and stay involved through delivery. This is not a
+                  sales role — it is an engineering role that requires clear
+                  communication.
                 </p>
               </div>
 
@@ -433,10 +367,10 @@ export default function Recruiting() {
                   <ul className="space-y-3">
                     {[
                       "Lead client discovery and technical scoping conversations",
-                      "Represent our engineering team's capabilities in client discussions",
+                      "Represent our engineering capabilities with credibility, not slides",
                       "Translate business requirements into clear technical briefs",
-                      "Support or lead project execution post-acquisition",
-                      "Build client confidence through technical credibility, not pitch decks",
+                      "Support or lead project execution after acquisition",
+                      "Build client confidence through demonstrated competence",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <span className="text-indigo-500 mt-0.5 flex-shrink-0">
@@ -452,51 +386,15 @@ export default function Recruiting() {
 
                 <div>
                   <h4 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">
-                    Compensation
-                  </h4>
-                  <div className="space-y-3">
-                    {[
-                      {
-                        label: "Client interviews / discovery sessions",
-                        value: "$20–$25 / hr",
-                      },
-                      {
-                        label: "Project won — support role",
-                        value: "$1,000–$2,000",
-                      },
-                      {
-                        label: "Project won — lead role",
-                        value: "$3,000–$4,000",
-                      },
-                    ].map((item) => (
-                      <div
-                        key={item.label}
-                        className="flex items-center justify-between bg-white border border-slate-200 rounded-lg px-4 py-3"
-                      >
-                        <span className="text-slate-600 text-sm">
-                          {item.label}
-                        </span>
-                        <span className="font-bold text-slate-900 text-sm">
-                          {item.value}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-10 border-t border-slate-200 pt-8">
-                <div>
-                  <h4 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">
                     What We Need
                   </h4>
                   <ul className="space-y-3">
                     {[
-                      "4+ years full-stack web development",
+                      "4+ years full-stack web development experience",
                       "Proven ability to run technical conversations with non-technical stakeholders",
-                      "Fluent English — you need to be clear, confident, and specific",
+                      "Fluent English — clear, confident, and specific",
                       "Experience making architectural decisions under real constraints",
-                      "You've shipped enough to know what will go wrong before it does",
+                      "Shipped enough to know what will go wrong before it does",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <span className="text-slate-400 mt-0.5 flex-shrink-0 font-bold">
@@ -509,26 +407,329 @@ export default function Recruiting() {
                     ))}
                   </ul>
                 </div>
+              </div>
 
-                <div>
-                  <h4 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">
-                    Growth Path
-                  </h4>
-                  <p className="text-slate-600 text-sm leading-relaxed">
-                    Strong performance here leads to recurring project
-                    leadership, increased compensation per engagement, and a
-                    long-term relationship as we grow our client base. This
-                    isn&rsquo;t a one-off gig — we&rsquo;re looking for
-                    someone who becomes a core part of how we operate.
-                  </p>
-                </div>
+              <div className="border-t border-slate-200 pt-8">
+                <h4 className="font-bold text-slate-900 mb-3 text-sm uppercase tracking-wide">
+                  Growth Path
+                </h4>
+                <p className="text-slate-600 text-sm leading-relaxed max-w-2xl">
+                  Strong performance leads to recurring project leadership,
+                  increased compensation per engagement, and a long-term role as
+                  a core part of how we operate. This is not a one-off contract
+                  — we are looking for someone who grows with the business.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── APPLICATION FORM ─── */}
+      {/* ═══ 4. EXPANDING ROLES ═══ */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-xl mb-16">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-2 h-2 rounded-full bg-yellow-400" />
+              <p className="text-xs font-bold tracking-[0.2em] uppercase text-yellow-600">
+                Opening Soon
+              </p>
+            </div>
+            <h2 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-4">
+              Roles we are building toward.
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              These are not open yet. But as client work grows, we will need
+              senior people in these areas. If one of these matches you, submit
+              your application now — we review early submissions first when a
+              role opens.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              {
+                title: "Senior Full-Stack Engineer",
+                body: "End-to-end product builds for client teams. React, Next.js, Node, TypeScript. You own the architecture, the implementation, and the deployment.",
+                tags: ["React", "Node.js", "TypeScript", "PostgreSQL"],
+                accent: "border-blue-500",
+              },
+              {
+                title: "Senior Backend Engineer",
+                body: "API design, data modeling, performance, and reliability. Python or Node. Systems that handle real traffic under real constraints.",
+                tags: ["Python", "Node.js", "APIs", "Infrastructure"],
+                accent: "border-indigo-500",
+              },
+              {
+                title: "DevOps / Cloud Engineer",
+                body: "Cloud architecture, CI/CD, observability, and production operations. AWS or GCP. The person our clients rely on to keep systems running.",
+                tags: ["AWS", "GCP", "Docker", "Terraform"],
+                accent: "border-slate-400",
+              },
+            ].map((role) => (
+              <div
+                key={role.title}
+                className={`bg-slate-50 border border-slate-200 ${role.accent} border-t-2 rounded-xl p-7`}
+              >
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="inline-flex items-center gap-1.5 bg-yellow-50 text-yellow-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+                    <span className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+                    Soon
+                  </span>
+                </div>
+                <h3 className="font-bold text-slate-900 text-lg mb-3">
+                  {role.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-5">
+                  {role.body}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {role.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[11px] font-medium text-slate-500 bg-white border border-slate-200 px-2.5 py-1 rounded-md"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <a
+              href="#apply"
+              className="text-blue-600 hover:text-blue-500 text-sm font-semibold transition-colors"
+            >
+              Submit an early application →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 5. WHAT MAKES THIS DIFFERENT ═══ */}
+      <section className="py-24 bg-slate-950 relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-80 h-80 bg-blue-600 rounded-full blur-[100px] opacity-10 pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-6 relative">
+          <div className="max-w-xl mb-16">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-400 mb-4">
+              Why This Team
+            </p>
+            <h2 className="text-4xl font-bold text-white tracking-tight leading-tight mb-4">
+              What makes this different from other remote work.
+            </h2>
+            <p className="text-slate-400 text-lg leading-relaxed">
+              There are plenty of remote agencies. Most of them are body shops
+              with project managers between you and the work. Here is what we
+              actually do differently.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                title: "You talk to clients directly",
+                body: "No project manager relaying requirements. Senior team members understand the business context behind what they build.",
+              },
+              {
+                title: "You ship to production",
+                body: "Everyone deploys. Everyone monitors what they ship. If something goes wrong, the person who wrote it knows why.",
+              },
+              {
+                title: "Ownership means all of it",
+                body: "Discovery, architecture, implementation, testing, deployment. You see it through — you do not hand off.",
+              },
+              {
+                title: "Code review is a real conversation",
+                body: "We read each other's PRs. We leave comments that matter. If something is wrong, we say it clearly and constructively.",
+              },
+              {
+                title: "We write things down",
+                body: "Decisions get documented. Code gets documented. We do not rebuild context from scratch every time someone asks a question.",
+              },
+              {
+                title: "You are joining early",
+                body: "We are expanding for the first time. The people who join now shape the standards, the process, and the culture as it scales.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="bg-white/[0.04] border border-white/[0.07] rounded-xl p-6 hover:bg-white/[0.07] transition-colors"
+              >
+                <div className="w-6 h-0.5 bg-blue-500 rounded mb-4" />
+                <h3 className="font-bold text-white text-sm mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-slate-400 text-xs leading-relaxed">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 6. WHO THIS IS FOR + NOT A FIT ═══ */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-xl mb-16">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
+              Fit
+            </p>
+            <h2 className="text-4xl font-bold text-slate-900 tracking-tight leading-tight">
+              This environment is not for everyone.
+              <br />
+              It should not be.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-8">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
+                <h3 className="text-xl font-bold text-slate-900">
+                  You will thrive here if...
+                </h3>
+              </div>
+              <ul className="space-y-5">
+                {[
+                  "You have shipped production systems you are genuinely proud of",
+                  "You are comfortable owning a problem from discovery to deployment",
+                  "You communicate clearly in writing — async is your default",
+                  "You get better from direct feedback, not defensive",
+                  "You would rather have ownership of something hard than comfort in something easy",
+                  "You read error logs before asking for help",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="text-blue-500 font-bold mt-0.5 flex-shrink-0">
+                      ✓
+                    </span>
+                    <span className="text-slate-700 text-sm leading-relaxed">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-slate-950 border border-slate-800 rounded-xl p-8">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-2.5 h-2.5 rounded-full bg-slate-500" />
+                <h3 className="text-xl font-bold text-white">
+                  This is not a fit if...
+                </h3>
+              </div>
+              <ul className="space-y-5">
+                {[
+                  "You need someone to structure your day or tell you what to do next",
+                  "You treat code review as a checkbox, not a conversation",
+                  "You go quiet when things get hard or ambiguous",
+                  "You are looking for a low-effort remote job",
+                  "You separate your code from your responsibility",
+                  "You would rather look busy than be useful",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="text-slate-500 font-bold mt-0.5 flex-shrink-0">
+                      ✕
+                    </span>
+                    <span className="text-slate-400 text-sm leading-relaxed">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 7. COMPENSATION MODEL ═══ */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4">
+                Compensation
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-snug mb-6">
+                How compensation works here.
+              </h2>
+              <div className="space-y-4 text-slate-600 leading-relaxed">
+                <p>
+                  We do not pay the same flat rate regardless of contribution. We
+                  use a layered model where compensation scales with the
+                  complexity and value of the work you take on.
+                </p>
+                <p>
+                  As you take on more client-facing work, lead more projects, or
+                  handle more complex systems, your compensation increases
+                  accordingly. No politics. No annual review cycles. Your output
+                  determines your trajectory.
+                </p>
+                <p className="text-slate-900 font-medium">
+                  We pay for outcomes and ownership — not hours logged.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <h3 className="font-bold text-slate-900 text-sm mb-4 uppercase tracking-wide">
+                  Technical Lead — Example Structure
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    {
+                      tier: "Client discovery & interviews",
+                      range: "$20–$25 / hr",
+                      note: "Hourly for scoping and technical conversations",
+                    },
+                    {
+                      tier: "Project won — support role",
+                      range: "$1,000–$2,000",
+                      note: "Per project, when you support execution",
+                    },
+                    {
+                      tier: "Project won — lead role",
+                      range: "$3,000–$4,000",
+                      note: "Per project, when you lead delivery",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.tier}
+                      className="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3"
+                    >
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-slate-900 text-sm font-semibold">
+                          {item.tier}
+                        </span>
+                        <span className="font-bold text-blue-600 text-sm">
+                          {item.range}
+                        </span>
+                      </div>
+                      <p className="text-slate-500 text-xs">{item.note}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-white border border-slate-200 rounded-xl px-6 py-4">
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  <span className="font-semibold text-slate-900">
+                    Operations roles
+                  </span>{" "}
+                  are compensated based on scope and hours. Rates increase as the
+                  hiring pipeline scales and responsibilities expand.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 8. FINAL CTA ═══ */}
       <section id="apply" className="py-24 bg-slate-950 scroll-mt-20">
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -536,11 +737,11 @@ export default function Recruiting() {
               Apply
             </p>
             <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
-              Think you&rsquo;re a fit?
+              Think you are a fit?
             </h2>
-            <p className="text-slate-400 text-lg leading-relaxed">
-              Fill this out clearly. Tell us about work you&rsquo;re proud of.
-              We read every application.
+            <p className="text-slate-400 text-lg leading-relaxed max-w-lg mx-auto">
+              Fill this out clearly. Tell us about work you are proud of. We
+              read every application and respond within one week.
             </p>
           </div>
 
