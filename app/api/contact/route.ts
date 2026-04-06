@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const RECIPIENT = "manager@axionvextech.com";
-const FROM_ADDRESS = process.env.RESEND_FROM_ADDRESS || "applications@axionvextech.com";
 
 interface ApplicationPayload {
   name: string;
@@ -104,8 +101,11 @@ export async function POST(request: NextRequest) {
       timeZone: "America/New_York",
     });
 
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const fromAddress = process.env.RESEND_FROM_ADDRESS || "applications@axionvextech.com";
+
     const { error } = await resend.emails.send({
-      from: `AxionvexTech Applications <${FROM_ADDRESS}>`,
+      from: `AxionvexTech Applications <${fromAddress}>`,
       to: [RECIPIENT],
       replyTo: data.email,
       subject: `New Application — ${data.position}`,
