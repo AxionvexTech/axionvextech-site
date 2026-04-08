@@ -39,11 +39,11 @@ export default function Header({ page }: HeaderProps) {
       <div className="max-w-6xl mx-auto px-6 py-3 md:py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5">
           <Image
-            src="/logo.png"
+            src="/icon.svg"
             alt="AxionvexTech Logo"
             width={32}
             height={32}
-            className="h-8 w-auto"
+            className="h-8 w-8"
             priority
           />
           <span className="text-xl font-bold text-slate-900 tracking-tight">

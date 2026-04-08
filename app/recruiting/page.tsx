@@ -130,10 +130,10 @@ export default function Recruiting() {
             <div className="grid md:grid-cols-5 gap-6">
               {[
                 { num: "01", title: "Application", body: "You fill out the form with your background and the kind of work you are proud of. No cover letter template. Be specific.", accent: "bg-blue-600" },
-                { num: "02", title: "Screening", body: "We review your application within one week. If there is a potential fit, we schedule a short introductory call.", accent: "bg-blue-600" },
-                { num: "03", title: "Interview", body: "A focused conversation with a senior team member. We talk about real work, real constraints, and how you think — not trivia questions.", accent: "bg-indigo-600" },
-                { num: "04", title: "Internal Review", body: "We discuss fit, expectations, and role alignment as a team. You hear back within a few days — either way.", accent: "bg-indigo-600" },
-                { num: "05", title: "Onboarding", body: "You get access, context, and a real assignment. No training videos. You start working with the team on a real project.", accent: "bg-emerald-600" },
+                { num: "02", title: "Evaluation", body: "After submitting, you receive a short role-specific evaluation by email. It takes 10–15 minutes and helps us understand how you think.", accent: "bg-blue-600" },
+                { num: "03", title: "Review & Screening", body: "We review your application and evaluation within one week. If there is a potential fit, we schedule a short introductory call.", accent: "bg-indigo-600" },
+                { num: "04", title: "Interview", body: "A focused conversation with a senior team member. We talk about real work, real constraints, and how you think — not trivia questions.", accent: "bg-indigo-600" },
+                { num: "05", title: "Decision & Onboarding", body: "You hear back either way. If it is a fit, you get access, context, and a real assignment — no training videos.", accent: "bg-emerald-600" },
               ].map((step) => (
                 <div key={step.num} className="relative text-center md:text-left">
                   <div className="flex justify-center md:justify-start mb-5">
