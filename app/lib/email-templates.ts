@@ -184,6 +184,7 @@ export interface ApprovedCandidateData {
   email: string;
   role: string;
   invite_channel: string;
+  slack_invite_url: string;
 }
 
 export function approvedCandidateHtml(data: ApprovedCandidateData): string {
@@ -202,10 +203,16 @@ export function approvedCandidateHtml(data: ApprovedCandidateData): string {
       <h2 style="font-size: 15px; margin: 0 0 12px; color: #166534;">Your next steps</h2>
       <ol style="font-size: 13px; color: #475569; line-height: 2; padding-left: 20px; margin: 0;">
         <li>Join the team workspace: <strong>${data.invite_channel}</strong></li>
-        <li>You will receive a Slack workspace invite at <strong>${data.email}</strong></li>
         <li>Introduce yourself in <code>#introductions</code></li>
         <li>Your onboarding lead will reach out within 24 hours with your first assignment</li>
       </ol>
+      ${data.slack_invite_url ? `
+      <div style="margin-top: 16px; text-align: center;">
+        <a href="${data.slack_invite_url}" style="${BUTTON}; background: #4A154B;">Join Slack Workspace</a>
+      </div>` : `
+      <p style="font-size: 12px; color: #64748b; margin: 12px 0 0;">
+        A Slack workspace invite will be sent separately to <strong>${data.email}</strong>.
+      </p>`}
     </div>
 
     <p style="font-size: 14px; line-height: 1.7; color: #334155; margin: 0 0 8px;">
@@ -229,10 +236,9 @@ export function approvedCandidateText(data: ApprovedCandidateData): string {
 You have been approved for: ${data.role}
 
 Your next steps:
-1. Join the team workspace: ${data.invite_channel}
-2. You will receive a Slack workspace invite at ${data.email}
-3. Introduce yourself in #introductions
-4. Your onboarding lead will reach out within 24 hours
+1. Join the team workspace: ${data.invite_channel}${data.slack_invite_url ? `\n   Join here: ${data.slack_invite_url}` : `\n   A Slack invite will be sent separately to ${data.email}`}
+2. Introduce yourself in #introductions
+3. Your onboarding lead will reach out within 24 hours
 
 Application ID: ${data.application_id}
 

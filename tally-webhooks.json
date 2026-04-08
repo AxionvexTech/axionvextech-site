@@ -1,0 +1,74 @@
+[
+  {
+    "role_key": "recruiter",
+    "env_var": "TALLY_RECRUITER_URL",
+    "name": "Recruiter / Talent Coordinator Evaluation",
+    "id": "GxJe7O",
+    "url": "https://tally.so/r/GxJe7O",
+    "webhook_id": "w7xvp6",
+    "webhook": "OK"
+  },
+  {
+    "role_key": "proxy_interviewer",
+    "env_var": "TALLY_PROXY_INTERVIEWER_URL",
+    "name": "Technical Interview Lead Evaluation",
+    "id": "ODJQVM",
+    "url": "https://tally.so/r/ODJQVM",
+    "webhook_id": "wbdr60",
+    "webhook": "OK"
+  },
+  {
+    "role_key": "developer",
+    "env_var": "TALLY_DEVELOPER_URL",
+    "name": "Developer / Engineer Evaluation",
+    "id": "VLMpx6",
+    "url": "https://tally.so/r/VLMpx6",
+    "webhook_id": "wAvDjo",
+    "webhook": "OK"
+  },
+  {
+    "role_key": "headhunter",
+    "env_var": "TALLY_HEADHUNTER_URL",
+    "name": "Headhunter / Talent Sourcer Evaluation",
+    "id": "PdXRPx",
+    "url": "https://tally.so/r/PdXRPx",
+    "webhook_id": "wkEWvd",
+    "webhook": "OK"
+  },
+  {
+    "role_key": "social_marketer",
+    "env_var": "TALLY_SOCIAL_MARKETER_URL",
+    "name": "Social Media / Outreach Marketer Evaluation",
+    "id": "EkJqa2",
+    "url": "https://tally.so/r/EkJqa2",
+    "webhook_id": "wvYLKX",
+    "webhook": "OK"
+  },
+  {
+    "role_key": "reverse_recruiter",
+    "env_var": "TALLY_REVERSE_RECRUITER_URL",
+    "name": "Reverse Recruiter Evaluation",
+    "id": "44oaG5",
+    "url": "https://tally.so/r/44oaG5",
+    "webhook_id": "mK1Dkz",
+    "webhook": "OK"
+  },
+  {
+    "role_key": "normal_job_bidder",
+    "env_var": "TALLY_NORMAL_JOB_BIDDER_URL",
+    "name": "General Application Evaluation",
+    "id": "ja7eE1",
+    "url": "https://tally.so/r/ja7eE1",
+    "webhook_id": "npOWvy",
+    "webhook": "OK"
+  },
+  {
+    "role_key": "tailored_job_bidder",
+    "env_var": "TALLY_TAILORED_JOB_BIDDER_URL",
+    "name": "Tailored Job Bidder Evaluation",
+    "id": "2EJjRM",
+    "url": "https://tally.so/r/2EJjRM",
+    "webhook_id": "31Vv64",
+    "webhook": "OK"
+  }
+]

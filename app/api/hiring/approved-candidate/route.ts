@@ -30,6 +30,7 @@ interface ApprovalPayload {
   email: string;
   role: string;
   invite_channel: string;
+  slack_invite_url: string;
   // Optional metadata from Apps Script (logged, not required)
   source?: string;
   score_total?: number;
@@ -47,6 +48,7 @@ function validate(body: unknown): ApprovalPayload | null {
   const email = typeof b.email === "string" ? b.email.trim() : "";
   const role = typeof b.role === "string" ? b.role.trim() : "";
   const invite_channel = typeof b.invite_channel === "string" ? b.invite_channel.trim() : "";
+  const slack_invite_url = typeof b.slack_invite_url === "string" ? b.slack_invite_url.trim() : "";
 
   if (!application_id || !full_name || !email || !role || !invite_channel) {
     return null;
@@ -58,6 +60,7 @@ function validate(body: unknown): ApprovalPayload | null {
     email,
     role,
     invite_channel,
+    slack_invite_url,
     source: typeof b.source === "string" ? b.source : undefined,
     score_total: typeof b.score_total === "number" ? b.score_total : undefined,
     score_band: typeof b.score_band === "string" ? b.score_band : undefined,
@@ -117,6 +120,7 @@ export async function POST(request: NextRequest) {
       email: data.email,
       role: data.role,
       invite_channel: data.invite_channel,
+      slack_invite_url: data.slack_invite_url,
     };
 
     const { error: sendErr } = await resend.emails.send({
