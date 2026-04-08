@@ -43,26 +43,19 @@ export default function ContactForm({ initialRole }: ContactFormProps) {
     setStatus("loading");
     setErrorMessage("");
 
-    const endpoint = process.env.NEXT_PUBLIC_APPS_SCRIPT_APPLY_URL;
-    if (!endpoint) {
-      setStatus("error");
-      setErrorMessage(
-        "Application endpoint is not configured. Please email manager@axionvextech.com directly."
-      );
-      return;
-    }
-
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch("/api/apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
+      const data = await res.json();
+
       if (!res.ok) {
         setStatus("error");
         setErrorMessage(
-          "Something went wrong. Please try again or email manager@axionvextech.com."
+          data.error || "Something went wrong. Please try again or email manager@axionvextech.com."
         );
         return;
       }

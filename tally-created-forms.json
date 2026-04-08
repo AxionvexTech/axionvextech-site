@@ -1,58 +1,58 @@
 [
   {
+    "role_key": "recruiter",
+    "env_var": "TALLY_RECRUITER_URL",
     "name": "Recruiter / Talent Coordinator Evaluation",
-    "isNameModifiedByUser": false,
-    "numberOfSubmissions": 0,
-    "id": "XxYKRO",
-    "workspaceId": "mRBb2J",
-    "organizationId": "m6Pjze",
-    "status": "PUBLISHED",
-    "hasDraftBlocks": false,
-    "updatedAt": "2026-04-07T20:01:10.840Z",
-    "createdAt": "2026-04-07T20:01:10.840Z",
-    "index": 0,
-    "isClosed": false
+    "id": "GxJe7O",
+    "url": "https://tally.so/r/GxJe7O"
   },
   {
+    "role_key": "proxy_interviewer",
+    "env_var": "TALLY_PROXY_INTERVIEWER_URL",
     "name": "Technical Interview Lead Evaluation",
-    "isNameModifiedByUser": false,
-    "numberOfSubmissions": 0,
-    "id": "8180JA",
-    "workspaceId": "mRBb2J",
-    "organizationId": "m6Pjze",
-    "status": "PUBLISHED",
-    "hasDraftBlocks": false,
-    "updatedAt": "2026-04-07T20:01:11.069Z",
-    "createdAt": "2026-04-07T20:01:11.069Z",
-    "index": 0,
-    "isClosed": false
+    "id": "ODJQVM",
+    "url": "https://tally.so/r/ODJQVM"
   },
   {
+    "role_key": "developer",
+    "env_var": "TALLY_DEVELOPER_URL",
     "name": "Developer / Engineer Evaluation",
-    "isNameModifiedByUser": false,
-    "numberOfSubmissions": 0,
-    "id": "0QvpbZ",
-    "workspaceId": "mRBb2J",
-    "organizationId": "m6Pjze",
-    "status": "PUBLISHED",
-    "hasDraftBlocks": false,
-    "updatedAt": "2026-04-07T20:01:11.283Z",
-    "createdAt": "2026-04-07T20:01:11.283Z",
-    "index": 0,
-    "isClosed": false
+    "id": "VLMpx6",
+    "url": "https://tally.so/r/VLMpx6"
   },
   {
-    "name": "Marketer / Outreach Evaluation",
-    "isNameModifiedByUser": false,
-    "numberOfSubmissions": 0,
-    "id": "5BvylM",
-    "workspaceId": "mRBb2J",
-    "organizationId": "m6Pjze",
-    "status": "PUBLISHED",
-    "hasDraftBlocks": false,
-    "updatedAt": "2026-04-07T20:01:11.477Z",
-    "createdAt": "2026-04-07T20:01:11.477Z",
-    "index": 0,
-    "isClosed": false
+    "role_key": "headhunter",
+    "env_var": "TALLY_HEADHUNTER_URL",
+    "name": "Headhunter / Talent Sourcer Evaluation",
+    "id": "PdXRPx",
+    "url": "https://tally.so/r/PdXRPx"
+  },
+  {
+    "role_key": "social_marketer",
+    "env_var": "TALLY_SOCIAL_MARKETER_URL",
+    "name": "Social Media / Outreach Marketer Evaluation",
+    "id": "EkJqa2",
+    "url": "https://tally.so/r/EkJqa2"
+  },
+  {
+    "role_key": "reverse_recruiter",
+    "env_var": "TALLY_REVERSE_RECRUITER_URL",
+    "name": "Reverse Recruiter Evaluation",
+    "id": "44oaG5",
+    "url": "https://tally.so/r/44oaG5"
+  },
+  {
+    "role_key": "normal_job_bidder",
+    "env_var": "TALLY_NORMAL_JOB_BIDDER_URL",
+    "name": "General Application Evaluation",
+    "id": "ja7eE1",
+    "url": "https://tally.so/r/ja7eE1"
+  },
+  {
+    "role_key": "tailored_job_bidder",
+    "env_var": "TALLY_TAILORED_JOB_BIDDER_URL",
+    "name": "Tailored Job Bidder Evaluation",
+    "id": "2EJjRM",
+    "url": "https://tally.so/r/2EJjRM"
   }
 ]
