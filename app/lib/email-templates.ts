@@ -12,11 +12,13 @@ export interface ApplicationData {
   full_name: string;
   email: string;
   phone: string;
-  role: string;
-  role_key: string;
+  role: string;       // display label (e.g. "Talent & Operations Coordinator")
+  role_key: string;   // normalized key (e.g. "recruiter")
   portfolio: string;
   linkedin: string;
   github: string;
+  country: string;
+  timezone: string;
   message: string;
   submitted_at: string;
 }
@@ -59,6 +61,8 @@ export function managerNotificationHtml(data: ApplicationData): string {
       ${row("Phone", data.phone || "Not provided")}
       ${row("Role", `<strong>${data.role}</strong>`)}
       ${row("Role Key", data.role_key)}
+      ${row("Country", data.country || "Not provided")}
+      ${row("Timezone", data.timezone || "Not provided")}
       ${linkCell("LinkedIn", data.linkedin)}
       ${linkCell("GitHub", data.github)}
       ${linkCell("Portfolio", data.portfolio)}
@@ -86,6 +90,8 @@ Name: ${data.full_name}
 Email: ${data.email}
 Phone: ${data.phone || "Not provided"}
 Role: ${data.role} (${data.role_key})
+Country: ${data.country || "—"}
+Timezone: ${data.timezone || "—"}
 LinkedIn: ${data.linkedin || "—"}
 GitHub: ${data.github || "—"}
 Portfolio: ${data.portfolio || "—"}

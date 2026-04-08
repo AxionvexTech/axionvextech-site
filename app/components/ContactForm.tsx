@@ -13,6 +13,8 @@ export default function ContactForm({ initialRole }: ContactFormProps) {
     full_name: "",
     email: "",
     phone: "",
+    country: "",
+    timezone: "",
     role: initialRole || "",
     portfolio: "",
     linkedin: "",
@@ -65,6 +67,8 @@ export default function ContactForm({ initialRole }: ContactFormProps) {
         full_name: "",
         email: "",
         phone: "",
+        country: "",
+        timezone: "",
         role: "",
         portfolio: "",
         linkedin: "",
@@ -204,6 +208,40 @@ export default function ContactForm({ initialRole }: ContactFormProps) {
           placeholder="+1 (555) 000-0000"
           className={inputStyles}
         />
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div>
+          <label htmlFor="country" className={labelStyles}>
+            Country
+          </label>
+          <input
+            type="text"
+            id="country"
+            name="country"
+            value={formData.country}
+            onChange={handleChange}
+            required
+            placeholder="e.g. United States"
+            className={inputStyles}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="timezone" className={labelStyles}>
+            Timezone
+          </label>
+          <input
+            type="text"
+            id="timezone"
+            name="timezone"
+            value={formData.timezone}
+            onChange={handleChange}
+            required
+            placeholder="e.g. EST, UTC+2, Asia/Manila"
+            className={inputStyles}
+          />
+        </div>
       </div>
 
       {!initialRole && (

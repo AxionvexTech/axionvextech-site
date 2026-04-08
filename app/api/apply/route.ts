@@ -22,6 +22,8 @@ interface RawPayload {
   portfolio: string;
   linkedin: string;
   github: string;
+  country: string;
+  timezone: string;
   message: string;
 }
 
@@ -47,12 +49,26 @@ function validate(body: unknown): RawPayload | null {
     portfolio: typeof b.portfolio === "string" ? b.portfolio.trim() : "",
     linkedin: typeof b.linkedin === "string" ? b.linkedin.trim() : "",
     github: typeof b.github === "string" ? b.github.trim() : "",
+    country: typeof b.country === "string" ? b.country.trim() : "",
+    timezone: typeof b.timezone === "string" ? b.timezone.trim() : "",
     message,
   };
 }
 
 /* ────────────────────────────────────────────
    POST /api/apply
+
+   This is the primary application entry point.
+   The website handles the first step — NOT Apps Script.
+
+   Flow:
+   1. Validate input
+   2. Generate application_id
+   3. Resolve role key from display label
+   4. Build Tally evaluation URL with role_key (not display label)
+   5. Send manager notification email via Resend
+   6. Send candidate auto-reply with Tally link via Resend
+   7. Return success JSON
    ──────────────────────────────────────────── */
 
 export async function POST(request: NextRequest) {
@@ -75,13 +91,14 @@ export async function POST(request: NextRequest) {
       timeZone: "America/New_York",
     });
 
-    // Resolve role key and build Tally evaluation URL
+    // Resolve display label → normalized role key
     const role_key = resolveRoleKey(data.role);
+
+    // Build Tally evaluation URL (uses role_key, not display label)
     const tallyUrl = getTallyLinkByRole(role_key, {
       application_id,
       full_name: data.full_name,
       email: data.email,
-      role: data.role,
     });
 
     const appData: ApplicationData = {
@@ -89,16 +106,23 @@ export async function POST(request: NextRequest) {
       full_name: data.full_name,
       email: data.email,
       phone: data.phone,
-      role: data.role,
-      role_key,
+      role: data.role,       // display label for emails
+      role_key,              // normalized key for logging/tracking
       portfolio: data.portfolio,
       linkedin: data.linkedin,
       github: data.github,
+      country: data.country,
+      timezone: data.timezone,
       message: data.message,
       submitted_at,
     };
 
-    console.log(`[apply] New application: ${application_id} | ${data.role} (${role_key}) | ${data.email}`);
+    console.log(`[apply] New application: ${application_id} | ${data.role} -> ${role_key} | ${data.email}`);
+
+    // ── DB: persist application record here if database is connected ──
+    // Example:
+    //   await db.applications.create({ ...appData, tally_url: tallyUrl });
+    // ──────────────────────────────────────────────────────────────────
 
     // Send emails via Resend
     const resend = getResendClient();
@@ -121,7 +145,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 2. Candidate auto-reply with evaluation link
+    // 2. Candidate auto-reply with role-based Tally evaluation link
     const { error: candidateErr } = await resend.emails.send({
       from: `AxionvexTech <${FROM_ADDRESS}>`,
       to: [data.email],
@@ -133,7 +157,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (candidateErr) {
-      // Log but don't fail — manager already received it
+      // Log but don't fail — manager already received the application
       console.error("[apply] Candidate email failed:", candidateErr);
     }
 
