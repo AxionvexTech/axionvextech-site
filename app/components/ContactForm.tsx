@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface ContactFormProps {
   initialRole?: string;
@@ -23,12 +23,6 @@ export default function ContactForm({ initialRole }: ContactFormProps) {
   });
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
-
-  useEffect(() => {
-    if (initialRole) {
-      setFormData((prev) => ({ ...prev, role: initialRole }));
-    }
-  }, [initialRole]);
 
   const handleChange = (
     e: React.ChangeEvent<

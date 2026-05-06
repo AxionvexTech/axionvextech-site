@@ -20,9 +20,9 @@ export const viewport: Viewport = {
 
 const siteUrl = "https://axionvextech.com";
 const siteName = "AxionvexTech";
-const title = "AxionvexTech — Engineering Agency for Production Systems";
+const title = "AxionvexTech — AI-Enabled Product Engineering Agency";
 const description =
-  "Senior engineers embedded in your product team. Product engineering, technical strategy, and cloud reliability for SaaS, fintech, and high-growth companies.";
+  "Senior engineering, AI automation systems, and remote talent operations for SaaS product teams shipping production software.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -32,15 +32,15 @@ export const metadata: Metadata = {
   },
   description,
   keywords: [
-    "engineering agency",
-    "senior engineers",
+    "software development agency",
+    "senior product engineering",
+    "AI automation systems",
+    "remote engineering operations",
+    "remote talent operations",
     "product engineering",
-    "technical consulting",
     "cloud reliability",
-    "SaaS development",
-    "full-stack development",
-    "Next.js agency",
-    "remote engineering team",
+    "SaaS engineering agency",
+    "embedded engineering support",
   ],
   authors: [{ name: siteName, url: siteUrl }],
   creator: siteName,

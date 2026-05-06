@@ -6,6 +6,8 @@ import {
   approvedCandidateHtml,
   approvedCandidateText,
 } from "../../../lib/email-templates";
+import { getSupabaseAdmin, isSupabaseConfigured } from "../../../lib/supabase/admin";
+import { logActivity } from "../../../lib/audit";
 
 /* ────────────────────────────────────────────
    POST /api/hiring/approved-candidate
@@ -103,14 +105,57 @@ export async function POST(request: NextRequest) {
         (data.score_band ? ` | band=${data.score_band}` : "")
     );
 
-    // ── DB: update application status here if database is connected ──
-    // Example:
-    //   await db.applications.update(data.application_id, {
-    //     status: "approved",
-    //     score_total: data.score_total,
-    //     approved_at: new Date(),
-    //   });
-    // ─────────────────────────────────────────────────────────────────
+    // Mirror into Supabase (non-fatal).
+    if (isSupabaseConfigured()) {
+      try {
+        const admin = getSupabaseAdmin();
+        const { data: appRow } = await admin
+          .from("applications")
+          .select("id")
+          .eq("application_id", data.application_id)
+          .maybeSingle();
+
+        if (appRow) {
+          await admin
+            .from("applications")
+            .update({ status: "approved" })
+            .eq("id", appRow.id);
+
+          if (data.score_total != null || data.score_band || data.shortlist_status) {
+            await admin.from("screening_results").insert({
+              application_id: appRow.id,
+              score_total: data.score_total ?? null,
+              score_band:
+                (data.score_band as "strong" | "borderline" | "weak" | undefined) ?? null,
+              shortlist_status:
+                (data.shortlist_status as
+                  | "auto_shortlisted"
+                  | "manual_review"
+                  | "rejected"
+                  | undefined) ?? null,
+              raw_payload: body as Record<string, unknown>,
+            });
+          }
+
+          await logActivity({
+            action: "application.approved",
+            target_type: "applications",
+            target_id: appRow.id,
+            metadata: {
+              application_id: data.application_id,
+              role: data.role,
+              source: data.source,
+            },
+          });
+        } else {
+          console.warn(
+            `[hiring/approved] No matching application row for ${data.application_id} — webhook arrived before DB insert?`
+          );
+        }
+      } catch (dbErr) {
+        console.warn(`[hiring/approved] DB mirror failed for ${data.application_id}:`, dbErr);
+      }
+    }
 
     // Send onboarding / Slack invite email
     const resend = getResendClient();

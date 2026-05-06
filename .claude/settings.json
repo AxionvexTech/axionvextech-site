@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:prnt.sc)"
+      "WebFetch(domain:prnt.sc)",
+      "Bash(npx tsc *)"
     ]
   }
 }

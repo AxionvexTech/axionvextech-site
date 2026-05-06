@@ -9,6 +9,8 @@ import {
   candidateEvaluationHtml,
   candidateEvaluationText,
 } from "../../lib/email-templates";
+import { getSupabaseAdmin, isSupabaseConfigured } from "../../lib/supabase/admin";
+import { logActivity } from "../../lib/audit";
 
 /* ────────────────────────────────────────────
    Validation
@@ -119,10 +121,40 @@ export async function POST(request: NextRequest) {
 
     console.log(`[apply] New application: ${application_id} | ${data.role} -> ${role_key} | ${data.email}`);
 
-    // ── DB: persist application record here if database is connected ──
-    // Example:
-    //   await db.applications.create({ ...appData, tally_url: tallyUrl });
-    // ──────────────────────────────────────────────────────────────────
+    // Persist to Supabase (non-fatal — email path proceeds even if DB is down/unconfigured)
+    if (isSupabaseConfigured()) {
+      try {
+        const admin = getSupabaseAdmin();
+        const { error: dbErr } = await admin.from("applications").insert({
+          application_id,
+          full_name: data.full_name,
+          email: data.email,
+          phone: data.phone || null,
+          country: data.country || null,
+          timezone: data.timezone || null,
+          message: data.message,
+          role_key,
+          role_display_label: data.role,
+          portfolio: data.portfolio || null,
+          linkedin: data.linkedin || null,
+          github: data.github || null,
+          status: tallyUrl ? "tally_sent" : "received",
+          tally_url: tallyUrl,
+          source: "website",
+        });
+        if (dbErr) {
+          console.warn(`[apply] DB insert failed for ${application_id}:`, dbErr.message);
+        } else {
+          await logActivity({
+            action: "application.created",
+            target_type: "applications",
+            metadata: { application_id, role_key, email: data.email },
+          });
+        }
+      } catch (dbErr) {
+        console.warn(`[apply] DB insert threw for ${application_id}:`, dbErr);
+      }
+    }
 
     // Send emails via Resend
     const resend = getResendClient();

@@ -10,16 +10,16 @@ export default function Header({ page }: HeaderProps) {
     page === "home"
       ? [
           { label: "Services", href: "#services" },
+          { label: "AI Systems", href: "#ai-systems" },
+          { label: "Process", href: "#process" },
           { label: "Work", href: "/work" },
-          { label: "Why AxionvexTech", href: "#why" },
-          { label: "Recruiting", href: "/recruiting" },
-          { label: "Contact", href: "#contact" },
+          { label: "Talent Network", href: "/recruiting" },
         ]
       : page === "recruiting"
       ? [
           { label: "Home", href: "/" },
           { label: "How It Works", href: "#process" },
-          { label: "Open Roles", href: "#positions" },
+          { label: "Role Tracks", href: "#roles" },
           { label: "Apply", href: "#apply" },
         ]
       : [
@@ -31,11 +31,14 @@ export default function Header({ page }: HeaderProps) {
 
   const cta =
     page === "recruiting"
-      ? { label: "Apply Now", href: "#apply" }
-      : { label: "Start a Project", href: page === "home" ? "#contact" : "/#contact" };
+      ? { label: "Join Network", href: "#apply" }
+      : {
+          label: "Start a Project",
+          href: page === "home" ? "#contact" : "/#contact",
+        };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200/80">
+    <nav className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/[0.08]">
       <div className="max-w-6xl mx-auto px-6 py-3 md:py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5">
           <Image
@@ -46,12 +49,12 @@ export default function Header({ page }: HeaderProps) {
             className="h-8 w-8"
             priority
           />
-          <span className="text-xl font-bold text-slate-900 tracking-tight">
+          <span className="text-xl font-bold text-white tracking-tight">
             AxionvexTech
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8 text-sm text-slate-600">
+        <div className="hidden md:flex items-center gap-8 text-sm text-slate-300">
           {navItems.map((item) => {
             const isPage = item.href.startsWith("/");
             const Component = isPage ? Link : "a";
@@ -59,7 +62,7 @@ export default function Header({ page }: HeaderProps) {
               <Component
                 key={item.href}
                 href={item.href}
-                className="hover:text-slate-900 transition-colors font-medium"
+                className="hover:text-white transition-colors font-medium"
               >
                 {item.label}
               </Component>

@@ -5,6 +5,8 @@ interface FooterProps {
 }
 
 export default function Footer({ page = "home" }: FooterProps) {
+  const audienceLabel = page === "recruiting" ? "Talent network" : "Client delivery";
+
   return (
     <footer className="bg-slate-950 text-slate-400 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto px-6 py-14">
@@ -14,8 +16,8 @@ export default function Footer({ page = "home" }: FooterProps) {
               AxionvexTech
             </p>
             <p className="text-sm leading-relaxed text-slate-500 max-w-sm">
-              A fast-growing engineering agency focused on production systems,
-              technical ownership, and reliable delivery.
+              AI-enabled product engineering and remote engineering operations for
+              teams shipping production systems under real constraints.
             </p>
           </div>
 
@@ -29,7 +31,7 @@ export default function Footer({ page = "home" }: FooterProps) {
               </li>
               <li>
                 <Link href="/#services" className="hover:text-white transition-colors">
-                  Technical Strategy
+                  AI & Automation Systems
                 </Link>
               </li>
               <li>
@@ -37,11 +39,16 @@ export default function Footer({ page = "home" }: FooterProps) {
                   Cloud & Reliability
                 </Link>
               </li>
+              <li>
+                <Link href="/#services" className="hover:text-white transition-colors">
+                  Talent Operations
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
-            <p className="text-white text-sm font-semibold mb-4">Company</p>
+            <p className="text-white text-sm font-semibold mb-4">Explore</p>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/work" className="hover:text-white transition-colors">
@@ -49,13 +56,13 @@ export default function Footer({ page = "home" }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link href="/#why" className="hover:text-white transition-colors">
-                  Why AxionvexTech
+                <Link href="/#ai-systems" className="hover:text-white transition-colors">
+                  AI Positioning
                 </Link>
               </li>
               <li>
                 <Link href="/recruiting" className="hover:text-white transition-colors">
-                  Recruiting
+                  Talent Network
                 </Link>
               </li>
               <li>
@@ -75,7 +82,9 @@ export default function Footer({ page = "home" }: FooterProps) {
             <a href="mailto:manager@axionvextech.com" className="hover:text-white transition-colors">
               manager@axionvextech.com
             </a>
-            <span className="text-slate-700">Remote-first team</span>
+            <span className="text-slate-700">
+              {audienceLabel} · Remote-first engineering operations
+            </span>
           </div>
         </div>
       </div>
