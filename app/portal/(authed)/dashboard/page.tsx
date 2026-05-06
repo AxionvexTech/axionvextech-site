@@ -1,6 +1,6 @@
-import { getAuthedUser } from "../../lib/auth-user";
-import { getSupabaseServer } from "../../lib/supabase/server";
-import { isSupabaseConfigured } from "../../lib/supabase/admin";
+import { getAuthedUser } from "../../../lib/auth-user";
+import { getSupabaseServer } from "../../../lib/supabase/server";
+import { isSupabaseConfigured } from "../../../lib/supabase/admin";
 import Link from "next/link";
 
 export const metadata = { title: "Dashboard — AxionvexTech Portal" };

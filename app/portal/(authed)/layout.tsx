@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { getAuthedUser } from "../lib/auth-user";
+import { getAuthedUser } from "../../lib/auth-user";
 
 export const dynamic = "force-dynamic";
 

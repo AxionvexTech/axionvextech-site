@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { getSupabaseServer } from "../../lib/supabase/server";
-import { isSupabaseConfigured } from "../../lib/supabase/admin";
-import { getAuthedUser } from "../../lib/auth-user";
+import { getSupabaseServer } from "../../../lib/supabase/server";
+import { isSupabaseConfigured } from "../../../lib/supabase/admin";
+import { getAuthedUser } from "../../../lib/auth-user";
 import { redirect } from "next/navigation";
 
 export const metadata = { title: "Hiring Queue — AxionvexTech Portal" };

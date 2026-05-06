@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { getSupabaseServer } from "../../../lib/supabase/server";
-import { isSupabaseConfigured } from "../../../lib/supabase/admin";
-import { getAuthedUser } from "../../../lib/auth-user";
-import { approveApplication, rejectApplication } from "../../../actions/applications";
+import { getSupabaseServer } from "../../../../lib/supabase/server";
+import { isSupabaseConfigured } from "../../../../lib/supabase/admin";
+import { getAuthedUser } from "../../../../lib/auth-user";
+import { approveApplication, rejectApplication } from "../../../../actions/applications";
 
 export const metadata = { title: "Application review — AxionvexTech Portal" };
 
