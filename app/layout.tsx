@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import AnimatedBackground from "./components/AnimatedBackground";
+import ScrollProgressBar from "./components/ScrollProgressBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,14 +17,14 @@ const geistMono = Geist_Mono({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0f172a",
+  themeColor: "#020617",
 };
 
 const siteUrl = "https://axionvextech.com";
 const siteName = "AxionvexTech";
-const title = "AxionvexTech — AI-Enabled Product Engineering Agency";
+const title = "AxionvexTech — AI-Powered Software Engineering Agency";
 const description =
-  "Senior engineering, AI automation systems, and remote talent operations for SaaS product teams shipping production software.";
+  "We help SaaS and operations-heavy teams build, automate, and stabilize critical systems with senior engineers, practical AI, and structured remote delivery.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -32,22 +34,20 @@ export const metadata: Metadata = {
   },
   description,
   keywords: [
-    "software development agency",
+    "AI software engineering agency",
     "senior product engineering",
     "AI automation systems",
     "remote engineering operations",
-    "remote talent operations",
     "product engineering",
     "cloud reliability",
     "SaaS engineering agency",
     "embedded engineering support",
+    "AI workflow automation",
   ],
   authors: [{ name: siteName, url: siteUrl }],
   creator: siteName,
   publisher: siteName,
-  alternates: {
-    canonical: siteUrl,
-  },
+  alternates: { canonical: siteUrl },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -91,9 +91,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <AnimatedBackground />
+        <ScrollProgressBar />
         {children}
       </body>
     </html>

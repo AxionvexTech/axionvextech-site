@@ -4,70 +4,68 @@ import DashboardMockup from "./DashboardMockup";
 interface CaseStudyCardProps {
   slug: string;
   category: string;
-  categoryColor: string;
+  categoryColor?: string;
   title: string;
   summary: string;
   stack: string[];
   timeline: string;
   mockup: "saas" | "ops" | "cloud";
-  accent: string;
+  accent?: string;
 }
 
 export default function CaseStudyCard({
   slug,
   category,
-  categoryColor,
   title,
   summary,
   stack,
   timeline,
   mockup,
-  accent,
 }: CaseStudyCardProps) {
   return (
     <Link
       href={`/work/${slug}`}
-      className={`group bg-white rounded-xl border border-slate-200 border-t-2 ${accent} overflow-hidden hover:shadow-lg transition-shadow block`}
+      className="glass-card group flex flex-col overflow-hidden block"
     >
-      {/* Visual */}
-      <div className="p-4 pb-0">
+      {/* Dashboard mockup */}
+      <div className="p-4 pb-0 bg-white/[0.01]">
         <DashboardMockup variant={mockup} />
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         <div className="flex items-center justify-between mb-3">
-          <p
-            className={`text-xs font-bold tracking-[0.15em] uppercase ${categoryColor}`}
-          >
+          <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-cyan-400">
             {category}
-          </p>
-          <span className="text-[11px] text-slate-400 font-medium">
+          </span>
+          <span className="text-[10px] text-white/60 font-medium border border-white/[0.07] rounded px-2 py-0.5">
             {timeline}
           </span>
         </div>
 
-        <h3 className="text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-blue-600 transition-colors">
+        <h3 className="text-base font-bold text-white mb-2 leading-snug group-hover:text-cyan-300 transition-colors">
           {title}
         </h3>
 
-        <p className="text-slate-600 text-sm leading-relaxed mb-5">
+        <p className="text-white/80 text-sm leading-relaxed mb-5 flex-1">
           {summary}
         </p>
 
         {/* Stack tags */}
-        <div className="flex flex-wrap gap-1.5 mb-5">
-          {stack.map((tech) => (
-            <span
-              key={tech}
-              className="text-[10px] font-medium text-slate-500 bg-slate-50 border border-slate-200 px-2 py-0.5 rounded"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+        {stack.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mb-5">
+            {stack.map((tech) => (
+              <span
+                key={tech}
+                className="text-[10px] font-medium text-white/80 border border-white/[0.08] bg-white/[0.03] px-2 py-0.5 rounded"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
 
-        <p className="text-blue-600 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+        <p className="text-cyan-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
           Read case study →
         </p>
       </div>

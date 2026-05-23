@@ -2,7 +2,25 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:prnt.sc)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(cat ~/.claude/settings.json 2>/dev/null || echo \"No settings.json found\")",
+      "Read(//Users/administrator/.claude/**)",
+      "Bash(cat ~/.vscode/settings.json 2>/dev/null || echo \"No vscode settings found\")",
+      "Read(//Users/administrator/.vscode/**)",
+      "Bash(npm --version)",
+      "Bash(npx --version)",
+      "Bash(npx -y @modelcontextprotocol/server-filesystem --version)",
+      "Bash(npx -y @modelcontextprotocol/server-fetch --version)",
+      "Bash(claude mcp *)",
+      "Bash(uvx --version)",
+      "Bash(uv --version)",
+      "Bash(pip3 show *)",
+      "Bash(gtimeout 5 /usr/local/bin/uvx mcp-server-fetch)",
+      "Bash(gtimeout 5 npx -y @modelcontextprotocol/server-github)",
+      "Bash(perl -i -p -e ' *)"
+    ],
+    "additionalDirectories": [
+      "/Users/administrator/.claude"
     ]
   }
 }

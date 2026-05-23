@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/recruiting`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.6,
     },
   ];
 }

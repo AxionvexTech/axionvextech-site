@@ -5,85 +5,99 @@ interface FooterProps {
 }
 
 export default function Footer({ page = "home" }: FooterProps) {
-  const audienceLabel = page === "recruiting" ? "Talent network" : "Client delivery";
-
   return (
-    <footer className="bg-slate-950 text-slate-400 border-t border-white/[0.06]">
-      <div className="max-w-6xl mx-auto px-6 py-14">
-        <div className="grid md:grid-cols-4 gap-10 mb-10">
+    <footer className="border-t border-white/[0.06] bg-[#020617]">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-4 gap-10 mb-12">
+          {/* Brand */}
           <div className="md:col-span-2">
             <p className="text-white font-bold text-lg mb-3 tracking-tight">
               AxionvexTech
             </p>
-            <p className="text-sm leading-relaxed text-slate-500 max-w-sm">
-              AI-enabled product engineering and remote engineering operations for
-              teams shipping production systems under real constraints.
+            <p className="text-sm leading-relaxed text-white/80 max-w-sm mb-5">
+              AI-powered software engineering agency. We build production systems,
+              workflow automation, and embedded delivery for SaaS and
+              operations-heavy teams.
             </p>
+            <div className="flex items-center gap-2">
+              <span className="live-dot" />
+              <span className="text-xs text-emerald-400 font-medium">
+                Active — currently taking on new engagements
+              </span>
+            </div>
           </div>
 
+          {/* Services */}
           <div>
             <p className="text-white text-sm font-semibold mb-4">Services</p>
             <ul className="space-y-2.5 text-sm">
-              <li>
-                <Link href="/#services" className="hover:text-white transition-colors">
-                  Product Engineering
-                </Link>
-              </li>
-              <li>
-                <Link href="/#services" className="hover:text-white transition-colors">
-                  AI & Automation Systems
-                </Link>
-              </li>
-              <li>
-                <Link href="/#services" className="hover:text-white transition-colors">
-                  Cloud & Reliability
-                </Link>
-              </li>
-              <li>
-                <Link href="/#services" className="hover:text-white transition-colors">
-                  Talent Operations
-                </Link>
-              </li>
+              {[
+                { label: "AI Engineering & Agents",     href: "/#services" },
+                { label: "Product Engineering",         href: "/#services" },
+                { label: "Cloud & Reliability",         href: "/#services" },
+                { label: "Embedded Delivery Teams",     href: "/#services" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-white/80 hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Company */}
           <div>
-            <p className="text-white text-sm font-semibold mb-4">Explore</p>
+            <p className="text-white text-sm font-semibold mb-4">Company</p>
             <ul className="space-y-2.5 text-sm">
-              <li>
-                <Link href="/work" className="hover:text-white transition-colors">
-                  Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link href="/#ai-systems" className="hover:text-white transition-colors">
-                  AI Positioning
-                </Link>
-              </li>
-              <li>
-                <Link href="/recruiting" className="hover:text-white transition-colors">
-                  Talent Network
-                </Link>
-              </li>
-              <li>
-                <a href="mailto:manager@axionvextech.com" className="hover:text-white transition-colors">
-                  Contact
-                </a>
-              </li>
+              {[
+                { label: "Case Studies",       href: "/work" },
+                { label: "Careers",            href: "/recruiting" },
+                { label: "Applicant Privacy",  href: "/recruiting#privacy" },
+                { label: "Contact",            href: "mailto:manager@axionvextech.com" },
+              ].map((item) => (
+                <li key={item.label}>
+                  {item.href.startsWith("mailto") ? (
+                    <a
+                      href={item.href}
+                      className="text-white/80 hover:text-white transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-white/80 hover:text-white transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/[0.06] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-slate-600">
+        {/* Bottom bar */}
+        <div className="border-t border-white/[0.06] pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p className="text-sm text-white/60">
             &copy; 2026 AxionvexTech. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-sm text-slate-500">
-            <a href="mailto:manager@axionvextech.com" className="hover:text-white transition-colors">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/60">
+            <a
+              href="mailto:manager@axionvextech.com"
+              className="hover:text-white transition-colors"
+            >
               manager@axionvextech.com
             </a>
-            <span className="text-slate-700">
-              {audienceLabel} · Remote-first engineering operations
+            <span className="hidden sm:inline text-slate-800">·</span>
+            <span>
+              {page === "recruiting"
+                ? "Talent network · Remote-first"
+                : "Client delivery · Remote-first"}
             </span>
           </div>
         </div>
