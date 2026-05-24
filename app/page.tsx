@@ -24,7 +24,7 @@ const schemaData = {
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "Sales",
-        email: "manager@axionvextech.com",
+        email: "contact@axionvextech.com",
       },
     },
     {
@@ -98,7 +98,7 @@ const activityFeed = [
 ];
 
 const tagColors: Record<string, string> = {
-  Build:   "text-cyan-400 border-cyan-400/25 bg-cyan-400/8",
+  Build:   "text-[#38BDF8] border-cyan-400/25 bg-[#38BDF8]/8",
   Ops:     "text-violet-400 border-violet-400/25 bg-violet-400/8",
   Insight: "text-blue-400 border-blue-400/25 bg-blue-400/8",
   Hiring:  "text-emerald-400 border-emerald-400/25 bg-emerald-400/8",
@@ -209,7 +209,7 @@ export default function Home() {
 
       {/* ─── HERO ──────────────────────────────────────────────── */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/[0.04] via-transparent to-violet-500/[0.04] pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" style={{background:"radial-gradient(ellipse 80% 60% at 30% 0%, rgba(56,189,248,0.13) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 90% 20%, rgba(139,92,246,0.10) 0%, transparent 60%)"}} />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-32 w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -227,16 +227,16 @@ export default function Home() {
                 </span>
               </h1>
 
-              <p className="text-lg text-white mb-3 max-w-xl leading-relaxed">
+              <p className="text-lg text-[#CBD5E1] mb-3 max-w-xl leading-relaxed">
                 We help teams build, automate, and stabilize modern software
                 with practical AI, senior engineering, and structured delivery.
               </p>
-              <p className="text-sm text-white/80 mb-10 max-w-xl">
+              <p className="text-sm text-[#CBD5E1] mb-10 max-w-xl">
                 Built for real workflows. Monitored releases. Accountable execution.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-10">
-                <a href="#contact" className="btn-primary">
+                <a href="https://calendly.com/manager-axionvextech/30min" target="_blank" rel="noopener noreferrer" className="btn-primary">
                   Book a Technical Scoping Call
                 </a>
                 <Link href="/work" className="btn-ghost">
@@ -257,7 +257,7 @@ export default function Home() {
                     className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.10] bg-white/[0.04] backdrop-blur-sm"
                   >
                     <span className="live-dot" />
-                    <span className="text-xs text-white">{label}</span>
+                    <span className="text-xs text-[#CBD5E1]">{label}</span>
                   </div>
                 ))}
               </div>
@@ -273,7 +273,7 @@ export default function Home() {
                     <div className="w-3 h-3 rounded-full bg-slate-700" />
                     <div className="w-3 h-3 rounded-full bg-slate-700" />
                   </div>
-                  <div className="flex-1 mx-2 h-5 bg-white/[0.05] rounded text-[10px] text-white/80 flex items-center px-2 font-mono">
+                  <div className="flex-1 mx-2 h-5 bg-white/[0.05] rounded text-[10px] text-[#CBD5E1] flex items-center px-2 font-mono">
                     delivery.axionvex.com/ops
                   </div>
                   <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -285,12 +285,12 @@ export default function Home() {
                 {/* Metrics */}
                 <div className="grid grid-cols-3 border-b border-white/[0.07]">
                   {[
-                    { label: "Active Tracks", value: "4",     color: "text-cyan-400" },
+                    { label: "Active Tracks", value: "4",     color: "text-[#38BDF8]" },
                     { label: "Deploys",       value: "14",    color: "text-emerald-400" },
                     { label: "Uptime",        value: "99.8%", color: "text-emerald-400" },
                   ].map((m, i) => (
                     <div key={m.label} className={`px-4 py-3 ${i < 2 ? "border-r border-white/[0.07]" : ""}`}>
-                      <div className="text-[10px] text-white/60 mb-0.5">{m.label}</div>
+                      <div className="text-[10px] text-[#94A3B8] mb-0.5">{m.label}</div>
                       <div className={`text-sm font-bold ${m.color}`}>{m.value}</div>
                     </div>
                   ))}
@@ -299,14 +299,14 @@ export default function Home() {
                 {/* Workstreams */}
                 <div className="p-4 space-y-3">
                   {[
-                    { name: "AI Reporting Pipeline",  pct: 82,  status: "RUNNING", bar: "bg-cyan-400",   badge: "text-cyan-400 bg-cyan-400/10"    },
+                    { name: "AI Reporting Pipeline",  pct: 82,  status: "RUNNING", bar: "bg-[#38BDF8]",   badge: "text-[#38BDF8] bg-[#38BDF8]/10"    },
                     { name: "Platform Modernization", pct: 100, status: "SHIPPED", bar: "bg-emerald-400", badge: "text-emerald-400 bg-emerald-400/10" },
                     { name: "API Integration Layer",  pct: 45,  status: "BUILD",   bar: "bg-blue-400",   badge: "text-blue-400 bg-blue-400/10"    },
                     { name: "Infra Hardening Sprint", pct: 70,  status: "REVIEW",  bar: "bg-violet-400", badge: "text-violet-400 bg-violet-400/10" },
                   ].map((item) => (
                     <div key={item.name}>
                       <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-[11px] text-white">{item.name}</span>
+                        <span className="text-[11px] text-[#CBD5E1]">{item.name}</span>
                         <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${item.badge}`}>
                           {item.status}
                         </span>
@@ -327,7 +327,7 @@ export default function Home() {
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-2 text-[10px]">
                       <span className="text-emerald-400">✓</span>
-                      <span className="text-white/80 font-mono">{item}</span>
+                      <span className="text-[#CBD5E1] font-mono">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -338,7 +338,7 @@ export default function Home() {
       </section>
 
       {/* ─── PROOF METRICS ─────────────────────────────────────── */}
-      <section className="py-10 border-y border-white/[0.06]">
+      <section className="py-10 border-y border-white/[0.06] bg-[#0B1728]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 avx-fade-in-up">
             {[
@@ -350,7 +350,7 @@ export default function Home() {
             ].map((m) => (
               <div key={m.label} className="glass-card rounded-xl px-4 py-4 text-center">
                 <p className="text-2xl font-black gradient-text-cyan mb-1">{m.value}</p>
-                <p className="text-[11px] text-white/80 leading-snug">{m.label}</p>
+                <p className="text-[11px] text-[#CBD5E1] leading-snug">{m.label}</p>
               </div>
             ))}
           </div>
@@ -358,15 +358,15 @@ export default function Home() {
       </section>
 
       {/* ─── WHAT WE SOLVE ─────────────────────────────────────── */}
-      <section id="solve" className="py-24 scroll-mt-20">
+      <section id="solve" className="py-24 scroll-mt-20 bg-[#07111F]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-14 avx-fade-in-up">
             <div className="section-label">What We Solve</div>
-            <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
+            <h2 className="text-4xl font-bold text-[#F8FAFC] mb-4 tracking-tight">
               Turn operational friction into{" "}
               <span className="gradient-text">working systems.</span>
             </h2>
-            <p className="text-white text-lg leading-relaxed">
+            <p className="text-[#CBD5E1] text-lg leading-relaxed">
               Every engagement starts with a real problem. We build software
               that removes the friction, then makes it measurable.
             </p>
@@ -407,20 +407,20 @@ export default function Home() {
               <div key={item.problem} className="glass-card p-6 avx-fade-in-up">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-red-400/70" />
-                  <p className="text-[10px] font-bold text-white/80 uppercase tracking-wider">
+                  <p className="text-[10px] font-bold text-[#CBD5E1] uppercase tracking-wider">
                     Problem
                   </p>
                 </div>
-                <h3 className="text-white font-semibold text-base mb-2">{item.problem}</h3>
-                <p className="text-white/80 text-sm leading-relaxed mb-4">{item.desc}</p>
+                <h3 className="text-[#F8FAFC] font-semibold text-base mb-2">{item.problem}</h3>
+                <p className="text-[#CBD5E1] text-sm leading-relaxed mb-4">{item.desc}</p>
                 <div className="border-t border-white/[0.06] pt-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                    <p className="text-[10px] font-bold text-cyan-400/80 uppercase tracking-wider">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                    <p className="text-[10px] font-bold text-[#38BDF8]/80 uppercase tracking-wider">
                       Solution
                     </p>
                   </div>
-                  <p className="text-white text-sm leading-relaxed">{item.fix}</p>
+                  <p className="text-[#CBD5E1] text-sm leading-relaxed">{item.fix}</p>
                 </div>
               </div>
             ))}
@@ -429,15 +429,15 @@ export default function Home() {
       </section>
 
       {/* ─── SERVICES ──────────────────────────────────────────── */}
-      <section id="services" className="py-24 scroll-mt-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-violet-500/[0.03] via-transparent to-transparent pointer-events-none" />
+      <section id="services" className="py-24 scroll-mt-20 relative bg-[#101C2F]">
+        <div className="absolute inset-0 bg-gradient-to-b from-violet-500/[0.04] via-transparent to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-14 avx-fade-in-up">
             <div className="section-label">Services</div>
-            <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
+            <h2 className="text-4xl font-bold text-[#F8FAFC] mb-4 tracking-tight">
               Four capabilities. One delivery model.
             </h2>
-            <p className="text-white text-lg leading-relaxed">
+            <p className="text-[#CBD5E1] text-lg leading-relaxed">
               Product engineering depth combined with AI workflow execution and
               operationally mature remote delivery.
             </p>
@@ -446,19 +446,19 @@ export default function Home() {
             {services.map((service) => (
               <div key={service.title} className="glass-card p-7 avx-fade-in-up">
                 <div className="flex items-start justify-between mb-4">
-                  <div className="w-10 h-10 rounded-lg border border-cyan-500/20 bg-cyan-500/10 flex items-center justify-center text-lg">
+                  <div className="w-10 h-10 rounded-lg border border-[#38BDF8]/20 bg-[#38BDF8]/10 flex items-center justify-center text-lg">
                     {service.icon}
                   </div>
-                  <span className="text-[9px] font-bold text-white/60 uppercase tracking-widest border border-white/[0.07] rounded px-2 py-0.5">
+                  <span className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest border border-white/[0.07] rounded px-2 py-0.5">
                     {service.tag}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
-                <p className="text-white text-sm leading-relaxed mb-5">{service.body}</p>
+                <h3 className="text-lg font-bold text-[#F8FAFC] mb-2">{service.title}</h3>
+                <p className="text-[#CBD5E1] text-sm leading-relaxed mb-5">{service.body}</p>
                 <ul className="space-y-2">
                   {service.points.map((pt) => (
-                    <li key={pt} className="text-white/80 text-sm flex items-start gap-2">
-                      <span className="text-cyan-500 mt-0.5 flex-shrink-0">→</span>
+                    <li key={pt} className="text-[#CBD5E1] text-sm flex items-start gap-2">
+                      <span className="text-[#38BDF8] mt-0.5 flex-shrink-0">→</span>
                       {pt}
                     </li>
                   ))}
@@ -470,19 +470,19 @@ export default function Home() {
       </section>
 
       {/* ─── CASE STUDY PREVIEW ────────────────────────────────── */}
-      <section id="work" className="py-24 scroll-mt-20">
+      <section id="work" className="py-24 scroll-mt-20 bg-[#07111F]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12 avx-fade-in-up">
             <div className="max-w-2xl">
               <div className="section-label">Proof of Execution</div>
-              <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
+              <h2 className="text-4xl font-bold text-[#F8FAFC] mb-4 tracking-tight">
                 Case studies focused on decisions,{" "}
                 <span className="gradient-text">implementation, and impact.</span>
               </h2>
             </div>
             <Link
               href="/work"
-              className="text-cyan-400 hover:text-cyan-300 text-sm font-semibold transition-colors flex-shrink-0 flex items-center gap-1"
+              className="text-[#38BDF8] hover:text-[#7DD3FC] text-sm font-semibold transition-colors flex-shrink-0 flex items-center gap-1"
             >
               View all case studies →
             </Link>
@@ -521,28 +521,28 @@ export default function Home() {
                 key={study.title}
                 className={`glass-card p-6 avx-fade-in-up flex flex-col border ${study.accentColor}`}
               >
-                <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-cyan-400 mb-3">
+                <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#38BDF8] mb-3">
                   {study.category}
                 </span>
-                <h3 className="text-white font-semibold text-base mb-3 leading-snug">
+                <h3 className="text-[#F8FAFC] font-semibold text-base mb-3 leading-snug">
                   {study.title}
                 </h3>
                 <div className="space-y-2 mb-4 flex-1">
-                  <p className="text-white/80 text-xs leading-relaxed">
-                    <span className="text-white font-medium">Problem: </span>
+                  <p className="text-[#CBD5E1] text-xs leading-relaxed">
+                    <span className="text-[#F8FAFC] font-medium">Problem: </span>
                     {study.problem}
                   </p>
-                  <p className="text-white/80 text-xs leading-relaxed">
-                    <span className="text-white font-medium">Built: </span>
+                  <p className="text-[#CBD5E1] text-xs leading-relaxed">
+                    <span className="text-[#F8FAFC] font-medium">Built: </span>
                     {study.built}
                   </p>
-                  <p className="text-white/80 text-xs">
-                    <span className="text-white font-medium">Stack: </span>
+                  <p className="text-[#CBD5E1] text-xs">
+                    <span className="text-[#F8FAFC] font-medium">Stack: </span>
                     {study.stack}
                   </p>
                 </div>
                 <div className="border-t border-white/[0.06] pt-3">
-                  <p className="text-white text-xs leading-relaxed">{study.outcome}</p>
+                  <p className="text-[#CBD5E1] text-xs leading-relaxed">{study.outcome}</p>
                 </div>
               </div>
             ))}
@@ -556,16 +556,16 @@ export default function Home() {
       </section>
 
       {/* ─── DELIVERY PIPELINE ─────────────────────────────────── */}
-      <section id="process" className="py-24 scroll-mt-20 relative">
+      <section id="process" className="py-24 scroll-mt-20 relative bg-[#0B1728]">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/[0.025] to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-14 avx-fade-in-up">
             <div className="section-label">How We Deliver</div>
-            <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
+            <h2 className="text-4xl font-bold text-[#F8FAFC] mb-4 tracking-tight">
               A structured delivery model,{" "}
               <span className="gradient-text">not a black box.</span>
             </h2>
-            <p className="text-white text-lg leading-relaxed">
+            <p className="text-[#CBD5E1] text-lg leading-relaxed">
               Every engagement follows a documented process with clear owners,
               checkpoints, and handoffs.
             </p>
@@ -579,16 +579,16 @@ export default function Home() {
                 {deliverySteps.map((step, i) => (
                   <div key={step.num} className="flex flex-col items-center text-center px-2">
                     <div
-                      className={`w-12 h-12 rounded-full border-2 flex items-center justify-center font-bold text-sm mb-4 z-10 relative bg-[#020617] transition-colors ${
+                      className={`w-12 h-12 rounded-full border-2 flex items-center justify-center font-bold text-sm mb-4 z-10 relative bg-[#0B1728] transition-colors ${
                         i === 0
-                          ? "border-cyan-500 text-cyan-400"
-                          : "border-white/20 text-white/80"
+                          ? "border-cyan-500 text-[#38BDF8]"
+                          : "border-white/20 text-[#CBD5E1]"
                       }`}
                     >
                       {step.num}
                     </div>
-                    <h3 className="text-sm font-bold text-white mb-1">{step.title}</h3>
-                    <p className="text-xs text-white/60 leading-relaxed">{step.body}</p>
+                    <h3 className="text-sm font-bold text-[#F8FAFC] mb-1">{step.title}</h3>
+                    <p className="text-xs text-[#94A3B8] leading-relaxed">{step.body}</p>
                   </div>
                 ))}
               </div>
@@ -599,12 +599,12 @@ export default function Home() {
           <div className="lg:hidden space-y-3 avx-fade-in-up">
             {deliverySteps.map((step) => (
               <div key={step.num} className="glass-card p-5 flex gap-4">
-                <div className="w-10 h-10 rounded-full border border-cyan-500/30 bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
-                  <span className="text-cyan-400 text-sm font-bold">{step.num}</span>
+                <div className="w-10 h-10 rounded-full border border-[#38BDF8]/30 bg-[#38BDF8]/10 flex items-center justify-center flex-shrink-0">
+                  <span className="text-[#38BDF8] text-sm font-bold">{step.num}</span>
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white mb-1">{step.title}</h3>
-                  <p className="text-xs text-white/80 leading-relaxed">{step.body}</p>
+                  <h3 className="text-sm font-bold text-[#F8FAFC] mb-1">{step.title}</h3>
+                  <p className="text-xs text-[#CBD5E1] leading-relaxed">{step.body}</p>
                 </div>
               </div>
             ))}
@@ -615,7 +615,7 @@ export default function Home() {
       {/* ─── TECH STACK MARQUEE ────────────────────────────────── */}
       <section className="py-16 border-y border-white/[0.06]">
         <div className="max-w-6xl mx-auto px-6 mb-8 avx-fade-in-up">
-          <p className="text-center text-xs font-bold tracking-[0.22em] uppercase text-white/60">
+          <p className="text-center text-xs font-bold tracking-[0.22em] uppercase text-[#94A3B8]">
             Technologies we actively build with
           </p>
         </div>
@@ -623,15 +623,15 @@ export default function Home() {
       </section>
 
       {/* ─── RECENT ACTIVITY ───────────────────────────────────── */}
-      <section className="py-24">
+      <section className="py-24 bg-[#101C2F]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-12 avx-fade-in-up">
             <div className="section-label">Recent Activity</div>
-            <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
+            <h2 className="text-4xl font-bold text-[#F8FAFC] mb-4 tracking-tight">
               An operating company,{" "}
               <span className="gradient-text">not a static brochure.</span>
             </h2>
-            <p className="text-white text-lg leading-relaxed">
+            <p className="text-[#CBD5E1] text-lg leading-relaxed">
               Regular updates across engineering delivery, operations, and team
               growth.
             </p>
@@ -645,14 +645,14 @@ export default function Home() {
                 <div className="flex items-center gap-2">
                   <span
                     className={`text-[10px] font-bold tracking-[0.15em] uppercase border rounded px-2 py-0.5 ${
-                      tagColors[item.tag] ?? "text-white border-white/10 bg-white/4"
+                      tagColors[item.tag] ?? "text-[#CBD5E1] border-white/10 bg-white/[0.04]"
                     }`}
                   >
                     {item.tag}
                   </span>
-                  <span className="text-[11px] text-white/60">{item.date}</span>
+                  <span className="text-[11px] text-[#94A3B8]">{item.date}</span>
                 </div>
-                <p className="text-white text-sm leading-relaxed">{item.text}</p>
+                <p className="text-[#CBD5E1] text-sm leading-relaxed">{item.text}</p>
               </div>
             ))}
           </div>
@@ -660,12 +660,12 @@ export default function Home() {
       </section>
 
       {/* ─── DELIVERY STANDARDS ────────────────────────────────── */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-500/[0.025] to-transparent pointer-events-none" />
+      <section className="py-24 relative bg-[#0B1728]">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-500/[0.03] to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-12 avx-fade-in-up">
             <div className="section-label">Delivery Standards</div>
-            <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
+            <h2 className="text-4xl font-bold text-[#F8FAFC] mb-4 tracking-tight">
               Operational trust built through clarity,{" "}
               <span className="gradient-text">ownership, and systems.</span>
             </h2>
@@ -673,8 +673,8 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 avx-fade-in-up">
             {trustItems.map((item) => (
               <div key={item} className="glass-card px-5 py-4 flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0 mt-1.5" />
-                <p className="text-white text-sm leading-relaxed">{item}</p>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] flex-shrink-0 mt-1.5" />
+                <p className="text-[#CBD5E1] text-sm leading-relaxed">{item}</p>
               </div>
             ))}
           </div>
@@ -682,11 +682,11 @@ export default function Home() {
       </section>
 
       {/* ─── FAQ ────────────────────────────────────────────────── */}
-      <section id="faq" className="py-24 scroll-mt-20">
+      <section id="faq" className="py-24 scroll-mt-20 bg-[#07111F]">
         <div className="max-w-3xl mx-auto px-6">
           <div className="mb-12 avx-fade-in-up">
             <div className="section-label">FAQ</div>
-            <h2 className="text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-4xl font-bold text-[#F8FAFC] tracking-tight">
               Common questions from buyers.
             </h2>
           </div>
@@ -697,9 +697,9 @@ export default function Home() {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full px-6 py-5 flex items-center justify-between text-left gap-4"
                 >
-                  <span className="text-white font-semibold text-sm">{faq.q}</span>
+                  <span className="text-[#F8FAFC] font-semibold text-sm">{faq.q}</span>
                   <span
-                    className={`text-white/80 flex-shrink-0 transition-transform duration-200 ${
+                    className={`text-[#CBD5E1] flex-shrink-0 transition-transform duration-200 ${
                       openFaq === i ? "rotate-45" : ""
                     }`}
                   >
@@ -708,7 +708,7 @@ export default function Home() {
                 </button>
                 {openFaq === i && (
                   <div className="px-6 pb-5 border-t border-white/[0.06] pt-4">
-                    <p className="text-white text-sm leading-relaxed">{faq.a}</p>
+                    <p className="text-[#CBD5E1] text-sm leading-relaxed">{faq.a}</p>
                   </div>
                 )}
               </div>
@@ -728,20 +728,22 @@ export default function Home() {
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center avx-fade-in-up">
           <div className="section-label mx-auto w-fit mb-6">Get Started</div>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-[#F8FAFC] mb-6 tracking-tight leading-tight">
             Bring us the technical bottleneck.{" "}
             <span className="gradient-text">
               We&apos;ll help turn it into a working system.
             </span>
           </h2>
-          <p className="text-white text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#CBD5E1] text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
             Need senior engineering support, AI automation, or structured
             delivery capacity? Let&apos;s map the work and define a practical
             path to ship.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="mailto:manager@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
+              href="https://calendly.com/manager-axionvextech/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary"
             >
               Book a Technical Scoping Call
@@ -750,8 +752,8 @@ export default function Home() {
               See Recent Work
             </Link>
           </div>
-          <p className="mt-6 text-white/60 text-sm">
-            manager@axionvextech.com · Typically responds within 24 hours
+          <p className="mt-6 text-[#94A3B8] text-sm">
+            contact@axionvextech.com · Typically responds within 24 hours
           </p>
         </div>
       </section>

@@ -19,4 +19,4 @@ export const FROM_ADDRESS =
   process.env.EMAIL_FROM || "applications@axionvextech.com";
 
 export const MANAGER_EMAIL =
-  process.env.MANAGER_EMAIL || "manager@axionvextech.com";
+  process.env.MANAGER_EMAIL || "contact@axionvextech.com";

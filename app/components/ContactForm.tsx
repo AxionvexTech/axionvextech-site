@@ -51,7 +51,7 @@ export default function ContactForm({ initialRole }: ContactFormProps) {
       if (!res.ok) {
         setStatus("error");
         setErrorMessage(
-          data.error || "Something went wrong. Please try again or email manager@axionvextech.com."
+          data.error || "Something went wrong. Please try again or email contact@axionvextech.com."
         );
         return;
       }
@@ -72,7 +72,7 @@ export default function ContactForm({ initialRole }: ContactFormProps) {
     } catch {
       setStatus("error");
       setErrorMessage(
-        "Something went wrong. Please try again or email manager@axionvextech.com."
+        "Something went wrong. Please try again or email contact@axionvextech.com."
       );
     }
   };

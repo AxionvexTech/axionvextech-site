@@ -93,12 +93,12 @@ export default function Recruiting() {
                 <span className="gradient-text">real delivery.</span>
               </h1>
 
-              <p className="text-lg text-white mb-4 max-w-xl leading-relaxed">
+              <p className="text-lg text-[#CBD5E1] mb-4 max-w-xl leading-relaxed">
                 We hire engineers, recruiters, and delivery operators who help
                 build and support real client systems. Our process is
                 structured, role-specific, and reviewed by people.
               </p>
-              <p className="text-sm text-white/80 mb-8 max-w-xl leading-relaxed">
+              <p className="text-sm text-[#CBD5E1] mb-8 max-w-xl leading-relaxed">
                 We may use software tools to route applications or summarize
                 submitted materials, but final progression decisions are made
                 by humans — not automated systems.
@@ -115,8 +115,8 @@ export default function Recruiting() {
               <div className="glass-card overflow-hidden">
                 <div className="px-5 py-4 border-b border-white/[0.07] flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-semibold text-white">Talent Operations Pipeline</p>
-                    <p className="text-xs text-white/80 mt-0.5">Structured intake with role-based routing</p>
+                    <p className="text-sm font-semibold text-[#F8FAFC]">Talent Operations Pipeline</p>
+                    <p className="text-xs text-[#CBD5E1] mt-0.5">Structured intake with role-based routing</p>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="live-dot" />
@@ -136,7 +136,7 @@ export default function Recruiting() {
                     >
                       <div className="flex items-center gap-2.5">
                         <div className={`w-2 h-2 rounded-full ${item.dot}`} />
-                        <span className="text-white text-xs">{item.role}</span>
+                        <span className="text-[#CBD5E1] text-xs">{item.role}</span>
                       </div>
                       <span className={`text-[9px] font-bold px-2 py-0.5 rounded ${item.color}`}>
                         {item.status}
@@ -145,7 +145,7 @@ export default function Recruiting() {
                   ))}
                 </div>
                 <div className="border-t border-white/[0.07] px-5 py-3">
-                  <p className="text-[11px] text-white/60">
+                  <p className="text-[11px] text-[#94A3B8]">
                     Applications reviewed weekly · Human final decisions
                   </p>
                 </div>
@@ -156,14 +156,14 @@ export default function Recruiting() {
       </section>
 
       {/* ─── HOW HIRING WORKS ──────────────────────────────────── */}
-      <section id="process" className="py-24 scroll-mt-20">
+      <section id="process" className="py-24 scroll-mt-20 bg-[#0B1728]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-xl mb-14 avx-fade-in-up">
             <div className="section-label">How Hiring Works</div>
-            <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
+            <h2 className="text-4xl font-bold text-[#F8FAFC] mb-4 tracking-tight">
               A structured process with clear communication at every step.
             </h2>
-            <p className="text-white text-lg leading-relaxed">
+            <p className="text-[#CBD5E1] text-lg leading-relaxed">
               Applications are reviewed in a weekly cycle. We communicate
               clearly about next steps at every stage.
             </p>
@@ -172,17 +172,17 @@ export default function Recruiting() {
           <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-3 avx-fade-in-up">
             {hiringSteps.map((step) => (
               <div key={step.num} className="glass-card p-5">
-                <p className="text-cyan-400 text-xs font-bold mb-2">{step.num}</p>
-                <h3 className="text-sm font-bold text-white mb-2">{step.title}</h3>
-                <p className="text-xs text-white/80 leading-relaxed">{step.body}</p>
+                <p className="text-[#38BDF8] text-xs font-bold mb-2">{step.num}</p>
+                <h3 className="text-sm font-bold text-[#F8FAFC] mb-2">{step.title}</h3>
+                <p className="text-xs text-[#CBD5E1] leading-relaxed">{step.body}</p>
               </div>
             ))}
           </div>
 
           <div className="mt-6 glass-card px-6 py-4 flex items-start gap-3 avx-fade-in-up">
-            <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0 mt-1.5" />
-            <p className="text-white text-sm">
-              <span className="font-semibold text-white">Typical timeline:</span>{" "}
+            <div className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] flex-shrink-0 mt-1.5" />
+            <p className="text-[#CBD5E1] text-sm">
+              <span className="font-semibold text-[#F8FAFC]">Typical timeline:</span>{" "}
               application to onboarding is usually 2–3 weeks. Applying does not
               guarantee immediate placement.
             </p>
@@ -191,12 +191,12 @@ export default function Recruiting() {
       </section>
 
       {/* ─── OPEN ROLES ────────────────────────────────────────── */}
-      <section id="roles" className="py-24 scroll-mt-20 relative">
+      <section id="roles" className="py-24 scroll-mt-20 relative bg-[#101C2F]">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-500/[0.03] to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <div className="max-w-xl mb-14 avx-fade-in-up">
             <div className="section-label">Role Tracks</div>
-            <h2 className="text-4xl font-bold text-white tracking-tight leading-tight">
+            <h2 className="text-4xl font-bold text-[#F8FAFC] tracking-tight leading-tight">
               Professional tracks we are actively building.
             </h2>
           </div>
@@ -205,24 +205,24 @@ export default function Recruiting() {
             {roleCards.map((track) => (
               <div key={track.title} className="glass-card p-6 avx-fade-in-up flex flex-col">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-white text-lg font-semibold leading-snug">
+                  <h3 className="text-[#F8FAFC] text-lg font-semibold leading-snug">
                     {track.title}
                   </h3>
-                  <span className="text-[9px] font-bold text-white/60 uppercase tracking-widest border border-white/[0.07] rounded px-2 py-0.5 flex-shrink-0 ml-3">
+                  <span className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest border border-white/[0.07] rounded px-2 py-0.5 flex-shrink-0 ml-3">
                     {track.tag}
                   </span>
                 </div>
-                <p className="text-white text-sm leading-relaxed mb-5 flex-1">
+                <p className="text-[#CBD5E1] text-sm leading-relaxed mb-5 flex-1">
                   {track.body}
                 </p>
                 <div className="border-t border-white/[0.06] pt-4 mb-5">
-                  <p className="text-[10px] font-bold text-white/60 uppercase tracking-wider mb-2">
+                  <p className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-wider mb-2">
                     We evaluate
                   </p>
                   <ul className="space-y-1">
                     {track.signals.map((s) => (
-                      <li key={s} className="flex items-center gap-2 text-xs text-white/80">
-                        <span className="text-cyan-500 flex-shrink-0">→</span>
+                      <li key={s} className="flex items-center gap-2 text-xs text-[#CBD5E1]">
+                        <span className="text-[#38BDF8] flex-shrink-0">→</span>
                         {s}
                       </li>
                     ))}
@@ -245,7 +245,7 @@ export default function Recruiting() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-xl mb-14 avx-fade-in-up">
             <div className="section-label">What We Evaluate</div>
-            <h2 className="text-4xl font-bold text-white tracking-tight leading-tight">
+            <h2 className="text-4xl font-bold text-[#F8FAFC] tracking-tight leading-tight">
               Objective signals applied consistently{" "}
               <span className="gradient-text">across all applicants.</span>
             </h2>
@@ -255,14 +255,14 @@ export default function Recruiting() {
             {/* Good signals */}
             <div className="glass-card p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
-                <h3 className="text-lg font-bold text-white">Evaluation signals</h3>
+                <div className="w-2.5 h-2.5 rounded-full bg-[#38BDF8]" />
+                <h3 className="text-lg font-bold text-[#F8FAFC]">Evaluation signals</h3>
               </div>
               <ul className="space-y-4">
                 {evaluationSignals.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <span className="text-cyan-400 font-bold mt-0.5 flex-shrink-0">✓</span>
-                    <span className="text-white text-sm leading-relaxed">{item}</span>
+                    <span className="text-[#38BDF8] font-bold mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-[#CBD5E1] text-sm leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -271,14 +271,14 @@ export default function Recruiting() {
             {/* Not a fit */}
             <div className="glass-card p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-2.5 h-2.5 rounded-full bg-slate-600" />
-                <h3 className="text-lg font-bold text-white">This role is not a fit if&hellip;</h3>
+                <div className="w-2.5 h-2.5 rounded-full bg-[#475569]" />
+                <h3 className="text-lg font-bold text-[#F8FAFC]">This role is not a fit if&hellip;</h3>
               </div>
               <ul className="space-y-4">
                 {notAFit.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <span className="text-white/60 font-bold mt-0.5 flex-shrink-0">✕</span>
-                    <span className="text-white/80 text-sm leading-relaxed">{item}</span>
+                    <span className="text-[#94A3B8] font-bold mt-0.5 flex-shrink-0">✕</span>
+                    <span className="text-[#CBD5E1] text-sm leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -288,15 +288,15 @@ export default function Recruiting() {
       </section>
 
       {/* ─── OPERATING STANDARDS ───────────────────────────────── */}
-      <section className="py-24 relative">
+      <section className="py-24 relative bg-[#0B1728]">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/[0.02] to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <div className="max-w-xl mb-14 avx-fade-in-up">
             <div className="section-label">Operating Standards</div>
-            <h2 className="text-4xl font-bold text-white tracking-tight leading-tight mb-4">
+            <h2 className="text-4xl font-bold text-[#F8FAFC] tracking-tight leading-tight mb-4">
               A remote-first environment built on structure.
             </h2>
-            <p className="text-white text-lg leading-relaxed">
+            <p className="text-[#CBD5E1] text-lg leading-relaxed">
               Designed for long-term collaborators who care about quality and
               clear communication.
             </p>
@@ -311,8 +311,8 @@ export default function Recruiting() {
               "Long-term collaboration over short-term contract churn",
             ].map((item) => (
               <div key={item} className="glass-card p-5 flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0 mt-1.5" />
-                <p className="text-white text-sm leading-relaxed">{item}</p>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] flex-shrink-0 mt-1.5" />
+                <p className="text-[#CBD5E1] text-sm leading-relaxed">{item}</p>
               </div>
             ))}
           </div>
@@ -320,15 +320,15 @@ export default function Recruiting() {
       </section>
 
       {/* ─── GROWTH MODEL ──────────────────────────────────────── */}
-      <section className="py-24">
+      <section className="py-24 bg-[#101C2F]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-start avx-fade-in-up">
             <div>
               <div className="section-label">Growth Model</div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-snug mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#F8FAFC] tracking-tight leading-snug mb-6">
                 Performance-based growth with clear operating expectations.
               </h2>
-              <div className="space-y-4 text-white leading-relaxed text-sm">
+              <div className="space-y-4 text-[#CBD5E1] leading-relaxed text-sm">
                 <p>
                   Compensation scales with ownership scope, communication quality,
                   and operational reliability — not just hours logged.
@@ -337,7 +337,7 @@ export default function Recruiting() {
                   As you take on deeper responsibilities across delivery and
                   coordination, your role and compensation move accordingly.
                 </p>
-                <p className="text-white font-medium">
+                <p className="text-[#F8FAFC] font-medium">
                   We optimize for outcomes, consistency, and trust.
                 </p>
               </div>
@@ -345,7 +345,7 @@ export default function Recruiting() {
 
             <div className="space-y-4">
               <div className="glass-card p-6">
-                <h3 className="font-bold text-white text-sm mb-5 uppercase tracking-wider">
+                <h3 className="font-bold text-[#F8FAFC] text-sm mb-5 uppercase tracking-wider">
                   Example Progression
                 </h3>
                 <div className="space-y-3">
@@ -356,17 +356,17 @@ export default function Recruiting() {
                   ].map((item) => (
                     <div key={item.tier} className="bg-white/[0.03] border border-white/[0.07] rounded-lg px-4 py-3">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-white text-sm font-semibold">{item.tier}</span>
+                        <span className="text-[#F8FAFC] text-sm font-semibold">{item.tier}</span>
                         <span className="gradient-text-cyan font-bold text-xs">{item.range}</span>
                       </div>
-                      <p className="text-white/80 text-xs">{item.note}</p>
+                      <p className="text-[#CBD5E1] text-xs">{item.note}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="glass-card px-5 py-4">
-                <p className="text-white/80 text-sm leading-relaxed">
+                <p className="text-[#CBD5E1] text-sm leading-relaxed">
                   Compensation details are discussed during the screening process
                   based on role track, operating scope, and collaboration model.
                 </p>
@@ -381,10 +381,10 @@ export default function Recruiting() {
         <div className="max-w-3xl mx-auto px-6">
           <div className="glass-card p-8 avx-fade-in-up">
             <p className="section-label mb-4">Applicant Data Notice</p>
-            <h2 className="text-xl font-bold text-white mb-4">
+            <h2 className="text-xl font-bold text-[#F8FAFC] mb-4">
               How we handle your application data
             </h2>
-            <div className="space-y-3 text-white/80 text-sm leading-relaxed">
+            <div className="space-y-3 text-[#CBD5E1] text-sm leading-relaxed">
               <p>
                 We collect the information you submit — including your name,
                 contact details, work history, and any materials you share —
@@ -395,7 +395,7 @@ export default function Recruiting() {
                 We may use software tools to help route applications, identify
                 missing information, or summarize submitted materials for
                 reviewers.{" "}
-                <span className="font-medium text-white">
+                <span className="font-medium text-[#F8FAFC]">
                   Final progression decisions are made by people, not automated
                   systems.
                 </span>
@@ -409,10 +409,10 @@ export default function Recruiting() {
                 You may request access to, correction of, or deletion of your
                 application data by contacting us at{" "}
                 <a
-                  href="mailto:manager@axionvextech.com"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                  href="mailto:contact@axionvextech.com"
+                  className="text-[#38BDF8] hover:text-[#7DD3FC] transition-colors"
                 >
-                  manager@axionvextech.com
+                  contact@axionvextech.com
                 </a>
                 .
               </p>
@@ -429,10 +429,10 @@ export default function Recruiting() {
         <div className="relative z-10 max-w-2xl mx-auto px-6">
           <div className="text-center mb-10">
             <div className="section-label mx-auto w-fit mb-4">Join the Network</div>
-            <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
+            <h2 className="text-4xl font-bold text-[#F8FAFC] mb-4 tracking-tight">
               {selectedRole ? "Apply now." : "Ready to apply?"}
             </h2>
-            <p className="text-white text-lg leading-relaxed max-w-lg mx-auto">
+            <p className="text-[#CBD5E1] text-lg leading-relaxed max-w-lg mx-auto">
               Submit a clear application with your strongest work examples. We
               review submissions in a structured weekly cycle.
             </p>
@@ -446,7 +446,7 @@ export default function Recruiting() {
             <p className="text-center mt-5">
               <button
                 onClick={() => setSelectedRole("")}
-                className="text-white/80 hover:text-white text-sm transition-colors"
+                className="text-[#CBD5E1] hover:text-[#F8FAFC] text-sm transition-colors"
               >
                 Apply for a different role instead
               </button>
@@ -454,17 +454,17 @@ export default function Recruiting() {
           )}
 
           <div className="mt-6 glass-card px-5 py-4">
-            <p className="text-white/60 text-sm leading-relaxed text-center">
+            <p className="text-[#94A3B8] text-sm leading-relaxed text-center">
               By applying, you agree to our{" "}
-              <a href="#privacy" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+              <a href="#privacy" className="text-[#38BDF8] hover:text-[#7DD3FC] transition-colors">
                 applicant data notice
               </a>
               . Prefer to reach out directly?{" "}
               <a
-                href="mailto:manager@axionvextech.com"
-                className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                href="mailto:contact@axionvextech.com"
+                className="text-[#38BDF8] hover:text-[#7DD3FC] transition-colors"
               >
-                manager@axionvextech.com
+                contact@axionvextech.com
               </a>
             </p>
           </div>

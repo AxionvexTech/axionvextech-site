@@ -35,19 +35,19 @@ export default function CaseStudyCard({
       {/* Content */}
       <div className="p-6 flex flex-col flex-1">
         <div className="flex items-center justify-between mb-3">
-          <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-cyan-400">
+          <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#38BDF8]">
             {category}
           </span>
-          <span className="text-[10px] text-white/60 font-medium border border-white/[0.07] rounded px-2 py-0.5">
+          <span className="text-[10px] text-[#64748B] font-medium border border-white/[0.07] rounded px-2 py-0.5">
             {timeline}
           </span>
         </div>
 
-        <h3 className="text-base font-bold text-white mb-2 leading-snug group-hover:text-cyan-300 transition-colors">
+        <h3 className="text-base font-bold text-[#F8FAFC] mb-2 leading-snug group-hover:text-[#38BDF8] transition-colors">
           {title}
         </h3>
 
-        <p className="text-white/80 text-sm leading-relaxed mb-5 flex-1">
+        <p className="text-[#CBD5E1] text-sm leading-relaxed mb-5 flex-1">
           {summary}
         </p>
 
@@ -57,7 +57,7 @@ export default function CaseStudyCard({
             {stack.map((tech) => (
               <span
                 key={tech}
-                className="text-[10px] font-medium text-white/80 border border-white/[0.08] bg-white/[0.03] px-2 py-0.5 rounded"
+                className="text-[10px] font-medium text-[#94A3B8] border border-white/[0.08] bg-white/[0.03] px-2 py-0.5 rounded"
               >
                 {tech}
               </span>
@@ -65,7 +65,7 @@ export default function CaseStudyCard({
           </div>
         )}
 
-        <p className="text-cyan-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+        <p className="text-[#38BDF8] text-sm font-semibold group-hover:translate-x-1 transition-transform">
           Read case study →
         </p>
       </div>

@@ -151,7 +151,7 @@ export function candidateEvaluationHtml(
   </div>
   <div style="${FOOTER_BG}">
     <p style="color: #94a3b8; font-size: 12px; margin: 0;">
-      AxionvexTech · <a href="https://axionvextech.com" style="${LINK}">axionvextech.com</a> · <a href="mailto:manager@axionvextech.com" style="${LINK}">manager@axionvextech.com</a>
+      AxionvexTech · <a href="https://axionvextech.com" style="${LINK}">axionvextech.com</a> · <a href="mailto:contact@axionvextech.com" style="${LINK}">contact@axionvextech.com</a>
     </p>
   </div>
 </div>`;
@@ -224,7 +224,7 @@ export function approvedCandidateHtml(data: ApprovedCandidateData): string {
   </div>
   <div style="${FOOTER_BG}">
     <p style="color: #94a3b8; font-size: 12px; margin: 0;">
-      AxionvexTech · <a href="https://axionvextech.com" style="${LINK}">axionvextech.com</a> · <a href="mailto:manager@axionvextech.com" style="${LINK}">manager@axionvextech.com</a>
+      AxionvexTech · <a href="https://axionvextech.com" style="${LINK}">axionvextech.com</a> · <a href="mailto:contact@axionvextech.com" style="${LINK}">contact@axionvextech.com</a>
     </p>
   </div>
 </div>`;

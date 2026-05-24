@@ -62,7 +62,7 @@ function ComingSoonCard({ label }: { label: string }) {
     <div className="glass-card flex flex-col items-center justify-center text-center p-10 min-h-[280px] border-dashed">
       <div className="w-10 h-10 rounded-full border border-white/[0.10] bg-white/[0.02] flex items-center justify-center mb-4">
         <svg
-          className="w-5 h-5 text-white/60"
+          className="w-5 h-5 text-[#94A3B8]"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -71,8 +71,8 @@ function ComingSoonCard({ label }: { label: string }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
         </svg>
       </div>
-      <p className="text-sm font-semibold text-white/80 mb-1">{label}</p>
-      <p className="text-xs text-white/40">Case study in documentation review</p>
+      <p className="text-sm font-semibold text-[#CBD5E1] mb-1">{label}</p>
+      <p className="text-xs text-[#64748B]">Case study in documentation review</p>
     </div>
   );
 }
@@ -100,8 +100,8 @@ export default function WorkGrid() {
               onClick={() => setActive(f)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                 active === f
-                  ? "bg-cyan-500/15 text-cyan-300 border border-cyan-500/30"
-                  : "text-white/80 border border-white/[0.07] bg-white/[0.02] hover:text-white hover:border-white/[0.12]"
+                  ? "bg-[#38BDF8]/15 text-cyan-300 border border-[#38BDF8]/30"
+                  : "text-[#94A3B8] border border-white/[0.07] bg-white/[0.02] hover:text-[#F8FAFC] hover:border-white/[0.12]"
               }`}
             >
               {f}
@@ -115,20 +115,20 @@ export default function WorkGrid() {
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="p-8 flex flex-col">
                 <div className="section-label mb-4">Featured Case Study</div>
-                <span className="text-xs font-bold tracking-[0.18em] uppercase text-cyan-400 mb-2">
+                <span className="text-xs font-bold tracking-[0.18em] uppercase text-[#38BDF8] mb-2">
                   {featured.category}
                 </span>
-                <h2 className="text-2xl font-bold text-white mb-3 leading-snug">
+                <h2 className="text-2xl font-bold text-[#F8FAFC] mb-3 leading-snug">
                   {featured.title}
                 </h2>
-                <p className="text-white text-sm leading-relaxed mb-6 flex-1">
+                <p className="text-[#CBD5E1] text-sm leading-relaxed mb-6 flex-1">
                   {featured.summary}
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-6">
                   {featured.stack.map((t) => (
                     <span
                       key={t}
-                      className="text-[10px] font-medium text-white/80 border border-white/[0.08] bg-white/[0.03] px-2 py-0.5 rounded"
+                      className="text-[10px] font-medium text-[#CBD5E1] border border-white/[0.08] bg-white/[0.03] px-2 py-0.5 rounded"
                     >
                       {t}
                     </span>
@@ -143,7 +143,7 @@ export default function WorkGrid() {
                   {/* AI workflow diagram mockup */}
                   <div className="rounded-lg border border-white/[0.08] bg-[#060d1f] overflow-hidden">
                     <div className="px-4 py-3 border-b border-white/[0.07] flex items-center justify-between">
-                      <span className="text-[11px] font-semibold text-white">AI Workflow — Ops Automation</span>
+                      <span className="text-[11px] font-semibold text-[#F8FAFC]">AI Workflow — Ops Automation</span>
                       <div className="flex items-center gap-1.5">
                         <span className="live-dot" />
                         <span className="text-[10px] text-emerald-400">Running</span>
@@ -154,14 +154,14 @@ export default function WorkGrid() {
                         { step: "Data ingestion",     status: "✓", c: "text-emerald-400" },
                         { step: "AI summarization",   status: "✓", c: "text-emerald-400" },
                         { step: "Approval routing",   status: "✓", c: "text-emerald-400" },
-                        { step: "Report generation",  status: "⟳", c: "text-cyan-400" },
-                        { step: "Distribution",       status: "○", c: "text-white/60" },
+                        { step: "Report generation",  status: "⟳", c: "text-[#38BDF8]" },
+                        { step: "Distribution",       status: "○", c: "text-[#94A3B8]" },
                       ].map((item) => (
                         <div key={item.step} className="flex items-center gap-3">
                           <span className={`text-xs font-mono w-4 flex-shrink-0 ${item.c}`}>{item.status}</span>
-                          <span className="text-xs text-white">{item.step}</span>
+                          <span className="text-xs text-[#CBD5E1]">{item.step}</span>
                           {item.status === "⟳" && (
-                            <span className="ml-auto text-[9px] text-cyan-400/70 border border-cyan-400/20 rounded px-1.5 py-0.5">
+                            <span className="ml-auto text-[9px] text-[#38BDF8]/70 border border-[#38BDF8]/20 rounded px-1.5 py-0.5">
                               In progress
                             </span>
                           )}
@@ -169,7 +169,7 @@ export default function WorkGrid() {
                       ))}
                     </div>
                     <div className="border-t border-white/[0.07] px-4 py-2 flex items-center justify-between">
-                      <span className="text-[10px] text-white/60">Cycle time: same-day</span>
+                      <span className="text-[10px] text-[#94A3B8]">Cycle time: same-day</span>
                       <span className="text-[10px] text-emerald-400">↓ 95% from baseline</span>
                     </div>
                   </div>
@@ -191,7 +191,7 @@ export default function WorkGrid() {
 
         {rest.length === 0 && !showFeatured && (
           <div className="text-center py-20">
-            <p className="text-white/80 text-sm">No case studies in this category yet.</p>
+            <p className="text-[#CBD5E1] text-sm">No case studies in this category yet.</p>
           </div>
         )}
       </div>

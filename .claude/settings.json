@@ -17,7 +17,15 @@
       "Bash(pip3 show *)",
       "Bash(gtimeout 5 /usr/local/bin/uvx mcp-server-fetch)",
       "Bash(gtimeout 5 npx -y @modelcontextprotocol/server-github)",
-      "Bash(perl -i -p -e ' *)"
+      "Bash(perl -i -p -e ' *)",
+      "Bash(npm run *)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(curl -s http://localhost:3000 -o /dev/null -w \"%{http_code}\")",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_console_messages"
     ],
     "additionalDirectories": [
       "/Users/administrator/.claude"

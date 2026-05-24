@@ -118,7 +118,7 @@ export default function CaseStudyLayout({
             Tell us what you are building or what needs to improve.
           </p>
           <a
-            href="mailto:manager@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
+            href="mailto:contact@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
             className="inline-block bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors"
           >
             Start a Project

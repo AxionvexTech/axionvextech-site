@@ -172,7 +172,7 @@ export async function POST(request: NextRequest) {
     if (managerErr) {
       console.error("[apply] Manager email failed:", managerErr);
       return NextResponse.json(
-        { error: "Failed to send application. Please email manager@axionvextech.com directly." },
+        { error: "Failed to send application. Please email contact@axionvextech.com directly." },
         { status: 500 }
       );
     }
@@ -203,7 +203,7 @@ export async function POST(request: NextRequest) {
   } catch (err) {
     console.error("[apply] Unexpected error:", err);
     return NextResponse.json(
-      { error: "Something went wrong. Please email manager@axionvextech.com directly." },
+      { error: "Something went wrong. Please email contact@axionvextech.com directly." },
       { status: 500 }
     );
   }

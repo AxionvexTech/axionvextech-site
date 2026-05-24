@@ -31,7 +31,7 @@ export default function Work() {
               Real work.{" "}
               <span className="gradient-text">Real systems.</span>
             </h1>
-            <p className="text-lg text-white leading-relaxed max-w-xl">
+            <p className="text-lg text-[#CBD5E1] leading-relaxed max-w-xl">
               Each project involved a real team, real constraints, and a
               production system with users depending on it. Here is what the
               work actually looked like — decisions, implementation, and outcomes.
@@ -48,7 +48,7 @@ export default function Work() {
             ].map((m) => (
               <div key={m.l} className="glass-card rounded-xl px-4 py-4 text-center">
                 <p className="text-xl font-black gradient-text-cyan mb-1">{m.v}</p>
-                <p className="text-[11px] text-white/60">{m.l}</p>
+                <p className="text-[11px] text-[#94A3B8]">{m.l}</p>
               </div>
             ))}
           </div>
@@ -65,16 +65,16 @@ export default function Work() {
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center avx-fade-in-up">
           <div className="section-label mx-auto w-fit mb-6">Start a Project</div>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-[#F8FAFC] mb-6 tracking-tight leading-tight">
             Have a project like these?
           </h2>
-          <p className="text-white text-xl mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-[#CBD5E1] text-xl mb-10 max-w-xl mx-auto leading-relaxed">
             Tell us what you are building or what needs to improve. A senior
             engineer responds — not a salesperson.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="mailto:manager@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
+              href="mailto:contact@axionvextech.com?subject=Project%20Inquiry%20-%20AxionvexTech"
               className="btn-primary"
             >
               Start a Project
@@ -83,8 +83,8 @@ export default function Work() {
               View Services
             </a>
           </div>
-          <p className="mt-6 text-white/60 text-sm">
-            manager@axionvextech.com · Senior engineer responds directly
+          <p className="mt-6 text-[#94A3B8] text-sm">
+            contact@axionvextech.com · Senior engineer responds directly
           </p>
         </div>
       </section>
