@@ -5,17 +5,18 @@
 | Brand mark | `/public/icon.svg` | Axionvex | Owned | Favicon, header | Real brand |
 | Logo raster | `/public/logo.png` | Axionvex | Owned | Legacy / fallback | Real brand |
 | OG default | `/public/og-default.svg` | Generated for site | Owned | Social previews | Illustrative |
-| Hero control plane (legacy raster) | `/public/images/hero/control-plane.png` | Generated conceptual UI | Site use | Optional raster fallback | Illustrative / conceptual |
-| Architecture overview | `/public/images/hero/architecture-overview.png` | Generated conceptual diagram | Site use | Case study / editorial | Illustrative |
-| Hero agency video | `/public/videos/hero-agency.mp4` | Pexels #3129957 | Pexels commercial | Homepage hero | Stock video · decorative |
-| Hero agency poster | `/public/videos/hero-agency-poster.png` | Extracted frame | Derived | Reduced-motion / LCP | Illustrative |
-| Careers interview hero | `/public/images/company/careers-interview-hero.png` | Generated editorial | Site use | Careers hero background | Generated · **not Axionvex personnel** |
-| Customer operations UI | `/public/images/use-cases/customer-operations.png` | Generated conceptual UI | Site use | Use-case panels | Conceptual UI |
-| Client onboarding UI | `/public/images/use-cases/client-onboarding.png` | Generated conceptual UI | Site use | Use-case panels | Conceptual UI |
-| Document processing UI | `/public/images/use-cases/document-processing.png` | Generated conceptual UI | Site use | Use-case panels | Conceptual UI |
-| Reporting automation UI | `/public/images/use-cases/reporting-automation.png` | Generated conceptual UI | Site use | Use-case panels | Conceptual UI |
-| Internal knowledge UI | `/public/images/use-cases/internal-knowledge.png` | Generated conceptual UI | Site use | Use-case panels | Conceptual UI |
-| AI product features UI | `/public/images/use-cases/ai-product-features.png` | Generated conceptual UI | Site use | Use-case panels | Conceptual UI |
+| Hero control plane | `/public/images/hero/control-plane.webp` | Generated conceptual UI | Site use | Editorial / reference | Illustrative / conceptual |
+| Architecture overview | `/public/images/hero/architecture-overview.webp` | Generated conceptual diagram | Site use | Case study / editorial | Illustrative |
+| Working session | `/public/images/company/working-session.webp` | Generated editorial | Site use | About / trust | Generated · not personnel |
+| Hero agency video | `/public/videos/hero-agency.mp4` (~2 MB SD) | Pexels #3129957 | Pexels commercial | Homepage hero (deferred) | Stock video · decorative |
+| Hero agency poster | `/public/videos/hero-agency-poster.webp` (~39 KB) | Extracted frame | Derived | LCP / reduced-motion | Illustrative |
+| Careers interview hero | `/public/images/company/careers-interview-hero.webp` | Generated editorial | Site use | Careers hero background | Generated · **not Axionvex personnel** |
+| Customer operations UI | `/public/images/use-cases/customer-operations.webp` | Generated conceptual UI | Site use | Use-case panels | Conceptual UI |
+| Client onboarding UI | `/public/images/use-cases/client-onboarding.webp` | Generated conceptual UI | Site use | Use-case panels | Conceptual UI |
+| Document processing UI | `/public/images/use-cases/document-processing.webp` | Generated conceptual UI | Site use | Use-case panels | Conceptual UI |
+| Reporting automation UI | `/public/images/use-cases/reporting-automation.webp` | Generated conceptual UI | Site use | Use-case panels | Conceptual UI |
+| Internal knowledge UI | `/public/images/use-cases/internal-knowledge.webp` | Generated conceptual UI | Site use | Use-case panels | Conceptual UI |
+| AI product features UI | `/public/images/use-cases/ai-product-features.webp` | Generated conceptual UI | Site use | Use-case panels | Conceptual UI |
 | Hero workflow SVG | `HeroWorkflowControlPlane.tsx` | Original code | Owned | Homepage hero | Technical demonstration |
 | Architecture interaction | `InteractiveArchitecture.tsx` | Original code | Owned | Homepage dark anchor | Technical demonstration |
 | Standards dashboard | `StandardsDashboard.tsx` | Original code | Owned | Homepage / standards | Illustrative controls |
@@ -23,6 +24,12 @@
 | Prototype → production | `PrototypeToProduction.tsx` | Original code | Owned | Buyer recognition | Illustrative |
 | Operational transformation | `OperationalTransformation.tsx` | Original code | Owned | Homepage section | Illustrative |
 | Delivery timeline | `DeliveryTimeline.tsx` | Original code | Owned | Delivery process | Illustrative |
+
+## Performance notes
+
+- Marketing images ship as WebP.
+- Hero video loads after idle + visibility; poster WebP is the LCP candidate.
+- Spatial depth uses CSS perspective / parallax / tilt — no WebGL.
 
 ## Rules
 

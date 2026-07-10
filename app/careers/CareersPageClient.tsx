@@ -91,7 +91,14 @@ export default function CareersPageClient() {
       <Section bare className="careers-hero !pt-0 !pb-0">
         <div className="careers-hero__media" aria-hidden>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/company/careers-interview-hero.png" alt="" />
+          <img
+            src="/images/company/careers-interview-hero.webp"
+            alt=""
+            width={1920}
+            height={1080}
+            decoding="async"
+            fetchPriority="high"
+          />
           <div className="careers-hero__veil" />
         </div>
         <div className="container-avx relative z-[1] flex min-h-[min(78vh,720px)] items-center py-16 md:py-20">

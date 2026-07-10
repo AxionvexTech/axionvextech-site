@@ -83,14 +83,25 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="fade-up relative pb-8 lg:pb-12" style={{ animationDelay: "140ms" }}>
+            <div
+              className="fade-up depth-stage relative pb-8 lg:pb-12"
+              style={{ animationDelay: "140ms" }}
+            >
               <div
                 aria-hidden
                 className="pointer-events-none absolute -right-10 top-10 h-56 w-56 rounded-full bg-cyan/20 blur-3xl"
+                data-depth="0.14"
               />
-              <div className="relative">
-                <HeroAgencyVideo className="aspect-[4/3] w-full sm:aspect-[16/11] lg:aspect-[5/4]" />
-                <div className="relative z-[1] -mt-16 px-3 sm:-mt-20 sm:px-6 lg:-mt-24">
+              <div className="depth-scene relative" data-tilt>
+                <div className="depth-plane depth-plane--back" data-depth="0.16" aria-hidden />
+                <div className="depth-plane depth-plane--mid" data-depth="0.1" aria-hidden />
+                <div data-depth="0.05">
+                  <HeroAgencyVideo className="aspect-[4/3] w-full sm:aspect-[16/11] lg:aspect-[5/4]" />
+                </div>
+                <div
+                  className="depth-float relative z-[2] -mt-16 px-3 sm:-mt-20 sm:px-6 lg:-mt-24"
+                  data-depth="0.02"
+                >
                   <HeroWorkflowOverlay />
                 </div>
               </div>
@@ -148,7 +159,9 @@ export default function HomePage() {
           {h.useCases.featured.map((uc, i) => (
             <article
               key={uc.slug}
-              className={`grid items-center gap-8 overflow-hidden rounded-[20px] border border-border bg-surface p-5 shadow-[var(--shadow-soft)] md:p-8 lg:grid-cols-2 ${
+              data-tilt
+              data-glow
+              className={`depth-lift grid items-center gap-8 overflow-hidden rounded-[20px] border border-border bg-surface p-5 md:p-8 lg:grid-cols-2 ${
                 i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >

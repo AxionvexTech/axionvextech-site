@@ -20,7 +20,8 @@ export default function EditorialImage({
   return (
     <figure className={className}>
       <div
-        className={`relative overflow-hidden rounded-[16px] ${
+        data-tilt
+        className={`depth-lift relative overflow-hidden rounded-[16px] ${
           onDark
             ? "border border-white/10 bg-ink-900"
             : "border border-[var(--border-light)] bg-paper-100"

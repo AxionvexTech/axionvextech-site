@@ -71,7 +71,7 @@ export default function HeroWorkflowOverlay() {
   return (
     <div
       ref={rootRef}
-      className="rounded-[22px] border border-white/20 bg-navy/70 p-3 shadow-[var(--shadow-medium)] backdrop-blur-xl sm:p-4"
+      className="rounded-[22px] border border-white/25 bg-navy/75 p-3 shadow-[0_24px_60px_rgba(7,17,31,0.45)] backdrop-blur-xl sm:p-4"
       role="img"
       aria-labelledby={labelId}
     >

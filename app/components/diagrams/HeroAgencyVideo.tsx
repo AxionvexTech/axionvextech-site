@@ -16,6 +16,10 @@ function getServerSnapshot() {
   return false;
 }
 
+/**
+ * Poster-first hero media: LCP uses a tiny WebP still.
+ * Video loads only after idle + visibility to protect Speed Insights.
+ */
 export default function HeroAgencyVideo({
   className = "",
 }: {
@@ -28,62 +32,89 @@ export default function HeroAgencyVideo({
   );
   const videoRef = useRef<HTMLVideoElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
+  const [loadVideo, setLoadVideo] = useState(false);
 
   useEffect(() => {
     const el = rootRef.current;
     if (!el) return;
     const io = new IntersectionObserver(
       ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.15 }
+      { threshold: 0.2 }
     );
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
   useEffect(() => {
+    if (reduced || !visible || loadVideo) return;
+    let cancelled = false;
+    const start = () => {
+      if (!cancelled) setLoadVideo(true);
+    };
+    const ric = window.requestIdleCallback?.bind(window);
+    if (ric) {
+      const id = ric(start, { timeout: 1800 });
+      return () => {
+        cancelled = true;
+        window.cancelIdleCallback?.(id);
+      };
+    }
+    const t = window.setTimeout(start, 900);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(t);
+    };
+  }, [reduced, visible, loadVideo]);
+
+  useEffect(() => {
     const video = videoRef.current;
-    if (!video || reduced) return;
+    if (!video || reduced || !loadVideo) return;
     if (visible) {
       void video.play().catch(() => undefined);
     } else {
       video.pause();
     }
-  }, [visible, reduced]);
+  }, [visible, reduced, loadVideo]);
 
   return (
     <div
       ref={rootRef}
-      className={`relative overflow-hidden rounded-[28px] border border-white/40 shadow-[var(--shadow-medium)] ${className}`}
+      className={`hero-depth-card relative overflow-hidden rounded-[28px] border border-white/35 ${className}`}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-navy via-[#102445] to-[#07111f]" />
-      {reduced ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src="/videos/hero-agency-poster.png"
-          alt=""
-          className="relative h-full w-full object-cover opacity-90"
-        />
-      ) : (
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/videos/hero-agency-poster.webp"
+        alt=""
+        width={1280}
+        height={720}
+        fetchPriority="high"
+        decoding="async"
+        className={`relative h-full w-full object-cover transition-opacity duration-700 ${
+          loadVideo && !reduced ? "opacity-0" : "opacity-90"
+        }`}
+      />
+      {!reduced && loadVideo ? (
         <video
           ref={videoRef}
-          className="relative h-full w-full object-cover opacity-90"
+          className="absolute inset-0 h-full w-full object-cover opacity-90"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
-          poster="/videos/hero-agency-poster.png"
+          preload="none"
+          poster="/videos/hero-agency-poster.webp"
           aria-hidden
         >
           <source src="/videos/hero-agency.mp4" type="video/mp4" />
         </video>
-      )}
+      ) : null}
 
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-navy/55 via-transparent to-cyan/10" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/70 to-transparent" />
 
-      <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+      <div className="absolute left-4 top-4 z-[2] flex flex-wrap gap-2">
         <span className="rounded-full border border-white/20 bg-navy/55 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-cyan backdrop-blur-md">
           Production systems
         </span>
@@ -92,7 +123,7 @@ export default function HeroAgencyVideo({
         </span>
       </div>
 
-      <div className="absolute bottom-4 left-4 right-4 grid gap-2 sm:grid-cols-3">
+      <div className="absolute bottom-4 left-4 right-4 z-[2] grid gap-2 sm:grid-cols-3">
         {[
           ["Intake", "Business signal"],
           ["Govern", "Approval + eval"],
