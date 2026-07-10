@@ -9,17 +9,16 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "cdn.simpleicons.org",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "cdn.brandfetch.io",
-        pathname: "/**",
-      },
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: "/recruiting",
+        destination: "/careers",
+        permanent: true,
+      },
+    ];
   },
 };
 

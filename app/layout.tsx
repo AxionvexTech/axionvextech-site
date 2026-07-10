@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import AnimatedBackground from "./components/AnimatedBackground";
-import ScrollProgressBar from "./components/ScrollProgressBar";
+import { siteConfig } from "@/content/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,70 +16,44 @@ const geistMono = Geist_Mono({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#020617",
+  themeColor: "#07111F",
 };
 
-const siteUrl = "https://axionvextech.com";
-const siteName = "AxionvexTech";
-const title = "AxionvexTech — AI-Powered Software Engineering Agency";
-const description =
-  "We help SaaS and operations-heavy teams build, automate, and stabilize critical systems with senior engineers, practical AI, and structured remote delivery.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: title,
-    template: "%s | AxionvexTech",
+    default: "Production AI Workflow Engineering | Axionvex Tech",
+    template: `%s | ${siteConfig.name}`,
   },
-  description,
-  keywords: [
-    "AI software engineering agency",
-    "senior product engineering",
-    "AI automation systems",
-    "remote engineering operations",
-    "product engineering",
-    "cloud reliability",
-    "SaaS engineering agency",
-    "embedded engineering support",
-    "AI workflow automation",
-  ],
-  authors: [{ name: siteName, url: siteUrl }],
-  creator: siteName,
-  publisher: siteName,
-  alternates: { canonical: siteUrl },
+  description: siteConfig.description,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
-    siteName,
-    title,
-    description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: "Production AI Workflow Engineering | Axionvex Tech",
+    description: siteConfig.description,
     images: [
       {
-        url: "/logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "AxionvexTech",
-        type: "image/png",
+        url: "/og-default.svg",
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
       },
     ],
   },
   twitter: {
-    card: "summary",
-    title,
-    description,
-    images: ["/logo.png"],
+    card: "summary_large_image",
+    title: "Production AI Workflow Engineering | Axionvex Tech",
+    description: siteConfig.description,
+    images: ["/og-default.svg"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
 };
 
@@ -92,8 +65,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <AnimatedBackground />
-        <ScrollProgressBar />
         {children}
       </body>
     </html>

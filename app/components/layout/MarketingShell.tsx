@@ -1,0 +1,15 @@
+import type { ReactNode } from "react";
+import SiteHeader from "@/app/components/layout/SiteHeader";
+import SiteFooter from "@/app/components/layout/SiteFooter";
+import AnnouncementBar from "@/app/components/layout/AnnouncementBar";
+
+export default function MarketingShell({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <AnnouncementBar />
+      <SiteHeader />
+      <main id="main-content">{children}</main>
+      <SiteFooter />
+    </>
+  );
+}

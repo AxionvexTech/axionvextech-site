@@ -15,39 +15,39 @@ const studies = {
     metaTitle: "Payment API Rebuild — Case Study | AxionvexTech",
     metaDescription:
       "How we redesigned a synchronous payment pipeline into an event-driven architecture that handles peak load without transaction failures.",
-    client: "Fintech startup · Series A · Payment processing platform",
+    client: "Client name withheld under NDA · Fintech payments platform",
     diagram: "payment-api" as const,
 
     overview:
-      "The client operated a payment processing platform serving several hundred businesses. The core payment API handled transaction initiation, provider communication (Stripe and ACH), status tracking, and webhook processing. The system was built as a single synchronous flow — every payment went through one request-response cycle with no retry logic, no event separation, and no audit trail.",
+      "The engagement redesigned a payment processing API that handled transaction initiation, provider communication, status tracking, and webhook processing. The prior system ran as a single synchronous flow with limited retry behavior and limited auditability.",
 
     problem: [
-      "Transactions failed silently under peak load because the synchronous pipeline could not handle concurrent requests above a certain threshold. There was no queue, no backpressure, and no retry mechanism.",
-      "The Stripe webhook handler was tightly coupled to the main transaction flow. When Stripe sent a delayed webhook, the system sometimes processed it out of order, causing balance mismatches that required manual reconciliation.",
-      "There was no audit trail. When a transaction failed or a client disputed a charge, the engineering team had to reconstruct what happened by reading application logs — which were unstructured console.log statements.",
-      "The compliance team had flagged the lack of traceability as a blocker for their next regulatory review.",
+      "Peak-load failures were difficult to contain because the synchronous pipeline lacked queueing, backpressure, and dependable retry behavior.",
+      "Webhook handling was tightly coupled to the main transaction flow, which made out-of-order provider events harder to process safely.",
+      "Investigation depended on unstructured application logs rather than a searchable audit trail.",
+      "Compliance review required stronger traceability for transaction state changes.",
     ],
 
     approach: [
       {
         title: "Mapped the existing transaction lifecycle",
-        body: "We traced every payment from initiation to settlement, documenting the 14 distinct states a transaction could be in and the transitions between them. This revealed three race conditions that were causing the balance mismatches.",
+        body: "We traced payment states and transitions to identify race conditions and failure points before changing architecture.",
       },
       {
         title: "Separated the pipeline into discrete events",
-        body: "Instead of one synchronous flow, we broke the process into events: payment.initiated, payment.provider_submitted, payment.confirmed, payment.settled. Each event is processed independently with its own handler.",
+        body: "The process was broken into independent events such as initiation, provider submission, confirmation, and settlement, each with its own handler.",
       },
       {
         title: "Added idempotency and retry logic",
-        body: "Every event handler is idempotent — processing the same event twice produces the same result. Failed events go into a retry queue with exponential backoff. After three failures, they move to a dead letter queue for manual review.",
+        body: "Handlers were designed to be idempotent. Failed events retry with backoff and move to a dead-letter path for review after repeated failure.",
       },
       {
-        title: "Built a compliance-ready audit log",
-        body: "Every state transition, every external API call, and every webhook received is logged in a structured audit table with timestamps, actor IDs, and payload snapshots. The compliance team can now trace any transaction end-to-end without engineering help.",
+        title: "Built a compliance-oriented audit log",
+        body: "State transitions, external API calls, and webhook receipts were recorded with timestamps and payload context for end-to-end investigation.",
       },
       {
-        title: "Rebuilt the webhook handler as a separate service",
-        body: "Incoming webhooks are validated, logged, and placed into the event queue immediately. They are no longer processed inline with the transaction flow, eliminating the ordering problem entirely.",
+        title: "Rebuilt the webhook handler as a separate path",
+        body: "Incoming webhooks are validated, logged, and queued instead of being processed inline with the primary transaction request.",
       },
     ],
 
@@ -58,34 +58,32 @@ const studies = {
       infrastructure: ["Docker", "AWS ECS", "GitHub Actions CI/CD"],
     },
 
-    timeline: "10 weeks",
-    team: "1 senior engineer (AxionvexTech) + 2 internal engineers on the client side",
+    timeline: "Approximately 10 weeks (subject to verification)",
+    team: "Senior Axionvex Tech engineer with client engineering counterparts",
 
     outcomes: [
       {
-        label: "Transaction failures under load",
-        before: "Regular failures during peak hours",
-        after: "Zero transaction-level failures in the 3 months following launch",
+        label: "Load resilience",
+        before: "Synchronous path with limited failure isolation",
+        after: "Queued, idempotent processing with retry and dead-letter handling",
+        status: "design_change" as const,
       },
       {
-        label: "Balance reconciliation",
-        before: "Weekly manual reconciliation taking 2–3 hours",
-        after: "Automated — discrepancies flagged in real time",
+        label: "Traceability",
+        before: "Unstructured logs for incident reconstruction",
+        after: "Structured audit history for transaction investigation",
+        status: "design_change" as const,
       },
       {
-        label: "Incident investigation",
-        before: "Grep through logs, reconstruct manually",
-        after: "Full audit trail searchable by transaction ID in seconds",
-      },
-      {
-        label: "Compliance readiness",
-        before: "Flagged as a blocker by compliance team",
-        after: "Passed regulatory review without additional remediation",
+        label: "Measured production results",
+        before: "Baseline metrics not yet published",
+        after: "Numeric outcomes withheld pending verification",
+        status: "pending_verification" as const,
       },
     ],
 
     closing:
-      "The system has been in production for over six months. The client's CTO noted that the engineering team's confidence in the payment system changed noticeably — they went from avoiding payment-related tickets to actively picking them up.",
+      "Architecture, controls, and implementation notes are published. Measured before/after figures and client attribution remain pending verification.",
   },
 
   "internal-operations-platform": {
@@ -94,40 +92,40 @@ const studies = {
     title: "Internal Operations Platform",
     metaTitle: "Internal Operations Platform — Case Study | AxionvexTech",
     metaDescription:
-      "How we replaced a patchwork of spreadsheets with a custom operations platform that the team actually uses every day.",
-    client: "Operations-heavy SMB · 40 employees · Manual workflow bottleneck",
+      "How a spreadsheet-heavy operations process was replaced with a custom platform with workflow stages, RBAC, and audit logging.",
+    client: "Internal Axionvex system · Operations workflow platform",
     diagram: "ops-platform" as const,
 
     overview:
-      "The client ran client onboarding, task assignment, weekly reporting, and compliance tracking across a combination of Google Sheets, email chains, a shared Notion database, and a Slack channel used as an informal task queue. Data was duplicated in at least five places. Nobody fully trusted the numbers in any of them.",
+      "This internal system replaced fragmented spreadsheet, email, and chat-based operations work with a single platform for task flow, ownership, reporting support, and audit history.",
 
     problem: [
-      "The operations manager spent roughly two hours every morning reconciling data across spreadsheets before the team could start their actual work. This was the single largest daily time sink in the company.",
-      "Task handoffs between team members happened through Slack messages that were easy to miss, creating a recurring pattern of dropped tasks and duplicated effort.",
-      "Reporting to leadership was a manual process that took most of a Friday afternoon. The data was always slightly out of date by the time it was presented.",
-      "The company had compliance requirements that mandated an audit trail for certain client-facing actions. The spreadsheet-based system had no way to track who did what and when.",
+      "Operational data lived across spreadsheets, email, and informal chat queues, which made ownership and status hard to trust.",
+      "Handoffs depended on messages that were easy to miss.",
+      "Leadership reporting required manual assembly and was often stale by presentation time.",
+      "Certain actions needed an audit trail that spreadsheets could not provide reliably.",
     ],
 
     approach: [
       {
-        title: "Shadowed the actual workflow before designing anything",
-        body: "We spent five days embedded with the operations team, watching how they actually worked — not how the process was documented. This revealed that the documented workflow had diverged significantly from reality. We designed the system around what people actually did.",
+        title: "Mapped the real operating workflow before design",
+        body: "The build started from observed work patterns rather than an idealized process document.",
       },
       {
         title: "Built task pipelines with status automation",
-        body: "Tasks move through defined stages (assigned, in progress, review, complete) with automatic status updates. When a task moves to the next stage, the right person is notified. No more Slack messages getting lost.",
+        body: "Tasks move through defined stages with notifications tied to ownership changes.",
       },
       {
         title: "Role-based access with clear ownership",
-        body: "Each user sees only what they need to see. Managers get dashboards. Team members get task lists. Admins get configuration and audit access. This replaced the shared-spreadsheet-for-everyone model that was causing confusion.",
+        body: "Views and permissions were scoped by role so people see the work they own.",
       },
       {
-        title: "Built-in audit logging for compliance",
-        body: "Every action in the system is logged: who did it, when, what changed. This runs automatically with zero effort from the user. The compliance team can pull a full history for any client record in seconds.",
+        title: "Built-in audit logging",
+        body: "Material actions are logged with actor, time, and change context.",
       },
       {
-        title: "Two-week parallel run before cutover",
-        body: "Both the old and new systems ran simultaneously for two weeks. The team logged discrepancies. We fixed edge cases. When we cut over, there were no surprises — the team had already been using the new system for their daily work.",
+        title: "Parallel run before cutover",
+        body: "Old and new processes ran together long enough to catch edge cases before full cutover.",
       },
     ],
 
@@ -138,34 +136,32 @@ const studies = {
       infrastructure: ["AWS (EC2, RDS, S3)", "Vercel (frontend)"],
     },
 
-    timeline: "8 weeks",
-    team: "1 senior engineer (AxionvexTech) embedded with 3-person ops team on the client side",
+    timeline: "Approximately 8 weeks (subject to verification)",
+    team: "Senior Axionvex Tech engineer with internal operators as design partners",
 
     outcomes: [
       {
-        label: "Morning reconciliation",
-        before: "~2 hours every day",
-        after: "Eliminated entirely — data is centralized and live",
+        label: "Workflow centralization",
+        before: "Fragmented spreadsheets and chat handoffs",
+        after: "Single system of record for task state and ownership",
+        status: "design_change" as const,
       },
       {
-        label: "Task handoff errors",
-        before: "2–3 dropped tasks per week",
-        after: "Near-zero — automated notifications replaced Slack-based handoffs",
+        label: "Compliance support",
+        before: "No dependable action history",
+        after: "Audit log for material client-facing actions",
+        status: "design_change" as const,
       },
       {
-        label: "Weekly reporting",
-        before: "Most of Friday afternoon, always slightly stale",
-        after: "Generated automatically, always current",
-      },
-      {
-        label: "Adoption",
-        before: "N/A",
-        after: "Still in daily use over a year later — the strongest proof that it was built for real needs",
+        label: "Measured production results",
+        before: "Baseline metrics not yet published",
+        after: "Numeric outcomes withheld pending verification",
+        status: "pending_verification" as const,
       },
     ],
 
     closing:
-      "The operations manager told us that the first morning after cutover was the first time in two years she started her day working on strategy instead of spreadsheets. The system is still the central tool the team uses every day.",
+      "Published as an internal system. Quantitative time-saved claims remain pending verification before public use.",
   },
 
   "backend-migration-cleanup": {
@@ -175,40 +171,40 @@ const studies = {
     metaTitle:
       "Backend Migration & System Cleanup — Case Study | AxionvexTech",
     metaDescription:
-      "How we took a production backend with no observability and manual deploys, and turned it into a system the on-call team stopped dreading.",
-    client: "SaaS platform · B2B · Production system serving paying users",
+      "How a production backend moved from manual deploys and weak observability to containerized delivery with structured logging and rollback.",
+    client: "Client name withheld under NDA · B2B SaaS backend",
     diagram: "backend-infra" as const,
 
     overview:
-      "The client ran a Node.js backend serving a B2B SaaS product with several thousand active users. The application was deployed to a single EC2 instance via manual SSH sessions. There was no CI/CD pipeline, no structured logging, no alerting, and the staging environment was configured differently from production — so bugs found in staging were not reliable indicators of production behavior.",
+      "The engagement improved a production Node.js backend that lacked structured logging, reliable staging parity, and automated deployment with rollback.",
 
     problem: [
-      "Deployments were manual: an engineer would SSH into the production server, pull the latest code, run a build, and restart the process. This took 20–30 minutes and was error-prone. A bad deploy meant SSH-ing back in and reverting manually.",
-      "There was no structured logging. The application used console.log for everything. When an incident occurred, the on-call engineer had to SSH into the server and grep through log files to figure out what happened. Two incidents in the past quarter had taken over four hours to resolve.",
-      "The staging environment ran on a different OS version, different Node version, and had a different database schema migration applied. Bugs that passed staging regularly appeared in production.",
-      "The on-call rotation was dreaded. Engineers would trade shifts to avoid it. The CTO described it as the single biggest morale problem on the team.",
+      "Production deploys depended on manual SSH sessions, which made release and recovery slow and error-prone.",
+      "Logging was unstructured, which made incident investigation harder than it needed to be.",
+      "Staging did not match production closely enough to catch environment-specific failures.",
+      "On-call work lacked clear runbooks and fast rollback paths.",
     ],
 
     approach: [
       {
-        title: "Replaced unstructured logging with structured JSON output",
-        body: "Every log entry now includes a timestamp, severity level, request ID, user ID (when applicable), and structured context. This took about a week to migrate across the codebase — mostly mechanical work, but critical for everything else.",
+        title: "Replaced unstructured logging with structured output",
+        body: "Log entries were standardized with severity, request context, and searchable fields.",
       },
       {
-        title: "Set up centralized log aggregation and alerting",
-        body: "Logs ship to CloudWatch with structured queries. We defined alert thresholds for error rates, response times, and specific failure patterns. The on-call engineer gets a notification with context — not a generic 'server down' ping.",
+        title: "Set up centralized aggregation and alerting",
+        body: "Logs and alerts were wired so on-call engineers receive actionable context rather than opaque failure pings.",
       },
       {
         title: "Containerized the application",
-        body: "We Dockerized the application so the exact same image runs in development, staging, and production. This eliminated the environment-parity problem entirely. The 'works on staging but not production' class of bugs disappeared.",
+        body: "The same image path was used across environments to reduce parity drift.",
       },
       {
         title: "Built a deployment pipeline with rollback",
-        body: "Push to main triggers: build → test → security scan → deploy to staging → manual approval → deploy to production. A bad deploy can be rolled back in under two minutes. The 20-minute manual SSH deploy became a one-click operation.",
+        body: "CI/CD covered build, test, staged promotion, and fast rollback for bad releases.",
       },
       {
-        title: "Added health checks and an incident response runbook",
-        body: "Each service has a /health endpoint checked every 30 seconds. We wrote a runbook covering the five most common incident types with step-by-step resolution procedures. New on-call engineers can follow the runbook without needing institutional knowledge.",
+        title: "Added health checks and an incident runbook",
+        body: "Service health endpoints and written response procedures reduced dependence on tribal knowledge.",
       },
     ],
 
@@ -220,34 +216,32 @@ const studies = {
       cicd: ["GitHub Actions", "Staged rollout pipeline"],
     },
 
-    timeline: "6 weeks",
-    team: "1 senior engineer (AxionvexTech) + 1 internal DevOps-leaning engineer on the client side",
+    timeline: "Approximately 6 weeks (subject to verification)",
+    team: "Senior Axionvex Tech engineer with client engineering counterparts",
 
     outcomes: [
       {
-        label: "Mean time to resolution",
-        before: "2–4 hours per incident",
-        after: "Under 15 minutes for most incidents",
+        label: "Release control",
+        before: "Manual SSH deploy and recovery",
+        after: "Automated pipeline with staged promotion and rollback",
+        status: "design_change" as const,
       },
       {
-        label: "Deploy time",
-        before: "20–30 minutes, manual SSH",
-        after: "Under 5 minutes, automated with one-click rollback",
+        label: "Observability",
+        before: "Unstructured console logs",
+        after: "Structured logging, aggregation, and alert context",
+        status: "design_change" as const,
       },
       {
-        label: "Staging reliability",
-        before: "Bugs passed staging regularly",
-        after: "Environment parity — staging catches what production would see",
-      },
-      {
-        label: "On-call morale",
-        before: "Engineers traded shifts to avoid on-call",
-        after: "First rotation after launch: engineer said it was the first time they did not dread the shift",
+        label: "Measured production results",
+        before: "Baseline metrics not yet published",
+        after: "Numeric outcomes withheld pending verification",
+        status: "pending_verification" as const,
       },
     ],
 
     closing:
-      "The CTO told us that the infrastructure work changed how the team felt about the product. Before, they were scared of their own system. After, they had the confidence to ship faster because they could see what was happening and fix it quickly when something went wrong.",
+      "Architecture and operating controls are documented. MTTR, deploy-time, and morale claims remain pending verification.",
   },
 };
 
@@ -265,17 +259,18 @@ export function generateStaticParams() {
   return studyOrder.map((slug) => ({ slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const study = studies[params.slug as keyof typeof studies];
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const study = studies[slug as keyof typeof studies];
   if (!study) return {};
   return {
     title: study.metaTitle,
     description: study.metaDescription,
-    alternates: { canonical: `https://axionvextech.com/work/${params.slug}` },
+    alternates: { canonical: `https://www.axionvextech.com/work/${slug}` },
   };
 }
 
@@ -315,9 +310,11 @@ export default async function CaseStudyPage({
   return (
     <CaseStudyLayout
       category={study.category}
-      categoryColor={study.categoryColor}
       title={study.title}
       client={study.client}
+      proofType={
+        slug === "internal-operations-platform" ? "internal_system" : "nda_client"
+      }
       prevStudy={prevStudy}
       nextStudy={nextStudy}
     >
@@ -443,18 +440,27 @@ export default async function CaseStudyPage({
       {/* Outcomes */}
       <section className="py-20 bg-slate-950">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-sm font-bold text-white uppercase tracking-wide mb-8">
+          <h2 className="text-sm font-bold text-white uppercase tracking-wide mb-3">
             Outcomes
           </h2>
+          <p className="mb-8 text-sm text-slate-400">
+            Design and control changes are listed below. Numeric claims stay
+            unpublished until measurement is verified.
+          </p>
           <div className="grid sm:grid-cols-2 gap-4">
             {study.outcomes.map((o) => (
               <div
                 key={o.label}
                 className="bg-white/[0.04] border border-white/[0.07] rounded-xl p-6"
               >
-                <p className="text-white font-semibold text-sm mb-4">
-                  {o.label}
-                </p>
+                <div className="mb-4 flex items-center justify-between gap-3">
+                  <p className="text-white font-semibold text-sm">{o.label}</p>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.06em] text-slate-400">
+                    {o.status === "pending_verification"
+                      ? "Pending verification"
+                      : "Design change"}
+                  </span>
+                </div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-3">
                     <span className="text-red-400/70 text-xs font-bold mt-0.5 flex-shrink-0">
@@ -473,11 +479,8 @@ export default async function CaseStudyPage({
             ))}
           </div>
 
-          {/* Closing */}
           <div className="mt-12 border-t border-white/[0.06] pt-10">
-            <p className="text-slate-400 leading-relaxed italic">
-              &ldquo;{study.closing}&rdquo;
-            </p>
+            <p className="text-slate-400 leading-relaxed">{study.closing}</p>
           </div>
         </div>
       </section>

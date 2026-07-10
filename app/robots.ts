@@ -1,14 +1,13 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/content/site";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://axionvextech.com";
-
   return {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: ["/portal/", "/api/", "/auth/"],
     },
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 }
-

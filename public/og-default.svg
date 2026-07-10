@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Axionvex Tech">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111F"/>
+      <stop offset="100%" stop-color="#0D1A2A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="980" cy="120" r="180" fill="#6EE7C8" fill-opacity="0.08"/>
+  <circle cx="180" cy="520" r="220" fill="#7C9CFF" fill-opacity="0.08"/>
+  <text x="80" y="250" fill="#6EE7C8" font-family="ui-monospace, monospace" font-size="22" letter-spacing="4">AXIONVEX TECH</text>
+  <text x="80" y="330" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="54" font-weight="600">Production AI Workflow Engineering</text>
+  <text x="80" y="390" fill="#B7C2CE" font-family="system-ui, sans-serif" font-size="26">Governed systems for B2B SaaS and operations teams</text>
+</svg>
