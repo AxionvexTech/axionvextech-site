@@ -58,9 +58,14 @@ export async function POST(request: Request) {
   const to = process.env.MANAGER_EMAIL || "contact@axionvextech.com";
 
   if (!apiKey) {
-    console.error("RESEND_API_KEY missing; assessment stored to logs only");
-    console.info("assessment_submission", body);
-    return NextResponse.json({ ok: true, mode: "log_only" });
+    console.error("RESEND_API_KEY missing; assessment delivery is unavailable");
+    return NextResponse.json(
+      {
+        error:
+          "Online delivery is not configured. Please email contact@axionvextech.com directly.",
+      },
+      { status: 503 }
+    );
   }
 
   const resend = new Resend(apiKey);

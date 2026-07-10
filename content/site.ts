@@ -37,7 +37,8 @@ export const siteConfig = {
 } as const;
 
 export const recruitingConfig = {
-  mode: "talent_network" as RecruitingMode,
+  mode: "open_roles" as RecruitingMode,
+  /** Spec: Careers lives in Company menu / footer, not primary buyer nav */
   showInPrimaryNav: false,
   showCompensation: false,
   allowGeneralApplication: true,

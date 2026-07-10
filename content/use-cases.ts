@@ -202,6 +202,44 @@ export const useCases: UseCase[] = [
     cta: { label: "Assess the Workflow", href: "/assessment" },
     homepageCta: "Explore internal knowledge",
   },
+  {
+    slug: "ai-product-features",
+    shortTitle: "AI product features",
+    title: "Ship AI product features with production controls from day one.",
+    summary:
+      "Add agentic workflows, copilots, search, generation, and automation to an existing SaaS product without compromising reliability or user control.",
+    problem:
+      "Product teams need AI features that respect permissions, usage limits, evaluation, and clear ownership inside the existing product surface.",
+    workflow: [
+      "Identify the product surface and user job to be done.",
+      "Define permission and data boundaries.",
+      "Design the agent or generation workflow.",
+      "Connect approved tools and product APIs.",
+      "Add evaluation, usage metering, and fallbacks.",
+      "Place human review where consequences require it.",
+      "Ship behind feature flags with monitoring.",
+      "Hand off operating ownership to the product team.",
+    ],
+    controls: [
+      "Role-based feature access",
+      "Tool permission boundaries",
+      "Usage and cost controls",
+      "Evaluation before release",
+      "Human review for high-impact actions",
+      "Observability and incident paths",
+    ],
+    outcomes: [
+      "Feature adoption",
+      "Task completion rate",
+      "Unsupported-answer rate",
+      "Review burden",
+      "Cost per successful action",
+      "Incident rate",
+    ],
+    href: "/use-cases/ai-product-features",
+    cta: { label: "Discuss a Product Feature", href: "/assessment" },
+    homepageCta: "Explore AI product features",
+  },
 ];
 
 export const productFeatureUseCase = {
@@ -209,8 +247,8 @@ export const productFeatureUseCase = {
   title: "AI product features",
   summary:
     "Add agentic workflows, copilots, search, generation, and automation to an existing SaaS product without compromising reliability or user control.",
-  href: "/solutions/ai-product-engineering",
-  homepageCta: "Explore AI product engineering",
+  href: "/use-cases/ai-product-features",
+  homepageCta: "Explore AI product features",
 } as const;
 
 export function getUseCase(slug: string) {

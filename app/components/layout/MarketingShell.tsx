@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import SiteHeader from "@/app/components/layout/SiteHeader";
 import SiteFooter from "@/app/components/layout/SiteFooter";
 import AnnouncementBar from "@/app/components/layout/AnnouncementBar";
+import PageMotion from "@/app/components/motion/PageMotion";
 
 export default function MarketingShell({ children }: { children: ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export default function MarketingShell({ children }: { children: ReactNode }) {
       <SiteHeader />
       <main id="main-content">{children}</main>
       <SiteFooter />
+      <PageMotion />
     </>
   );
 }

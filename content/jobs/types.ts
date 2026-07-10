@@ -1,15 +1,20 @@
-export type JobStatus = "open" | "paused" | "closed";
+export type JobStatus = "open" | "paused" | "closed" | "talent-network";
 export type EmploymentType =
   | "full_time"
   | "part_time"
   | "contract"
-  | "internship";
+  | "internship"
+  | "employee"
+  | "contractor";
+
+export type WorkplaceType = "remote" | "hybrid" | "onsite";
 
 export interface JobPosting {
   slug: string;
   title: string;
   department: string;
   locationLabel: string;
+  workplaceType?: WorkplaceType;
   remoteRegions?: string[];
   timezoneOverlap?: string;
   employmentType: EmploymentType;
@@ -20,6 +25,7 @@ export interface JobPosting {
     max?: number;
     currency?: string;
     cadence?: "hour" | "month" | "year" | "project";
+    period?: "hour" | "month" | "year" | "project";
     note?: string;
   };
   summary: string;
@@ -31,7 +37,9 @@ export interface JobPosting {
   workAuthorization?: string;
   applicationUrl?: string;
   applicationEmail?: string;
+  applicationDeadline?: string;
   postedAt: string;
+  publishedAt?: string;
   updatedAt?: string;
   closesAt?: string;
 }

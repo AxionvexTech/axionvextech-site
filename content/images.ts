@@ -23,6 +23,21 @@ export const siteImages = {
     label: "Editorial workplace photography",
     note: "Stock-style generated scene · not Axionvex Tech personnel",
   },
+  careersInterview: {
+    src: "/images/company/careers-interview-hero.png",
+    alt: "Editorial photograph of a professional interview in a modern light office",
+    width: 1920,
+    height: 1080,
+    label: "Editorial interview photography",
+    note: "Generated scene · not Axionvex Tech personnel",
+  },
+  heroAgencyVideo: {
+    src: "/videos/hero-agency.mp4",
+    poster: "/videos/hero-agency-poster.png",
+    alt: "Looping visualization of a global digital network representing connected production systems",
+    label: "Agency hero video",
+    note: "Pexels stock video · commercial license · decorative, muted",
+  },
   useCases: {
     "customer-operations": {
       src: "/images/use-cases/customer-operations.png",

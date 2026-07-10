@@ -37,16 +37,6 @@ function textBlock(html) {
   };
 }
 
-function inputBlock(label, required = true) {
-  return {
-    uuid: uuid(),
-    type: "INPUT_TEXT",
-    groupUuid: uuid(),
-    groupType: "QUESTION",
-    payload: { label, required, placeholder: "" },
-  };
-}
-
 // TEXTAREA type requires groupType "TEXTAREA" and does not accept label/required.
 // Question text goes in a separate TEXT block before the textarea.
 function textareaBlock(label) {

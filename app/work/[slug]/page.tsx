@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CaseStudyLayout from "../../components/CaseStudyLayout";
 import SystemDiagram from "../../components/SystemDiagram";
+import { createMetadata } from "@/app/lib/seo";
 
 /* ────────────────────────────────────────────
    Case study data
@@ -267,11 +268,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const study = studies[slug as keyof typeof studies];
   if (!study) return {};
-  return {
-    title: study.metaTitle,
+  return createMetadata({
+    title: study.title,
     description: study.metaDescription,
-    alternates: { canonical: `https://www.axionvextech.com/work/${slug}` },
-  };
+    path: `/work/${slug}`,
+  });
 }
 
 /* ────────────────────────────────────────────

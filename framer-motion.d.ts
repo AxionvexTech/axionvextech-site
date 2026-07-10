@@ -1,6 +1,4 @@
-// Extend Framer Motion motion components to accept standard HTML attributes
-import { MotionProps } from 'framer-motion';
-
+// Extend Framer Motion motion components to accept standard HTML attributes.
 declare module 'framer-motion' {
   export interface MotionProps {
     className?: string;

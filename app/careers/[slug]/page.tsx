@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import MarketingShell from "@/app/components/layout/MarketingShell";
 import { ButtonLink, PageHero, Section, SectionHeading } from "@/app/components/marketing/ui";
 import { getJob, jobs } from "@/content/jobs";
-import { recruitingConfig, siteConfig } from "@/content/site";
+import { recruitingConfig } from "@/content/site";
 import { createMetadata } from "@/app/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -34,13 +34,8 @@ export default async function JobPage({ params }: Props) {
         title={job.title}
         body={job.summary}
         actions={
-          <ButtonLink
-            href={
-              job.applicationUrl ||
-              `mailto:${job.applicationEmail || siteConfig.primaryEmail}?subject=${encodeURIComponent(job.title)}`
-            }
-          >
-            Apply
+          <ButtonLink href={`/careers?role=${encodeURIComponent(job.title)}#apply`}>
+            Apply for this role
           </ButtonLink>
         }
       />

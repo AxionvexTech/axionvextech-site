@@ -47,18 +47,21 @@ export function Section({
   className = "",
   dark = false,
   id,
+  bare = false,
 }: {
   children: ReactNode;
   className?: string;
   dark?: boolean;
   id?: string;
+  bare?: boolean;
 }) {
   return (
     <section
       id={id}
-      className={`section-avx ${dark ? "bg-ink-950 text-white" : ""} ${className}`}
+      data-reveal
+      className={`section-avx reveal-on-scroll ${dark ? "section-dark-anchor text-white" : ""} ${className}`}
     >
-      <div className="container-avx">{children}</div>
+      {bare ? children : <div className="container-avx">{children}</div>}
     </section>
   );
 }
@@ -103,12 +106,12 @@ export function PageHero({
   dark?: boolean;
 }) {
   return (
-    <Section dark={dark} className={dark ? "" : "bg-paper-50"}>
-      <div className="max-w-3xl">
+    <Section dark={dark} className={dark ? "" : "hero-luminous"}>
+      <div className="relative z-[1] max-w-3xl">
         {eyebrow ? <Eyebrow onDark={dark}>{eyebrow}</Eyebrow> : null}
         <h1
           className={`text-4xl md:text-5xl lg:text-[3.25rem] font-semibold tracking-tight leading-[1.08] text-balance ${
-            dark ? "text-white" : "text-ink-950"
+            dark ? "text-white" : "text-ink"
           }`}
         >
           {title}

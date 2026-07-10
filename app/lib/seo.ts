@@ -15,12 +15,18 @@ export function createMetadata({
   noIndex = false,
 }: PageSeo): Metadata {
   const url = `${siteConfig.url}${path}`;
+  const alreadyBranded =
+    title.includes(siteConfig.name) || title.includes("|");
+  const resolvedTitle = alreadyBranded
+    ? { absolute: title }
+    : title;
+
   return {
-    title,
+    title: resolvedTitle,
     description,
     alternates: { canonical: url },
     openGraph: {
-      title,
+      title: alreadyBranded ? title : `${title} | ${siteConfig.name}`,
       description,
       url,
       siteName: siteConfig.name,
@@ -36,10 +42,10 @@ export function createMetadata({
       ],
     },
     twitter: {
-      card: "summary",
-      title,
+      card: "summary_large_image",
+      title: alreadyBranded ? title : `${title} | ${siteConfig.name}`,
       description,
-      images: ["/logo.png"],
+      images: ["/og-default.svg"],
     },
     robots: noIndex
       ? { index: false, follow: false }

@@ -8,8 +8,11 @@ type AnalyticsEvent =
   | "ai_standards_viewed"
   | "job_viewed"
   | "job_application_clicked"
+  | "job_application_started"
+  | "job_application_completed"
   | "talent_network_submitted"
-  | "article_cta_clicked";
+  | "article_cta_clicked"
+  | "careers_opened";
 
 /** Privacy-respecting stub until analytics provider is verified. */
 export function trackEvent(event: AnalyticsEvent, payload?: Record<string, string>) {
